@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>ua.com.yaremko</groupId>
-	<artifactId>protege.plugin.subjects</artifactId>
+	<artifactId>subjects.recommend.system</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 
 	<packaging>bundle</packaging>
