@@ -11,7 +11,9 @@ and (more advanced) the ways in which the plugin capabilities can be extended by
 		<class value="org.protege.editor.owl.ui.OWLWorkspaceViewsTab"/>
 		<index value="X"/>
 		<editorKitId value="OWLEditorKit"/>
-		<defaultViewConfigFileName value="viewconfig-exampletab.xml"/>
+		<!-- <defaultViewConfigFileName value="viewconfig-exampletab.xml"/> -->
+		<defaultViewConfigFileName value="viewconfig-exampleTabMy.xml"/>
+		
    </extension>
 
 	<extension id="ExampleWorkspaceTab2" point="org.protege.editor.core.application.WorkspaceTab">
@@ -72,6 +74,7 @@ and (more advanced) the ways in which the plugin capabilities can be extended by
     <extension id="submenu" point="org.protege.editor.core.application.EditorKitMenuAction">
         <name value="Example menu item"/>
         <path value="${project.artifactId}.topmenu/SlotCR-A"/>
+	   <!--  indicates that the menu is to be used in the context of the owl editor -->
 	    <editorKitId value="OWLEditorKit"/>
     </extension> 
     
