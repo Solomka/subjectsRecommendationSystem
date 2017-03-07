@@ -1,4 +1,4 @@
-package edu.stanford.bmir.protege.examples.view;
+package ua.com.yaremko.system.view;
 
 import java.awt.event.ActionListener;
 

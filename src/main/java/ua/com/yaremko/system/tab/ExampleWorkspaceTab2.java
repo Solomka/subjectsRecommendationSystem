@@ -1,9 +1,15 @@
-package edu.stanford.bmir.protege.examples.tab;
+package ua.com.yaremko.system.tab;
 
 import org.protege.editor.owl.ui.OWLWorkspaceViewsTab;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Test view tab
+ * 
+ * @author Solomka
+ *
+ */
 public class ExampleWorkspaceTab2 extends OWLWorkspaceViewsTab {
 
 	private static final Logger log = LoggerFactory.getLogger(ExampleWorkspaceTab2.class);

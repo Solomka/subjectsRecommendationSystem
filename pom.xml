@@ -1,32 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
-	<groupId>edu.stanford.protege</groupId>
-	<artifactId>protege.plugin.examples</artifactId>
-	<version>2.0.0-SNAPSHOT</version>
+
+	<groupId>ua.com.yaremko</groupId>
+	<artifactId>protege.plugin.subjects</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+
 	<packaging>bundle</packaging>
 
-	<name>Protege Plugin Examples</name>
-	<description>Example plug-ins for the Protege Desktop ontology editor, e.g., views, menu items, etc.</description>
-	
+	<name>Recommendation system plugin</name>
+	<description>Subjects recommendation system plugin for students</description>
+
 	<properties>
+		<protege.version>5.0.0</protege.version>
+		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-  	
+
 	<dependencies>
-        <dependency>
+
+		<dependency>
 			<groupId>edu.stanford.protege</groupId>
-            <artifactId>protege-editor-owl</artifactId>
-			<version>5.0.0</version>
-        </dependency>
+			<artifactId>protege-common</artifactId>
+			<version>${protege.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>edu.stanford.protege</groupId>
+			<artifactId>protege-editor-core</artifactId>
+			<version>${protege.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>edu.stanford.protege</groupId>
+			<artifactId>protege-editor-owl</artifactId>
+			<version>${protege.version}</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
 
 		<resources>
 			<resource>
-				<!-- Use resource filtering to replace references to the artifactId in the plugin.xml file -->
+				<!-- Use resource filtering to replace references to the artifactId in 
+					the plugin.xml file -->
 				<directory>src/main/resources</directory>
 				<filtering>true</filtering>
 			</resource>
@@ -38,12 +57,12 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.3</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 				</configuration>
 			</plugin>
-            
-            <plugin>
+
+			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
 				<version>3.0.0</version>
@@ -55,13 +74,15 @@
 						<Bundle-SymbolicName>${project.artifactId};singleton:=true</Bundle-SymbolicName>
 						<Bundle-Vendor>The Protege Development Team</Bundle-Vendor>
 						<Import-Package>
+							org.apache.log4j.*;version="[1.2,2)",
+							org.protege.editor.core.*;version="5.0.0",
 							org.protege.editor.owl.*;version="5.0.0", <!-- equivalent to [4.3,infinity) -->
 							*
 						</Import-Package>
 					</instructions>
 				</configuration>
-            </plugin>
-            
+			</plugin>
+
 			<plugin>
 				<artifactId>maven-eclipse-plugin</artifactId>
 				<version>2.9</version>

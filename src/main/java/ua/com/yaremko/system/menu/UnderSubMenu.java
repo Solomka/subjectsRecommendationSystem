@@ -1,4 +1,4 @@
-package edu.stanford.bmir.protege.examples.menu;
+package ua.com.yaremko.system.menu;
 
 import java.awt.event.ActionEvent;
 

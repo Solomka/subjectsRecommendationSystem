@@ -1,4 +1,4 @@
-package edu.stanford.bmir.protege.examples.menu;
+package ua.com.yaremko.system.menu;
 
 import java.awt.event.ActionEvent;
 
@@ -6,7 +6,10 @@ import javax.swing.JOptionPane;
 
 import org.protege.editor.owl.ui.action.ProtegeOWLAction;
 
-public class ToolsMenu3 extends ProtegeOWLAction {
+/*
+ * ProtegeOWLAction - Tools Menu items
+ */
+public class ToolsMenu2 extends ProtegeOWLAction {
 
 	public void initialise() throws Exception {
 	}
@@ -15,11 +18,10 @@ public class ToolsMenu3 extends ProtegeOWLAction {
 	}
 
 	public void actionPerformed(ActionEvent event) {
-		StringBuilder message = new StringBuilder(
-				"This example menu item is under the Tools menu, but displayed in a separate category from the other example menu items.\n");
+		StringBuilder message = new StringBuilder("This is the second example menu item under the Tools menu.\n");
 		message.append("The active ontology has ");
-		message.append(getOWLModelManager().getActiveOntology().getClassesInSignature().size());
-		message.append(" classes.");
+		message.append(getOWLModelManager().getActiveOntology().getAxiomCount());
+		message.append(" axioms.");
 		JOptionPane.showMessageDialog(getOWLWorkspace(), message.toString());	
 	}
 }

@@ -3,8 +3,7 @@
 
 <plugin>
 
-	<!-- Tabs -->
-	
+	<!-- Tabs -->	
 	<extension id="ExampleWorkspaceTab" point="org.protege.editor.core.application.WorkspaceTab">
 		<label value="Example Tab"/>
 		<class value="org.protege.editor.owl.ui.OWLWorkspaceViewsTab"/>
@@ -15,28 +14,26 @@
 
 	<extension id="ExampleWorkspaceTab2" point="org.protege.editor.core.application.WorkspaceTab">
 		<label value="Example Tab (2)"/>
-		<class value="edu.stanford.bmir.protege.examples.tab.ExampleWorkspaceTab2"/>
+		<class value="ua.com.yaremko.system.tab.ExampleWorkspaceTab2"/>
 		<index value="Y"/>
 		<editorKitId value="OWLEditorKit"/>
 		<defaultViewConfigFileName value="viewconfig-exampletab2.xml"/>
    </extension>
 
 	<!-- View -->
-
 	<extension id="ExampleViewComponent" point="org.protege.editor.core.application.ViewComponent">
 		<label value="Example view component" />
-		<class value="edu.stanford.bmir.protege.examples.view.ExampleViewComponent" />
+		<class value="ua.com.yaremko.system.view.ExampleViewComponent" />
 		<headerColor value="@org.protege.ontologycolor"/>
 		<category value="@org.protege.ontologycategory" />
 	</extension>
 	
-	<!-- Menu and menu items -->
-	
+	<!-- Menu items under Tools menu -->	
 	<extension id="toolmenu1" point="org.protege.editor.core.application.EditorKitMenuAction">
 		<name value="Example menu item (1)"/>
 		<path value="org.protege.editor.owl.menu.tools/SlotG-A"/>
 		<toolTip value="This example menu item appears in the Tools menu"/>
-		<class value="edu.stanford.bmir.protege.examples.menu.ToolsMenu1"/>
+		<class value="ua.com.yaremko.system.menu.ToolsMenu1"/>
 		<editorKitId value="any"/>
 	</extension>
 
@@ -44,7 +41,7 @@
         <name value="Example menu item (2)"/>
         <path value="org.protege.editor.owl.menu.tools/SlotG-B"/>
         <toolTip value="This is another example menu item that appears in the Tools menu"/>
-        <class value="edu.stanford.bmir.protege.examples.menu.ToolsMenu2"/>
+        <class value="ua.com.yaremko.system.menu.ToolsMenu2"/>
         <editorKitId value="any"/>
     </extension>
 
@@ -52,27 +49,30 @@
 		<name value="Example menu item (3)"/>
 		<path value="org.protege.editor.owl.menu.tools/SlotJ-A"/>
 		<toolTip value="This example menu item appears in the Tools menu in a separate category"/>
-		<class value="edu.stanford.bmir.protege.examples.menu.ToolsMenu3"/>
+		<class value="ua.com.yaremko.system.menu.ToolsMenu3"/>
 		<editorKitId value="any"/>
 	</extension>
-
+	
+	<!-- Top Menu -->
     <extension id="topmenu" point="org.protege.editor.core.application.EditorKitMenuAction">
         <name value="Example Menu"/>
         <path value="/SlotG-A"/>
         <editorKitId value="any"/>
     </extension>
 
+	<!-- Top SubMenu -->
     <extension id="submenu" point="org.protege.editor.core.application.EditorKitMenuAction">
         <name value="Example menu item"/>
         <path value="${project.artifactId}.topmenu/SlotCR-A"/>
 	    <editorKitId value="OWLEditorKit"/>
     </extension> 
-
+    
+	<!-- Top SubMenu SubMenu-->
     <extension id="menu3" point="org.protege.editor.core.application.EditorKitMenuAction">
         <name value="Example submenu item"/>
         <path value="${project.artifactId}.submenu/SlotA-A"/>
         <toolTip value="This is an example submenu item"/>
-        <class value="edu.stanford.bmir.protege.examples.menu.UnderSubMenu"/>
+        <class value="ua.com.yaremko.system.menu.UnderSubMenu"/>
         <editorKitId value="any"/>
     </extension>
     
