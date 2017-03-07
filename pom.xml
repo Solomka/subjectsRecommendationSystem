@@ -4,11 +4,13 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>ua.com.yaremko</groupId>
+	<!-- symbolic name of the plugin -->
 	<artifactId>subjects.recommend.system</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 
 	<packaging>bundle</packaging>
 
+	<!-- the name of the plugin in Protege -> Help -> About -->
 	<name>Recommendation system plugin</name>
 	<description>Subjects recommendation system plugin for students</description>
 
@@ -61,7 +63,7 @@
 					<target>${java.version}</target>
 				</configuration>
 			</plugin>
-
+			<!-- instead of Manifest file -->
 			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
@@ -71,6 +73,9 @@
 					<instructions>
 						<Bundle-Activator>org.protege.editor.owl.ProtegeOWL</Bundle-Activator>
 						<Bundle-ClassPath>.</Bundle-ClassPath>
+						<!-- symbolic name of the plugin -->
+						<!-- "singleton:=true" line - this is important since most Protege 
+							plugins will only work if they are instantiated exactly once. -->
 						<Bundle-SymbolicName>${project.artifactId};singleton:=true</Bundle-SymbolicName>
 						<Bundle-Vendor>The Protege Development Team</Bundle-Vendor>
 						<Import-Package>

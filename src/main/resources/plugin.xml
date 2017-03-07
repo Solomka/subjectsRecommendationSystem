@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?eclipse version="3.0"?>
-
+<!-- The plugin.xml file contains a declaration of the ways 
+in which the plugin will extend the Protege capabilities 
+and (more advanced) the ways in which the plugin capabilities can be extended by other plugins.-->
 <plugin>
 
 	<!-- Tabs -->	
@@ -21,10 +23,16 @@
    </extension>
 
 	<!-- View -->
+	<!-- This extension is attempting to implement the functionality
+	 represented by the extension point with the name -->
 	<extension id="ExampleViewComponent" point="org.protege.editor.core.application.ViewComponent">
+		<!-- The label declaration tells Protege what to put in the title bar of the view. -->
 		<label value="Example view component" />
+		<!-- The class declaration indicates which class implements the functionality needed by this view.  -->
 		<class value="ua.com.yaremko.system.view.ExampleViewComponent" />
 		<headerColor value="@org.protege.ontologycolor"/>
+		<!-- the category declaration tells Protege 
+		which menu under the View menu should contain this view.-->
 		<category value="@org.protege.ontologycategory" />
 	</extension>
 	
