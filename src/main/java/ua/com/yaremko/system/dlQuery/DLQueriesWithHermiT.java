@@ -41,6 +41,7 @@ package ua.com.yaremko.system.dlQuery;
 
 //import org.semanticweb.HermiT.Reasoner;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -120,7 +121,7 @@ public class DLQueriesWithHermiT {
 			// Load an example ontology. In this case, we'll just load the pizza
 			// ontology.
 			OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-			OWLOntology ontology = manager.loadOntologyFromOntologyDocument(new StringDocumentSource(koala));
+			OWLOntology ontology = manager.loadOntologyFromOntologyDocument(new File("D:\\Doc\\4Year\\University\\2Term\\TermWork\\Yaremko_Protege\\dishes (1).owl"));
 			System.out.println("Loaded ontology: " + ontology.getOntologyID());
 			// We need a reasoner to do our query answering
 			OWLReasoner reasoner = createReasoner(ontology);
