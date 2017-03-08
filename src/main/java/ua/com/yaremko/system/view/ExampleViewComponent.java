@@ -8,7 +8,8 @@ import org.slf4j.LoggerFactory;
 
 public class ExampleViewComponent extends AbstractOWLViewComponent {
 
-	private static final Logger log = LoggerFactory.getLogger(ExampleViewComponent.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(ExampleViewComponent.class);
+	//private static final Logger LOGGER = Logger.getLogger(ExampleViewComponent.class.getName());
 
 	// total number of ontology classes
 	private Metrics metricsComponent;
@@ -21,7 +22,7 @@ public class ExampleViewComponent extends AbstractOWLViewComponent {
 		setLayout(new BorderLayout());
 		metricsComponent = new Metrics(getOWLModelManager());
 		add(metricsComponent, BorderLayout.CENTER);
-		log.info("Example View Component initialized");
+		LOGGER.info("Example View Component initialized");
 	}
 
 	@Override
