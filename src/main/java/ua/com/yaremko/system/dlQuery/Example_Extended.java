@@ -1,5 +1,7 @@
 package ua.com.yaremko.system.dlQuery;
 
+import java.io.File;
+
 //Copyright (c) 2011. This source code is available under the terms of the GNU Lesser General Public License (LGPL)
 //Author: Mario Volke <volke@derivo.de>
 //derivo GmbH, James-Franck-Ring, 89081 Ulm 
@@ -43,8 +45,10 @@ public class Example_Extended {
 
 			// Load a copy of the wine ontology. We'll load the ontology from
 			// the web.
-			OWLOntology ont = manager
-					.loadOntologyFromOntologyDocument(IRI.create("http://www.w3.org/TR/owl-guide/wine.rdf"));
+			//OWLOntology ont = manager.loadOntologyFromOntologyDocument(IRI.create("http://www.w3.org/TR/owl-guide/wine.rdf"));
+			//OWLOntology ont = manager.loadOntologyFromOntologyDocument(IRI.create("http://www.semanticweb.org/solomka/ontologies/subjects.owl"));
+			OWLOntology ont = manager.
+			loadOntologyFromOntologyDocument(new File("D:\\Doc\\4Year\\University\\2Term\\TermWork\\Yaremko_Protege2\\Yaremko_Work\\studyRecommendationSystem\\subjects.owl"));
 
 			// Create an instance of an OWL API reasoner (we use the OWL API
 			// built-in StructuralReasoner for the purpose of demonstration
@@ -66,7 +70,7 @@ public class Example_Extended {
 
 			// The response to an empty SELECT is an empty response
 			processQuery("SELECT * WHERE {}");
-
+			/*
 			// There can't be an instance of owl:Nothing. Therefore this query
 			// has no solutions.
 			processQuery("PREFIX owl: <http://www.w3.org/2002/07/owl#>\n" + "SELECT * WHERE { Type(?x,owl:Nothing) }");
@@ -99,11 +103,16 @@ public class Example_Extended {
 			
 			//get the complete class hierarchy by means of direct class/sub-class pairs:
 			 processQuery("SELECT ?a ?b WHERE { DirectSubClassOf(?a, ?b) }");
-
+*/
+			
+			processQuery("PREFIX subject: <http://www.semanticweb.org/solomka/ontologies/subjects#>\n"
+					+ "SELECT ?c\n"
+					+ "WHERE {SubClassOf(?c, subject:Предмет)}");
+			
 		} catch (UnsupportedOperationException exception) {
 			System.out.println("Unsupported reasoner operation.");
 		} catch (OWLOntologyCreationException e) {
-			System.out.println("Could not load the pizza ontology: " + e.getMessage());
+			System.out.println("Could not load the ontology: " + e.getMessage());
 		}
 	}
 

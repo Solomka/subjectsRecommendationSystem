@@ -33,6 +33,7 @@ public class ToolsMenu3 extends ProtegeOWLAction {
 	 */
 	public void actionPerformed(ActionEvent e) {
 		OWLClass lastSelectedClass = getOWLWorkspace().getOWLSelectionModel().getLastSelectedClass();
+		
 		if (lastSelectedClass != null) {
 			OWLReasonerManager reasonerManager = getOWLModelManager().getOWLReasonerManager();
 			ReasonerUtilities.warnUserIfReasonerIsNotConfigured(getOWLWorkspace(), reasonerManager);
