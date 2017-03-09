@@ -121,7 +121,9 @@ public class DLQueriesWithHermiT {
 			// Load an example ontology. In this case, we'll just load the pizza
 			// ontology.
 			OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-			OWLOntology ontology = manager.loadOntologyFromOntologyDocument(new File("D:\\Doc\\4Year\\University\\2Term\\TermWork\\Yaremko_Protege\\dishes (1).owl"));
+			//OWLOntology ontology = manager.loadOntologyFromOntologyDocument(new File("D:\\Doc\\4Year\\University\\2Term\\TermWork\\Yaremko_Protege\\dishes (1).owl"));
+			OWLOntology ontology = manager.
+			loadOntologyFromOntologyDocument(new File("D:\\Doc\\4Year\\University\\2Term\\TermWork\\Yaremko_Protege2\\Yaremko_Work\\studyRecommendationSystem\\subjects.owl"));
 			System.out.println("Loaded ontology: " + ontology.getOntologyID());
 			// We need a reasoner to do our query answering
 			OWLReasoner reasoner = createReasoner(ontology);
