@@ -96,6 +96,9 @@ public class Example_Extended {
 
 			// Equivalent query to the one above
 			processQuery("SELECT * WHERE {" + "ObjectProperty(?i) " + "} OR WHERE {" + "Class(?j)" + "}");
+			
+			//get the complete class hierarchy by means of direct class/sub-class pairs:
+			 processQuery("SELECT ?a ?b WHERE { DirectSubClassOf(?a, ?b) }");
 
 		} catch (UnsupportedOperationException exception) {
 			System.out.println("Unsupported reasoner operation.");
