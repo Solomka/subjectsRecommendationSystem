@@ -45,11 +45,14 @@ public class Example_Extended {
 
 			// Load a copy of the wine ontology. We'll load the ontology from
 			// the web.
-			//OWLOntology ont = manager.loadOntologyFromOntologyDocument(IRI.create("http://www.w3.org/TR/owl-guide/wine.rdf"));
+			OWLOntology ont = manager.loadOntologyFromOntologyDocument(IRI.create("http://www.w3.org/TR/owl-guide/wine.rdf"));
 			//OWLOntology ont = manager.loadOntologyFromOntologyDocument(IRI.create("http://www.semanticweb.org/solomka/ontologies/subjects.owl"));
-			OWLOntology ont = manager.
-			loadOntologyFromOntologyDocument(new File("D:\\Doc\\4Year\\University\\2Term\\TermWork\\Yaremko_Protege2\\Yaremko_Work\\studyRecommendationSystem\\subjects.owl"));
+			//OWLOntology ont = manager.
+			//loadOntologyFromOntologyDocument(new File("D:\\Doc\\4Year\\University\\2Term\\TermWork\\Yaremko_Protege2\\Yaremko_Work\\studyRecommendationSystem\\subjects.owl"));
 
+			//OWLOntology ont = manager.
+					//loadOntologyFromOntologyDocument(new File("D:\\Doc\\4Year\\University\\2Term\\TermWork\\Yaremko_Protege2\\Yaremko_Work\\subjects.owl"));
+			
 			// Create an instance of an OWL API reasoner (we use the OWL API
 			// built-in StructuralReasoner for the purpose of demonstration
 			// here)
@@ -70,7 +73,7 @@ public class Example_Extended {
 
 			// The response to an empty SELECT is an empty response
 			processQuery("SELECT * WHERE {}");
-			/*
+			
 			// There can't be an instance of owl:Nothing. Therefore this query
 			// has no solutions.
 			processQuery("PREFIX owl: <http://www.w3.org/2002/07/owl#>\n" + "SELECT * WHERE { Type(?x,owl:Nothing) }");
@@ -103,11 +106,29 @@ public class Example_Extended {
 			
 			//get the complete class hierarchy by means of direct class/sub-class pairs:
 			 processQuery("SELECT ?a ?b WHERE { DirectSubClassOf(?a, ?b) }");
-*/
+			 
+			 processQuery("PREFIX wine: <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#>\n"
+			 		+ "SELECT DISTINCT ?w WHERE { PropertyValue(?w, wine:hasMaker, wine:Taylor)" + "}");
+			 
+			 processQuery("PREFIX wine: <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#>\n"
+				 		+ "SELECT DISTINCT ?w WHERE { Class(?w), PropertyValue(?w, wine:hasMaker, wine:Winery)" + "}");
+			 
+			 processQuery("PREFIX wine: <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#>\n"
+				 		+ "SELECT ?p ?c WHERE { PropertyValue(wine:CabernetFrancGrape, ?p, ?c)" + "}");
+
 			
+			/*
 			processQuery("PREFIX subject: <http://www.semanticweb.org/solomka/ontologies/subjects#>\n"
 					+ "SELECT ?c\n"
 					+ "WHERE {SubClassOf(?c, subject:Предмет)}");
+			
+			
+			processQuery("PREFIX subject: <http://www.semanticweb.org/solomka/ontologies/subjects#>\n"
+					+ "SELECT ?c \n"
+					+ "WHERE {SubClassOf(?c, subject:Предмет),"
+					+ "PropertyValue(?x, subject:належитьКафедрі, subject:кафедра_математики)}");
+					
+			*/
 			
 		} catch (UnsupportedOperationException exception) {
 			System.out.println("Unsupported reasoner operation.");
