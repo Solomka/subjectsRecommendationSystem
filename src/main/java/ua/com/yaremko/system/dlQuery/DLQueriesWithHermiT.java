@@ -1,7 +1,5 @@
 package ua.com.yaremko.system.dlQuery;
-
 /*
- * This file is part of the OWL API.
  *
  * The contents of this file are subject to the LGPL License, Version 3.0.
  *
@@ -72,18 +70,6 @@ import org.semanticweb.owlapi.util.BidirectionalShortFormProviderAdapter;
 import org.semanticweb.owlapi.util.ShortFormProvider;
 import org.semanticweb.owlapi.util.SimpleShortFormProvider;
 
-/**
- * An example that shows how to do a Protege like DLQuery. The example contains
- * several helper classes:<br>
- * DLQueryEngine - This takes a string representing a class expression built
- * from the terms in the signature of some ontology. DLQueryPrinter - This takes
- * a string class expression and prints out the sub/super/equivalent classes and
- * the instances of the specified class expression. DLQueryParser - this parses
- * the specified class expression string
- * 
- * @author Matthew Horridge, The University of Manchester, Bio-Health
- *         Informatics Group, Date: 13-May-2010
- */
 public class DLQueriesWithHermiT {
 
 	private final static String koala = "<?xml version=\"1.0\"?>\n"
@@ -123,7 +109,7 @@ public class DLQueriesWithHermiT {
 			OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 			//OWLOntology ontology = manager.loadOntologyFromOntologyDocument(new File("D:\\Doc\\4Year\\University\\2Term\\TermWork\\Yaremko_Protege\\dishes (1).owl"));
 			OWLOntology ontology = manager.
-			loadOntologyFromOntologyDocument(new File("D:\\Doc\\4Year\\University\\2Term\\TermWork\\Yaremko_Protege2\\Yaremko_Work\\studyRecommendationSystem\\subjects.owl"));
+			loadOntologyFromOntologyDocument(new File("D:\\Doc\\4Year\\University\\2Term\\TermWork\\Yaremko_Protege2\\Yaremko_Work\\subjects.owl"));
 			System.out.println("Loaded ontology: " + ontology.getOntologyID());
 			// We need a reasoner to do our query answering
 			OWLReasoner reasoner = createReasoner(ontology);
