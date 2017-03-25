@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+	<VSNode splits="0.5 0.5">
+		<HSNode splits="0.25 0.25">
+			<CNode>
+				<Component label="Recommender Subjects view component">
+					<Property id="pluginId"
+						value="subjects.recommend.system.ShowSubjectsViewComponent" />
+				</Component>
+			</CNode>
+			<CNode>
+				<Component label="Recommender Subject Details view component">
+					<Property id="pluginId"
+						value="subjects.recommend.system.ShowSubjectDetailsViewComponent" />
+				</Component>
+			</CNode>
+		</HSNode>
+		<CNode>
+			<Component label="Recommender Search view component">
+				<Property id="pluginId"
+					value="subjects.recommend.system.SearchViewComponent" />
+			</Component>
+		</CNode>
+	</VSNode>
+</layout>

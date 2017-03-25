@@ -6,14 +6,24 @@ and (more advanced) the ways in which the plugin capabilities can be extended by
 <plugin>
 
 	<!-- Tabs -->	
+	
+	<!-- Plugin started point -->
+	<!-- Subjects Recommender System Plugin -->
+	<extension id="SubjectsRecommenderTab" point="org.protege.editor.core.application.WorkspaceTab">
+		<label value="Subjects Recommender System"/>
+		<class value="ua.com.yaremko.system.tab.SubjectsRecommenderTab"/>
+		<index value="Z"/>
+		<editorKitId value="OWLEditorKit"/>
+		<defaultViewConfigFileName value="viewconfig-recommendertab.xml"/>
+   </extension>
+   
 	<extension id="ExampleWorkspaceTab" point="org.protege.editor.core.application.WorkspaceTab">
 		<label value="Example Tab"/>
 		<class value="org.protege.editor.owl.ui.OWLWorkspaceViewsTab"/>
 		<index value="X"/>
 		<editorKitId value="OWLEditorKit"/>
 		<!-- <defaultViewConfigFileName value="viewconfig-exampletab.xml"/> -->
-		<defaultViewConfigFileName value="viewconfig-exampleTabMy.xml"/>
-		
+		<defaultViewConfigFileName value="viewconfig-exampleTabMy.xml"/>		
    </extension>
 
 	<extension id="ExampleWorkspaceTab2" point="org.protege.editor.core.application.WorkspaceTab">
@@ -27,6 +37,44 @@ and (more advanced) the ways in which the plugin capabilities can be extended by
 	<!-- View -->
 	<!-- This extension is attempting to implement the functionality
 	 represented by the extension point with the name -->
+	 
+	 <!-- Subjects Recommender System: Subjects search View Component  -->
+	 <extension id="SearchViewComponent" point="org.protege.editor.core.application.ViewComponent">
+		<!-- The label declaration tells Protege what to put in the title bar of the view. -->
+		<label value="Recommender Search view component" />
+		<!-- The class declaration indicates which class implements the functionality needed by this view.  -->
+		<class value="ua.com.yaremko.system.view.SearchViewComponent" />
+		<headerColor value="@org.protege.ontologycolor"/>
+		<!-- the category declaration tells Protege 
+		which menu under the View menu should contain this view.-->
+		<category value="@org.protege.miscellaneouscategory" />
+	</extension>
+	
+	<!-- Subjects Recommender System: Show resulted subjects list View Component  -->
+	 <extension id="ShowSubjectsViewComponent" point="org.protege.editor.core.application.ViewComponent">
+		<!-- The label declaration tells Protege what to put in the title bar of the view. -->
+		<label value="Recommender Subjects view component" />
+		<!-- The class declaration indicates which class implements the functionality needed by this view.  -->
+		<class value="ua.com.yaremko.system.view.ShowSubjectsViewComponent" />
+		<headerColor value="@org.protege.ontologycolor"/>
+		<!-- the category declaration tells Protege 
+		which menu under the View menu should contain this view.-->
+		<category value="@org.protege.miscellaneouscategory" />
+	</extension>
+	
+	<!-- Subjects Recommender System: Show resulted selected subject details list View Component  -->
+	 <extension id="ShowSubjectDetailsViewComponent" point="org.protege.editor.core.application.ViewComponent">
+		<!-- The label declaration tells Protege what to put in the title bar of the view. -->
+		<label value="Recommender Subject Details view component" />
+		<!-- The class declaration indicates which class implements the functionality needed by this view.  -->
+		<class value="ua.com.yaremko.system.view.ShowSubjectDetailsViewComponent" />
+		<headerColor value="@org.protege.ontologycolor"/>
+		<!-- the category declaration tells Protege 
+		which menu under the View menu should contain this view.-->
+		<category value="@org.protege.miscellaneouscategory" />
+	</extension>
+	
+	<!-- TO DELETE -->
 	<extension id="ExampleViewComponent" point="org.protege.editor.core.application.ViewComponent">
 		<!-- The label declaration tells Protege what to put in the title bar of the view. -->
 		<label value="Example view component" />
@@ -38,6 +86,8 @@ and (more advanced) the ways in which the plugin capabilities can be extended by
 		<category value="@org.protege.ontologycategory" />
 	</extension>
 	
+	
+	<!-- TO DELETE -->
 	<!-- Menu items under Tools menu -->	
 	<extension id="toolmenu1" point="org.protege.editor.core.application.EditorKitMenuAction">
 		<name value="Example menu item (1)"/>
