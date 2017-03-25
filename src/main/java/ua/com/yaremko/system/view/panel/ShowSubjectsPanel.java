@@ -7,10 +7,10 @@ import org.protege.editor.owl.model.OWLModelManager;
 
 public class ShowSubjectsPanel extends JPanel {
 
-	private OWLModelManager modelManager;
+	private OWLModelManager modelManager;	
 
 	private JLabel testLabel;
-
+	
 	public ShowSubjectsPanel(OWLModelManager modelManager) {
 		this.modelManager = modelManager;
 
@@ -18,7 +18,7 @@ public class ShowSubjectsPanel extends JPanel {
 		initListeners();
 
 		add(testLabel);
-	}
+		}
 
 	private void init() {
 		this.testLabel = new JLabel("Hello from ShowSubjectsPanel (Table of subjects)");

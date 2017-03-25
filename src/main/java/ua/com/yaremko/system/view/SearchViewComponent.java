@@ -1,6 +1,7 @@
 package ua.com.yaremko.system.view;
 
 import java.awt.BorderLayout;
+import java.awt.GridLayout;
 
 import org.protege.editor.owl.ui.view.AbstractOWLViewComponent;
 import org.slf4j.Logger;
@@ -22,9 +23,9 @@ public class SearchViewComponent extends AbstractOWLViewComponent {
 
 	@Override
 	protected void initialiseOWLView() throws Exception {
-		setLayout(new BorderLayout());
+		setLayout(new GridLayout(0, 1));
 		searchformComponent = new SearchFormPanel(getOWLModelManager());
-		add(searchformComponent, BorderLayout.CENTER);
+		add(searchformComponent);
 
 		LOGGER.info("SearchViewComponent initialized");
 	}

@@ -35,5 +35,9 @@ public class ShowSubjectsViewComponent extends AbstractOWLViewComponent {
 		showSubjectsComponent.dispose();
 
 	}
+	
+	public ShowSubjectsPanel getShowSubjectsPanel(){
+		return showSubjectsComponent;
+	}
 
 }
