@@ -1,25 +1,15 @@
 package ua.com.yaremko.system.view;
 
 import java.awt.GridLayout;
-import java.util.Set;
 
-import javax.swing.JOptionPane;
-
-import org.protege.editor.owl.model.cache.OWLExpressionUserCache;
-import org.protege.editor.owl.model.classexpression.OWLExpressionParserException;
-import org.protege.editor.owl.model.event.EventType;
-import org.protege.editor.owl.model.event.OWLModelManagerListener;
-import org.protege.editor.owl.model.inference.OWLReasonerManager;
-import org.protege.editor.owl.model.inference.ReasonerUtilities;
 import org.protege.editor.owl.ui.view.AbstractOWLViewComponent;
-import org.semanticweb.owlapi.model.OWLClass;
-import org.semanticweb.owlapi.model.OWLClassExpression;
-import org.semanticweb.owlapi.model.OWLException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import ua.com.yaremko.system.core.DLQuery;
 import ua.com.yaremko.system.view.panel.SearchFormPanel;
+import ua.com.yaremko.system.view.panel.ShowSubjectDetailsPanel;
+import ua.com.yaremko.system.view.panel.ShowSubjectsPanel;
 
 /**
  * View Component that provides students requirements input form
@@ -31,33 +21,23 @@ public class SearchViewComponent extends AbstractOWLViewComponent {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(SearchViewComponent.class);
 
-	private SearchFormPanel searchformComponent;
-	// private ShowSubjectsPanel showSubjectsPanel;
-	// private ShowSubjectDetailsPanel showSubjectsDetailsPanel;
-	
-	 private final OWLModelManagerListener listener = event -> {
-	        if (event.isType(EventType.ONTOLOGY_CLASSIFIED)) {
-	            //doQuery();
-	        }
-	    };
+	private ShowSubjectDetailsPanel showSubjectDetailsPanel;
+	private ShowSubjectsPanel showSubjectsPanel;
+	private SearchFormPanel searchFormPanel;	
 
-	    private boolean requiresRefresh = false;
 
 	@Override
 	protected void initialiseOWLView() throws Exception {
-		setLayout(new GridLayout(0, 1));
-		searchformComponent = new SearchFormPanel(getOWLModelManager());
-		add(searchformComponent);
 		
-		getOWLModelManager().addListener(listener);
-
-        addHierarchyListener(event -> {
-            if (requiresRefresh && isShowing()) {
-                //doQuery();
-            }
-        });
-        
-    	LOGGER.info("SearchViewComponent initialized");
+		setLayout(new GridLayout(0, 1));
+		
+		//init view panels
+		showSubjectDetailsPanel = new ShowSubjectDetailsPanel(getOWLModelManager());
+		showSubjectsPanel = new ShowSubjectsPanel(getOWLModelManager());
+		searchFormPanel = new SearchFormPanel(getOWLModelManager());
+		
+		//add panel on the view
+		add(searchFormPanel);   	
     	
         DLQuery dlQuery = new DLQuery(getOWLEditorKit());
         String [] result = dlQuery.getSubClasses("Предмет and кількістьКредитів value \"4.5\"^^xsd:double", true);
@@ -67,12 +47,15 @@ public class SearchViewComponent extends AbstractOWLViewComponent {
 			
 		}
         
-	
+        LOGGER.info("SearchViewComponent initialized");
 	}
 
 	@Override
 	protected void disposeOWLView() {
-		searchformComponent.dispose();
+		searchFormPanel.dispose();
+		showSubjectsPanel.dispose();
+		showSubjectDetailsPanel.dispose();	
+		
 	}
 	
 }

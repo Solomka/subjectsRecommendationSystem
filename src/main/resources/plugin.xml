@@ -14,7 +14,7 @@ and (more advanced) the ways in which the plugin capabilities can be extended by
 		<class value="ua.com.yaremko.system.tab.SubjectsRecommenderTab"/>
 		<index value="Z"/>
 		<editorKitId value="OWLEditorKit"/>
-		<defaultViewConfigFileName value="viewconfig-recommendertab.xml"/>
+		<defaultViewConfigFileName value=" viewconfig-recommenderSystemTab.xml"/>
    </extension>
    
 	<extension id="ExampleWorkspaceTab" point="org.protege.editor.core.application.WorkspaceTab">
