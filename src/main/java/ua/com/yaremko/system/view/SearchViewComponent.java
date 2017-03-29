@@ -2,6 +2,8 @@ package ua.com.yaremko.system.view;
 
 import java.awt.GridLayout;
 
+import javax.swing.JPanel;
+
 import org.protege.editor.owl.ui.view.AbstractOWLViewComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,15 +31,24 @@ public class SearchViewComponent extends AbstractOWLViewComponent {
 	@Override
 	protected void initialiseOWLView() throws Exception {
 		
-		setLayout(new GridLayout(0, 1));
+		setLayout(new GridLayout(0, 2));
 		
 		//init view panels
 		showSubjectDetailsPanel = new ShowSubjectDetailsPanel(getOWLModelManager());
 		showSubjectsPanel = new ShowSubjectsPanel(getOWLModelManager());
-		searchFormPanel = new SearchFormPanel(getOWLEditorKit(), getOWLModelManager());
+		searchFormPanel = new SearchFormPanel(getOWLEditorKit(), getOWLModelManager());		
+		
+		JPanel combinedPanels = new JPanel();
+		combinedPanels.setLayout(new GridLayout(2, 0));
+		combinedPanels.add(showSubjectsPanel);
+		combinedPanels.add(showSubjectDetailsPanel);
+		
+		add(combinedPanels);
 		
 		//add panel on the view
-		add(searchFormPanel);   	
+		add(searchFormPanel);
+		
+		/*
     	
         DLQuery dlQuery = new DLQuery(getOWLEditorKit());
         String [] result = dlQuery.getSubClasses("Предмет and кількістьКредитів value \"4.5\"^^xsd:double", true);
@@ -46,7 +57,7 @@ public class SearchViewComponent extends AbstractOWLViewComponent {
         	System.out.println("Entity" + result[i] + "\n");
 			
 		}
-        
+        */
         LOGGER.info("SearchViewComponent initialized");
 	}
 

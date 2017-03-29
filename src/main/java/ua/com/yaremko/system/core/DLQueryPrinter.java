@@ -44,7 +44,7 @@ class DLQueryPrinter {
 		int i = 0;
 		for (OWLClass superClass : superClasses) {
 			superClassesResult[i] = shortFormProvider.getShortForm(superClass);
-			System.out.println("ShortForm: " + superClassesResult[i]);
+			//System.out.println("ShortForm: " + superClassesResult[i]);
 			i++;
 		}
 
@@ -69,7 +69,7 @@ class DLQueryPrinter {
 		int i = 0;
 		for (OWLClass subClass : subClasses) {
 			subClassesResult[i] = shortFormProvider.getShortForm(subClass);
-			System.out.println("ShortForm: " + subClassesResult[i]);
+			//System.out.println("ShortForm: " + subClassesResult[i]);
 			i++;
 		}
 
@@ -90,7 +90,7 @@ class DLQueryPrinter {
 		int i = 0;
 		for (OWLClass equivalentClass : equivalentClasses) {
 			equivalentClassesResult[i] = shortFormProvider.getShortForm(equivalentClass);
-			System.out.println("ShortForm: " + equivalentClassesResult[i]);
+			//System.out.println("ShortForm: " + equivalentClassesResult[i]);
 			i++;
 		}
 
@@ -113,7 +113,7 @@ class DLQueryPrinter {
 		int i = 0;
 		for (OWLNamedIndividual individual : individuals) {
 			individualsResult[i] = shortFormProvider.getShortForm(individual);
-			System.out.println("ShortForm: " + individualsResult[i]);
+			//System.out.println("ShortForm: " + individualsResult[i]);
 			i++;
 		}
 

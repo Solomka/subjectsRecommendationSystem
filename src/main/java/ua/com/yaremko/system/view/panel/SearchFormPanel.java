@@ -21,6 +21,7 @@ import org.protege.editor.owl.model.event.EventType;
 import org.protege.editor.owl.model.event.OWLModelManagerListener;
 
 import ua.com.yaremko.system.core.DLQuery;
+import ua.com.yaremko.system.core.DLQueryParams;
 
 public class SearchFormPanel extends JPanel {
 
@@ -83,7 +84,7 @@ public class SearchFormPanel extends JPanel {
 		recalculate();
 
 		setBorder(BorderFactory.createEmptyBorder(BORDER / 3, BORDER, BORDER / 3, BORDER));
-		setLayout(new GridLayout(0, 1));
+		setLayout(new GridLayout(0, 2));
 
 		init();
 		initListeners();
@@ -130,6 +131,7 @@ public class SearchFormPanel extends JPanel {
 		researchLineBox = new JComboBox<String>();
 		((JLabel) researchLineBox.getRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
 		researchLineBox.addItem(resLineDefault);
+		researchLineBox.setSelectedItem(resLineDefault);
 		// disabled
 		researchLineBox.setEnabled(false);
 
@@ -144,15 +146,6 @@ public class SearchFormPanel extends JPanel {
 
 		creditsNumBox = new JComboBox<String>(creditNums);
 		((JLabel) creditsNumBox.getRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
-
-		// add items to each comboBox
-
-		/*
-		 * Iterator iterator = Store.getGroups().iterator();
-		 * 
-		 * for (int i = 0; i < Store.getNumberOfGroups(); i++) { Group gr =
-		 * (Group) iterator.next(); scienceBranchBox.addItem(gr.getName()); }
-		 */
 
 		// init search button
 		searchButtonPanel = new JPanel();
@@ -286,26 +279,21 @@ public class SearchFormPanel extends JPanel {
 				} else {
 					JOptionPane.showMessageDialog(null, "Успішного запису на дисципліни =)", "Операція успішна",
 							JOptionPane.INFORMATION_MESSAGE);
-				}
-
-				// TODO:exequte query to ontology and show the result
-
-				/*
-				 * modelManager.get ShowSubjectsViewComponent test = new
-				 * ShowSubjectsViewComponent(); ShowSubjectsPanel ssP =
-				 * test.getShowSubjectsPanel();
-				 * ssP.testInteraction.setText("GOVNO");
-				 */
-
-				/*
-				 * Group g = Store.getGroup((String)
-				 * scienceBranchBox.getSelectedItem());
-				 * g.addProduct(nameField.getText(), descField.getText(),
-				 * prodField.getText(), 0,
-				 * Integer.parseInt(priceField.getText()));
-				 * nameField.setText(""); descField.setText("");
-				 * prodField.setText(""); priceField.setText("");
-				 */
+					
+					//exequte query to ontology and show the result
+					
+					DLQuery dlQuery = new DLQuery(owlEditorKit);
+					DLQueryParams dlQueryParams = getUserSelections();
+					String dlQueryRequest = dlQuery.fromDLQueryParamsToRequest(dlQueryParams);
+					
+					String [] recommendedSubjects = dlQuery.getSubClasses(dlQueryRequest, true);
+					
+					//test printing
+					
+					for(int i = 0; i< recommendedSubjects.length; i++){
+						System.out.println("Recommended subjec: " + recommendedSubjects[i]);
+					}
+				}				
 			}
 
 		});
@@ -394,6 +382,20 @@ public class SearchFormPanel extends JPanel {
 			subjectTypeBox.addItem(subjectTypes[i]);
 		}
 
+	}
+	
+	//map user selections to DLQueryParams object
+	
+	private DLQueryParams getUserSelections(){
+		DLQueryParams dlQueryParams = new DLQueryParams();
+		dlQueryParams.setScienceBranch(scienceBranchSelected);
+		dlQueryParams.setSpeciality(specialitySelected);
+		dlQueryParams.setResearchLine(researchLineSelected);
+		dlQueryParams.setSubjectType(subjectTypeSelected);
+		dlQueryParams.setTerm(termSelected);
+		dlQueryParams.setCreditsNum(credNumSelected);
+		
+		return dlQueryParams;
 	}
 
 }

@@ -69,7 +69,7 @@ class DLQueryParser {
 
 		OWLClassExpression expr = parser.parseClassExpression();
 
-		System.out.println("Expr: " + expr.toString());
+		//System.out.println("Expr: " + expr.toString());
 
 		return expr;
 	}
