@@ -1,4 +1,4 @@
-package ua.com.yaremko.system.core;
+package ua.com.yaremko.system.test;
 
 
 //import org.semanticweb.HermiT.Reasoner;
@@ -35,8 +35,6 @@ import org.semanticweb.owlapi.util.SimpleShortFormProvider;
 
 public class DLQueriesUtility {
 
-	
-	
 	@SuppressWarnings("javadoc")
 	public static void main(String[] args) {
 		try {
@@ -46,12 +44,12 @@ public class DLQueriesUtility {
 			// manager.loadOntologyFromOntologyDocument(new
 			// File("D:\\Doc\\4Year\\University\\2Term\\TermWork\\Yaremko_Protege\\dishes
 			// (1).owl"));
-			OWLOntology ontology = manager.loadOntologyFromOntologyDocument(new File(
-					"D:\\Doc\\4Year\\University\\2Term\\TermWork\\Yaremko_Protege2\\mergedOne.owl"));
+			OWLOntology ontology = manager.loadOntologyFromOntologyDocument(
+					new File("D:\\Doc\\4Year\\University\\2Term\\TermWork\\Yaremko_Protege2\\mergedOne.owl"));
 			System.out.println("Loaded ontology: " + ontology.getOntologyID());
 			// We need a reasoner to do our query answering
 			OWLReasoner reasoner = createReasoner(ontology);
-			
+
 			// Entities are named using IRIs. These are usually too long for use
 			// in user interfaces. To solve this
 			// problem, and so a query can be written using short class,
@@ -193,6 +191,7 @@ class DLQueryEngine {
 			return Collections.emptySet();
 		}
 		OWLClassExpression classExpression = parser.parseClassExpression(classExpressionString);
+		System.out.println("classExpression" + classExpression.toString());
 		NodeSet<OWLClass> subClasses = reasoner.getSubClasses(classExpression, direct);
 		return subClasses.getFlattened();
 	}
@@ -253,6 +252,7 @@ class DLQueryParser {
 	 */
 	public OWLClassExpression parseClassExpression(String classExpressionString) {
 		OWLDataFactory dataFactory = rootOntology.getOWLOntologyManager().getOWLDataFactory();
+
 		// Set up the real parser
 		ManchesterOWLSyntaxEditorParser parser = new ManchesterOWLSyntaxEditorParser(dataFactory,
 				classExpressionString);
@@ -262,7 +262,12 @@ class DLQueryParser {
 		OWLEntityChecker entityChecker = new ShortFormEntityChecker(bidiShortFormProvider);
 		parser.setOWLEntityChecker(entityChecker);
 		// Do the actual parsing
-		return parser.parseClassExpression();
+
+		OWLClassExpression expr = parser.parseClassExpression();
+
+		System.out.println("Expr: " + expr.toString());
+
+		return expr;
 	}
 }
 
@@ -303,7 +308,7 @@ class DLQueryPrinter {
 				printEntities("SuperClasses", superClasses, sb);
 				Set<OWLClass> equivalentClasses = dlQueryEngine.getEquivalentClasses(classExpression);
 				printEntities("EquivalentClasses", equivalentClasses, sb);
-				Set<OWLClass> subClasses = dlQueryEngine.getSubClasses(classExpression, false);
+				Set<OWLClass> subClasses = dlQueryEngine.getSubClasses(classExpression, true);
 				printEntities("SubClasses", subClasses, sb);
 				Set<OWLNamedIndividual> individuals = dlQueryEngine.getInstances(classExpression, true);
 				printEntities("Instances", individuals, sb);

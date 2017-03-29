@@ -19,6 +19,8 @@ import org.protege.editor.owl.model.OWLModelManager;
 import org.protege.editor.owl.model.event.EventType;
 import org.protege.editor.owl.model.event.OWLModelManagerListener;
 
+import ua.com.yaremko.system.core.DLQuery;
+
 public class SearchFormPanel extends JPanel {
 
 	// to work with ontology in protege
@@ -309,7 +311,8 @@ public class SearchFormPanel extends JPanel {
 	private void fillSpecialitiesBox() {
 
 		// load scienceBranch specialities from ontology by DLQueryUtility
-	}
+		
+			}
 
 	/*
 	 * fill researchLine
