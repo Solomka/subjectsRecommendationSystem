@@ -60,10 +60,10 @@ public class SearchViewComponent extends AbstractOWLViewComponent {
     	LOGGER.info("SearchViewComponent initialized");
     	
         DLQuery dlQuery = new DLQuery(getOWLEditorKit());
-        Set<OWLClass> result = dlQuery.getSubClasses("Предмет and кількістьКредитів value \"4.5\"^^xsd:double", true);
+        String [] result = dlQuery.getSubClasses("Предмет and кількістьКредитів value \"4.5\"^^xsd:double", true);
         
-        for (OWLClass entity : result) {
-        	System.out.println("Entity" + entity.toString() + "/n");
+        for (int i = 0; i< result.length; i++) {
+        	System.out.println("Entity" + result[i] + "\n");
 			
 		}
         
