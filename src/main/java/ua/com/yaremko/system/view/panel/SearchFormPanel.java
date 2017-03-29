@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import org.protege.editor.owl.OWLEditorKit;
 import org.protege.editor.owl.model.OWLModelManager;
 import org.protege.editor.owl.model.event.EventType;
 import org.protege.editor.owl.model.event.OWLModelManagerListener;
@@ -25,6 +26,7 @@ public class SearchFormPanel extends JPanel {
 
 	// to work with ontology in protege
 	private OWLModelManager modelManager;
+	private OWLEditorKit owlEditorKit;
 
 	// labels
 	private JLabel infoLabel;
@@ -47,7 +49,7 @@ public class SearchFormPanel extends JPanel {
 	private String scBranchDefault = "--- виберіть галузь науки ---";
 	private String specDefault = "--- виберіть спеціальність ---";
 	private String resLineDefault = "--- виберіть напрям дослідження(не обов'язково) ---";
-	private String subjTypeDefault = "--- виберіть тип дисципліни ---";
+	private String subjTypeDefault = "--- виберіть тип предмету ---";
 	private String termDefault = "--- виберіть семестр ---";
 	private String credNumDefault = "--- виберіть к-сть кредитів ---";
 
@@ -75,8 +77,9 @@ public class SearchFormPanel extends JPanel {
 
 	private static final Font font = new Font("SansSerif", Font.PLAIN, 14);
 
-	public SearchFormPanel(OWLModelManager modelManager) {
+	public SearchFormPanel(OWLEditorKit owlEditorKit, OWLModelManager modelManager) {
 		this.modelManager = modelManager;
+		this.owlEditorKit = owlEditorKit;
 		recalculate();
 
 		setBorder(BorderFactory.createEmptyBorder(BORDER / 3, BORDER, BORDER / 3, BORDER));
@@ -200,12 +203,15 @@ public class SearchFormPanel extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				specialitySelected = (String) specialityBox.getSelectedItem();
 
-				if(specialitySelected != null && !specialitySelected.equals(specDefault)){
-				// enable researchLine comboBox
-				researchLineBox.setEnabled(true);
+				if (specialitySelected != null && !specialitySelected.equals(specDefault)) {
+					// enable researchLine comboBox
+					researchLineBox.removeAllItems();
+					researchLineBox.addItem(resLineDefault);
+					researchLineBox.setSelectedItem(resLineDefault);
+					researchLineBox.setEnabled(true);
 
-				// fill speciality researchLines
-				fillResearchLineBox();
+					// fill speciality researchLines
+					fillResearchLineBox();
 				}
 			}
 
@@ -221,6 +227,32 @@ public class SearchFormPanel extends JPanel {
 
 		});
 
+		subjectTypeBox.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				subjectTypeSelected = (String) subjectTypeBox.getSelectedItem();
+			}
+		});
+
+		termBox.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				termSelected = (String) termBox.getSelectedItem();
+
+			}
+		});
+
+		creditsNumBox.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				credNumSelected = (String) creditsNumBox.getSelectedItem();
+
+			}
+		});
+
 		searchButton.addActionListener(new ActionListener() {
 
 			/**
@@ -231,23 +263,29 @@ public class SearchFormPanel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// input validation
-				if (scienceBranchSelected.equals(scBranchDefault)) {
-					JOptionPane.showMessageDialog(null, "Помилка! Виберіть галузь науки");
+				if (scienceBranchSelected == null || scienceBranchSelected.equals(scBranchDefault)) {
+					JOptionPane.showMessageDialog(null, "Виберіть галузь науки!", "Некоректний ввід даних",
+							JOptionPane.ERROR_MESSAGE);
 					return;
-				} else if (specialitySelected.equals(specDefault)) {
-					JOptionPane.showMessageDialog(null, "Помилка! Виберіть спеціальність");
+				} else if (specialitySelected == null || specialitySelected.equals(specDefault)) {
+					JOptionPane.showMessageDialog(null, "Виберіть спеціальність!", "Некоректний ввід даних",
+							JOptionPane.ERROR_MESSAGE);
 					return;
-				} else if (subjectTypeSelected.equals(subjTypeDefault)) {
-					JOptionPane.showMessageDialog(null, "Помилка! Виберіть тип дисципліни");
+				} else if (subjectTypeSelected == null || subjectTypeSelected.equals(subjTypeDefault)) {
+					JOptionPane.showMessageDialog(null, "Виберіть тип дисципліни!", "Некоректний ввід даних",
+							JOptionPane.ERROR_MESSAGE);
 					return;
-				} else if (termSelected.equals(termDefault)) {
-					JOptionPane.showMessageDialog(null, "Помилка! Виберіть семестр");
+				} else if (termSelected == null || termSelected.equals(termDefault)) {
+					JOptionPane.showMessageDialog(null, "Виберіть семестр!", "Некоректний ввід даних",
+							JOptionPane.ERROR_MESSAGE);
 					return;
-				} else if (credNumSelected.equals(credNumDefault)) {
-					JOptionPane.showMessageDialog(null, "Помилка! Виберіть к-сть кредитів");
+				} else if (credNumSelected == null || credNumSelected.equals(credNumDefault)) {
+					JOptionPane.showMessageDialog(null, "Виберіть к-сть кредитів!", "Некоректний ввід даних",
+							JOptionPane.ERROR_MESSAGE);
 					return;
 				} else {
-					JOptionPane.showMessageDialog(null, "", "Успішна операція", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Успішного запису на дисципліни =)", "Операція успішна",
+							JOptionPane.INFORMATION_MESSAGE);
 				}
 
 				// TODO:exequte query to ontology and show the result
@@ -299,6 +337,14 @@ public class SearchFormPanel extends JPanel {
 
 	// fill science branches
 	private void fillscienceBranchBox() {
+		/*
+		 * DLQuery dlQuery = new DLQuery(owlEditorKit); String[] scienceBranches
+		 * = dlQuery.getSubClasses("ГалузьНауки", false);
+		 * 
+		 * for(int i = 0; i<scienceBranches.length; i++){
+		 * scienceBranchBox.addItem(scienceBranches[i]); }
+		 */
+
 		scienceBranchBox.addItem("інформатика");
 		scienceBranchBox.addItem("математика");
 		scienceBranchBox.addItem("інформатика_і_кібернетика");
@@ -310,16 +356,28 @@ public class SearchFormPanel extends JPanel {
 	 */
 	private void fillSpecialitiesBox() {
 
-		// load scienceBranch specialities from ontology by DLQueryUtility
-		
-			}
+		// load scienceBranch specialities from ontology by DLQuery
+
+		DLQuery dlQuery = new DLQuery(owlEditorKit);
+		String[] scienceBranchSpecialities = dlQuery.getSubClasses(scienceBranchSelected, true);
+		for (int i = 0; i < scienceBranchSpecialities.length; i++) {
+			specialityBox.addItem(scienceBranchSpecialities[i]);
+		}
+
+	}
 
 	/*
 	 * fill researchLine
 	 */
 	private void fillResearchLineBox() {
 
-		// load sleciality researchLines from ontology by DLQueryUtility
+		// load sleciality researchLines from ontology by DLQuery
+
+		DLQuery dlQuery = new DLQuery(owlEditorKit);
+		String[] specialityResearchLines = dlQuery.getSubClasses(specialitySelected, true);
+		for (int i = 0; i < specialityResearchLines.length; i++) {
+			researchLineBox.addItem(specialityResearchLines[i]);
+		}
 	}
 
 	/*
@@ -327,6 +385,14 @@ public class SearchFormPanel extends JPanel {
 	 */
 
 	private void fillSubjectTypeBox() {
+
+		// load subjectTypes from ontology by DLQuery
+
+		DLQuery dlQuery = new DLQuery(owlEditorKit);
+		String[] subjectTypes = dlQuery.getSubClasses("ТипПредмету", true);
+		for (int i = 0; i < subjectTypes.length; i++) {
+			subjectTypeBox.addItem(subjectTypes[i]);
+		}
 
 	}
 

@@ -34,7 +34,7 @@ public class SearchViewComponent extends AbstractOWLViewComponent {
 		//init view panels
 		showSubjectDetailsPanel = new ShowSubjectDetailsPanel(getOWLModelManager());
 		showSubjectsPanel = new ShowSubjectsPanel(getOWLModelManager());
-		searchFormPanel = new SearchFormPanel(getOWLModelManager());
+		searchFormPanel = new SearchFormPanel(getOWLEditorKit(), getOWLModelManager());
 		
 		//add panel on the view
 		add(searchFormPanel);   	
