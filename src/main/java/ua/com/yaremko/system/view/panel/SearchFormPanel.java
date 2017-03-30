@@ -6,6 +6,12 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.swing.BorderFactory;
@@ -21,9 +27,21 @@ import org.protege.editor.owl.model.OWLModelManager;
 import org.protege.editor.owl.model.event.EventType;
 import org.protege.editor.owl.model.event.OWLModelManagerListener;
 import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.model.OWLClassExpression;
+import org.semanticweb.owlapi.model.OWLDataPropertyExpression;
+import org.semanticweb.owlapi.model.OWLEntity;
+import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLPropertyExpression;
+import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
+import org.semanticweb.owlapi.util.PropertyAssertionValueShortFormProvider;
+import org.semanticweb.owlapi.util.ShortFormProvider;
+import org.semanticweb.owlapi.util.SimpleShortFormProvider;
 
+import ch.qos.logback.classic.sift.SiftAction;
 import ua.com.yaremko.system.core.DLQuery;
 import ua.com.yaremko.system.core.DLQueryParams;
+import ua.com.yaremko.system.core.RestrictionVisitor;
 
 public class SearchFormPanel extends JPanel {
 
@@ -82,11 +100,12 @@ public class SearchFormPanel extends JPanel {
 
 	private static final Font font = new Font("SansSerif", Font.PLAIN, 14);
 
-	public SearchFormPanel(OWLEditorKit owlEditorKit, OWLModelManager modelManager, ShowSubjectsPanel showSubjectsPanel) {
+	public SearchFormPanel(OWLEditorKit owlEditorKit, OWLModelManager modelManager,
+			ShowSubjectsPanel showSubjectsPanel) {
 		this.modelManager = modelManager;
 		this.owlEditorKit = owlEditorKit;
 		this.showSubjectsPanel = showSubjectsPanel;
-		
+
 		recalculate();
 
 		setBorder(BorderFactory.createEmptyBorder(BORDER / 3, BORDER, BORDER / 3, BORDER));
@@ -262,7 +281,7 @@ public class SearchFormPanel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// input validation
-				
+
 				if (scienceBranchSelected == null || scienceBranchSelected.equals(scBranchDefault)) {
 					JOptionPane.showMessageDialog(null, "Виберіть галузь науки!", "Некоректний ввід даних",
 							JOptionPane.ERROR_MESSAGE);
@@ -286,27 +305,103 @@ public class SearchFormPanel extends JPanel {
 				} else {
 					JOptionPane.showMessageDialog(null, "Успішного запису на дисципліни =)", "Операція успішна",
 							JOptionPane.INFORMATION_MESSAGE);
-					
-					//exequte query to ontology and show the result
-					
+
+					// exequte query to ontology and show the result
+
 					DLQuery dlQuery = new DLQuery(owlEditorKit);
 					DLQueryParams dlQueryParams = getUserSelections();
 					String dlQueryRequest = dlQuery.fromDLQueryParamsToRequest(dlQueryParams);
-					
-					//test printing
-					String [] recommendedSubjects = dlQuery.getSubClasses(dlQueryRequest, true);
-					
-					for(int i = 0; i< recommendedSubjects.length; i++){
+
+					// test printing
+					String[] recommendedSubjects = dlQuery.getSubClasses(dlQueryRequest, true);
+
+					for (int i = 0; i < recommendedSubjects.length; i++) {
 						System.out.println("Recommended subjec: " + recommendedSubjects[i]);
 					}
 					showSubjectsPanel.setTableSubjects(recommendedSubjects);
-					
+
 					/*
-					Set<OWLClass> recommendedSubjects = dlQuery.getSubClassesSet(dlQueryRequest, true);
-					showSubjectsPanel.setTableSubjects(recommendedSubjects);
-					*/
+					 * Set<OWLClass> recommendedSubjects =
+					 * dlQuery.getSubClassesSet(dlQueryRequest, true);
+					 * showSubjectsPanel.setTableSubjects(recommendedSubjects);
+					 */
+
+					Set<OWLClass> recommSubjects = dlQuery.getSubClassesSet(dlQueryRequest, true);
+					Set<OWLOntology> cussOntologies = new HashSet<>();
+					OWLOntology currectOntology = modelManager.getOWLReasonerManager().getCurrentReasoner()
+							.getRootOntology();
+					cussOntologies.add(currectOntology);
+
+					RestrictionVisitor restrictionVisitor = null;
+					ShortFormProvider shortFormProvider = new SimpleShortFormProvider();
 					
-				}				
+					for (OWLClass c : recommSubjects) {
+						restrictionVisitor = new RestrictionVisitor(Collections.singleton(currectOntology));
+
+						for (OWLSubClassOfAxiom ax : currectOntology.getSubClassAxiomsForSubClass(c)) {
+							ax.getSuperClass().accept(restrictionVisitor);
+							System.out.println("SuperClass: " + ax.getSuperClass().toString());
+						}
+
+						// Our RestrictionVisitor has now collected all of the
+						// properties that
+						// have been restricted in existential restrictions -
+						// print them out.
+						
+						
+						List<OWLPropertyExpression> props = new ArrayList<>();
+						
+						for (OWLObjectPropertyExpression prop : restrictionVisitor.getRestrictedProperties()){
+							props.add(prop);
+						}
+							
+						Map<OWLDataPropertyExpression,List<String>> preferredLanguageMap = new HashMap<OWLDataPropertyExpression,List<String>>();
+						PropertyAssertionValueShortFormProvider propertySHortFormProvider = new PropertyAssertionValueShortFormProvider(props, preferredLanguageMap, modelManager.getOWLOntologyManager());
+						
+						//get properties
+						for (OWLObjectPropertyExpression prop : restrictionVisitor.getRestrictedProperties()) {
+							System.out.println("Object Property: " + propertySHortFormProvider.getShortForm((OWLEntity) prop));
+						}
+						//get properties values
+						for (OWLClassExpression classExpr : restrictionVisitor.getRestrictedPropertiesValues()) {
+							System.out.println("Object Prop Value: " + shortFormProvider.getShortForm((OWLEntity) classExpr));
+						}
+
+					}
+					/*
+					 * for(OWLClass c: recommSubjects){
+					 * System.out.println("SBJ: " + c.toString());
+					 * 
+					 * NodeSet<OWLClass> subClses =
+					 * modelManager.getOWLReasonerManager().getCurrentReasoner()
+					 * .getSubClasses(c, true); Set<OWLClass> classes =
+					 * subClses.getFlattened();
+					 * 
+					 * 
+					 * 
+					 * Set<OWLObjectProperty> superClasses =
+					 * c.getObjectPropertiesInSignature();
+					 * System.out.println("OWLObjectProperty size: " +
+					 * superClasses.size() ); for(OWLObjectProperty p:
+					 * superClasses){ System.out.println("Object Property: " +
+					 * p.toString()); }
+					 * 
+					 * }
+					 */
+
+					/*
+					 * Set<OWLDataPropertyDomainAxiom> classAxioms =
+					 * modelManager.getOWLReasonerManager().getCurrentReasoner()
+					 * .getRootOntology().getAxioms(AxiomType.
+					 * DATA_PROPERTY_DOMAIN);
+					 * 
+					 * for(OWLDataPropertyDomainAxiom axiom: classAxioms){
+					 * System.out.println("Axiom Domain: " +
+					 * axiom.getDomain().toString());
+					 * System.out.println("Axiom : " + axiom.toString()); }
+					 */
+
+				}
 			}
 
 		});
@@ -396,10 +491,10 @@ public class SearchFormPanel extends JPanel {
 		}
 
 	}
-	
-	//map user selections to DLQueryParams object
-	
-	private DLQueryParams getUserSelections(){
+
+	// map user selections to DLQueryParams object
+
+	private DLQueryParams getUserSelections() {
 		DLQueryParams dlQueryParams = new DLQueryParams();
 		dlQueryParams.setScienceBranch(scienceBranchSelected);
 		dlQueryParams.setSpeciality(specialitySelected);
@@ -407,7 +502,7 @@ public class SearchFormPanel extends JPanel {
 		dlQueryParams.setSubjectType(subjectTypeSelected);
 		dlQueryParams.setTerm(termSelected);
 		dlQueryParams.setCreditsNum(credNumSelected);
-		
+
 		return dlQueryParams;
 	}
 
