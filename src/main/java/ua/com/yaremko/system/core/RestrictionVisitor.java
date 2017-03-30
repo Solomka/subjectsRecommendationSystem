@@ -5,6 +5,10 @@ import java.util.Set;
 
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassExpression;
+import org.semanticweb.owlapi.model.OWLDataHasValue;
+import org.semanticweb.owlapi.model.OWLDataPropertyExpression;
+import org.semanticweb.owlapi.model.OWLHasValueRestriction;
+import org.semanticweb.owlapi.model.OWLLiteral;
 import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
 import org.semanticweb.owlapi.model.OWLObjectSomeValuesFrom;
 import org.semanticweb.owlapi.model.OWLOntology;
@@ -17,24 +21,41 @@ import org.semanticweb.owlapi.util.OWLClassExpressionVisitorAdapter;
  */
 public class RestrictionVisitor extends OWLClassExpressionVisitorAdapter {
 
-	private final Set<OWLClass> processedClasses;
-	private final Set<OWLObjectPropertyExpression> restrictedProperties;
-	private final Set<OWLClassExpression> restrictedPropertiesValues;
 	private final Set<OWLOntology> onts;
+	private final Set<OWLClass> processedClasses;
+	
+	//OWLObjectProperties
+	private final Set<OWLObjectPropertyExpression> restrictedProperties;
+	//OWLObjectPropertiesValues
+	private final Set<OWLClassExpression> restrictedPropertiesValues;
+	
+	private final Set<OWLDataPropertyExpression> dataProperties;
+	private final Set<OWLLiteral> dataPropertiesValues;
+		
 
 	public RestrictionVisitor(Set<OWLOntology> onts) {
-		restrictedProperties = new HashSet<OWLObjectPropertyExpression>();
-		processedClasses = new HashSet<OWLClass>();
-		restrictedPropertiesValues = new HashSet<>();
-		this.onts = onts;
+		this.onts = onts;		
+		this.processedClasses = new HashSet<OWLClass>();		
+		this.restrictedProperties = new HashSet<OWLObjectPropertyExpression>();		
+		this.restrictedPropertiesValues = new HashSet<OWLClassExpression>();
+		this.dataProperties = new HashSet<OWLDataPropertyExpression>();	
+		this.dataPropertiesValues = new HashSet<>();
 	}
 
 	public Set<OWLObjectPropertyExpression> getRestrictedProperties() {
-		return restrictedProperties;
+		return this.restrictedProperties;
 	}
 
 	public Set<OWLClassExpression> getRestrictedPropertiesValues() {
-		return restrictedPropertiesValues;
+		return this.restrictedPropertiesValues;
+	}
+	
+	public Set<OWLDataPropertyExpression> getDataProperties(){
+		return this.dataProperties;
+	}
+	
+	public Set<OWLLiteral> getDataPropertiesValues(){
+		return this.dataPropertiesValues;
 	}
 
 	@Override
@@ -60,6 +81,12 @@ public class RestrictionVisitor extends OWLClassExpressionVisitorAdapter {
 		// desc.getFiller();
 		restrictedProperties.add(desc.getProperty());
 		restrictedPropertiesValues.add(desc.getFiller());
+	}
+	
+	@Override
+	public void visit(OWLDataHasValue desc){
+		dataProperties.add(desc.getProperty());
+		dataPropertiesValues.add(desc.getFiller());		
 	}
 
 	/*

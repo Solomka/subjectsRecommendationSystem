@@ -30,6 +30,7 @@ import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDataPropertyExpression;
 import org.semanticweb.owlapi.model.OWLEntity;
+import org.semanticweb.owlapi.model.OWLLiteral;
 import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLPropertyExpression;
@@ -358,13 +359,24 @@ public class SearchFormPanel extends JPanel {
 						Map<OWLDataPropertyExpression,List<String>> preferredLanguageMap = new HashMap<OWLDataPropertyExpression,List<String>>();
 						PropertyAssertionValueShortFormProvider propertySHortFormProvider = new PropertyAssertionValueShortFormProvider(props, preferredLanguageMap, modelManager.getOWLOntologyManager());
 						
-						//get properties
+						//get ObjectProperties
 						for (OWLObjectPropertyExpression prop : restrictionVisitor.getRestrictedProperties()) {
 							System.out.println("Object Property: " + propertySHortFormProvider.getShortForm((OWLEntity) prop));
 						}
-						//get properties values
+						//get ObjectPropertiesValues
 						for (OWLClassExpression classExpr : restrictionVisitor.getRestrictedPropertiesValues()) {
 							System.out.println("Object Prop Value: " + shortFormProvider.getShortForm((OWLEntity) classExpr));
+						}
+						
+						
+						//get DataProperties
+						for(OWLDataPropertyExpression prop: restrictionVisitor.getDataProperties()){
+							System.out.println("Data Property: " + shortFormProvider.getShortForm((OWLEntity)prop));
+						}
+						
+						//get DataPropertiesValues
+						for(OWLLiteral propValue: restrictionVisitor.getDataPropertiesValues()){
+							System.out.println("Data Prop Value: " + propValue.getLiteral());
 						}
 
 					}
