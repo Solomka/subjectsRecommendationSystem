@@ -349,7 +349,7 @@ public class SearchFormPanel extends JPanel {
 						// have been restricted in existential restrictions -
 						// print them out.
 						
-						
+						/*
 						List<OWLPropertyExpression> props = new ArrayList<>();
 						
 						for (OWLObjectPropertyExpression prop : restrictionVisitor.getRestrictedProperties()){
@@ -377,6 +377,39 @@ public class SearchFormPanel extends JPanel {
 						//get DataPropertiesValues
 						for(OWLLiteral propValue: restrictionVisitor.getDataPropertiesValues()){
 							System.out.println("Data Prop Value: " + propValue.getLiteral());
+						}
+						*/
+						//////////////////////////////////////////////////////////////////////////
+						
+						//print Object Properies
+						Map<String, String> objectProperties = restrictionVisitor.getObjectProps();
+						for(String key: objectProperties.keySet() ){
+							System.out.println("ObjectProp: " + key + " Value: " + objectProperties.get(key));
+						}
+						
+						//print Data Properties
+						Map<String, String> dataProperties = restrictionVisitor.getDataProps();
+						for(String key: dataProperties.keySet()){
+							System.out.println("DataProp: " + key + " Value: " + dataProperties.get(key));
+						}
+						
+						//print subjectResearchLines
+						
+						System.out.println("STUDY SIZE: "+ restrictionVisitor.getSubjectResearchLines().size());
+						for(String subjectResearchLine: restrictionVisitor.getSubjectResearchLines()){
+							System.out.println("Вивчає: " + subjectResearchLine);
+						}
+						
+						//print suject's preSubjects
+						System.out.println("PreSubjects SIZE: " + restrictionVisitor.getPreSubjects().size());
+						for(String preSubject: restrictionVisitor.getPreSubjects()){
+							System.out.println("PreSubject: " + preSubject);
+						}
+						
+						//print subject's postSubjects
+						System.out.println("PostSubjects SIZE: " + restrictionVisitor.getPostSubjects().size());
+						for( String postSubject: restrictionVisitor.getPostSubjects()){
+							System.out.println("PostSubject: " + postSubject);
 						}
 
 					}
