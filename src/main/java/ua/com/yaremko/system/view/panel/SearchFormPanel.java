@@ -321,65 +321,20 @@ public class SearchFormPanel extends JPanel {
 					}
 					showSubjectsPanel.setTableSubjects(recommendedSubjects);
 
-					/*
-					 * Set<OWLClass> recommendedSubjects =
-					 * dlQuery.getSubClassesSet(dlQueryRequest, true);
-					 * showSubjectsPanel.setTableSubjects(recommendedSubjects);
-					 */
-
+					
 					Set<OWLClass> recommSubjects = dlQuery.getSubClassesSet(dlQueryRequest, true);
-					Set<OWLOntology> cussOntologies = new HashSet<>();
 					OWLOntology currectOntology = modelManager.getOWLReasonerManager().getCurrentReasoner()
 							.getRootOntology();
-					cussOntologies.add(currectOntology);
-
+				
 					RestrictionVisitor restrictionVisitor = null;
-					ShortFormProvider shortFormProvider = new SimpleShortFormProvider();
-					
+										
 					for (OWLClass c : recommSubjects) {
 						restrictionVisitor = new RestrictionVisitor(Collections.singleton(currectOntology));
 
 						for (OWLSubClassOfAxiom ax : currectOntology.getSubClassAxiomsForSubClass(c)) {
 							ax.getSuperClass().accept(restrictionVisitor);
 							System.out.println("SuperClass: " + ax.getSuperClass().toString());
-						}
-
-						// Our RestrictionVisitor has now collected all of the
-						// properties that
-						// have been restricted in existential restrictions -
-						// print them out.
-						
-						/*
-						List<OWLPropertyExpression> props = new ArrayList<>();
-						
-						for (OWLObjectPropertyExpression prop : restrictionVisitor.getRestrictedProperties()){
-							props.add(prop);
-						}
-							
-						Map<OWLDataPropertyExpression,List<String>> preferredLanguageMap = new HashMap<OWLDataPropertyExpression,List<String>>();
-						PropertyAssertionValueShortFormProvider propertySHortFormProvider = new PropertyAssertionValueShortFormProvider(props, preferredLanguageMap, modelManager.getOWLOntologyManager());
-						
-						//get ObjectProperties
-						for (OWLObjectPropertyExpression prop : restrictionVisitor.getRestrictedProperties()) {
-							System.out.println("Object Property: " + propertySHortFormProvider.getShortForm((OWLEntity) prop));
-						}
-						//get ObjectPropertiesValues
-						for (OWLClassExpression classExpr : restrictionVisitor.getRestrictedPropertiesValues()) {
-							System.out.println("Object Prop Value: " + shortFormProvider.getShortForm((OWLEntity) classExpr));
-						}
-						
-						
-						//get DataProperties
-						for(OWLDataPropertyExpression prop: restrictionVisitor.getDataProperties()){
-							System.out.println("Data Property: " + shortFormProvider.getShortForm((OWLEntity)prop));
-						}
-						
-						//get DataPropertiesValues
-						for(OWLLiteral propValue: restrictionVisitor.getDataPropertiesValues()){
-							System.out.println("Data Prop Value: " + propValue.getLiteral());
-						}
-						*/
-						//////////////////////////////////////////////////////////////////////////
+						}					
 						
 						//print Object Properies
 						Map<String, String> objectProperties = restrictionVisitor.getObjectProps();
@@ -393,8 +348,7 @@ public class SearchFormPanel extends JPanel {
 							System.out.println("DataProp: " + key + " Value: " + dataProperties.get(key));
 						}
 						
-						//print subjectResearchLines
-						
+						//print subjectResearchLines						
 						System.out.println("STUDY SIZE: "+ restrictionVisitor.getSubjectResearchLines().size());
 						for(String subjectResearchLine: restrictionVisitor.getSubjectResearchLines()){
 							System.out.println("Вивчає: " + subjectResearchLine);
@@ -411,41 +365,8 @@ public class SearchFormPanel extends JPanel {
 						for( String postSubject: restrictionVisitor.getPostSubjects()){
 							System.out.println("PostSubject: " + postSubject);
 						}
-
 					}
-					/*
-					 * for(OWLClass c: recommSubjects){
-					 * System.out.println("SBJ: " + c.toString());
-					 * 
-					 * NodeSet<OWLClass> subClses =
-					 * modelManager.getOWLReasonerManager().getCurrentReasoner()
-					 * .getSubClasses(c, true); Set<OWLClass> classes =
-					 * subClses.getFlattened();
-					 * 
-					 * 
-					 * 
-					 * Set<OWLObjectProperty> superClasses =
-					 * c.getObjectPropertiesInSignature();
-					 * System.out.println("OWLObjectProperty size: " +
-					 * superClasses.size() ); for(OWLObjectProperty p:
-					 * superClasses){ System.out.println("Object Property: " +
-					 * p.toString()); }
-					 * 
-					 * }
-					 */
-
-					/*
-					 * Set<OWLDataPropertyDomainAxiom> classAxioms =
-					 * modelManager.getOWLReasonerManager().getCurrentReasoner()
-					 * .getRootOntology().getAxioms(AxiomType.
-					 * DATA_PROPERTY_DOMAIN);
-					 * 
-					 * for(OWLDataPropertyDomainAxiom axiom: classAxioms){
-					 * System.out.println("Axiom Domain: " +
-					 * axiom.getDomain().toString());
-					 * System.out.println("Axiom : " + axiom.toString()); }
-					 */
-
+					
 				}
 			}
 
