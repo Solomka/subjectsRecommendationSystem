@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Set;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -19,6 +20,7 @@ import org.protege.editor.owl.OWLEditorKit;
 import org.protege.editor.owl.model.OWLModelManager;
 import org.protege.editor.owl.model.event.EventType;
 import org.protege.editor.owl.model.event.OWLModelManagerListener;
+import org.semanticweb.owlapi.model.OWLClass;
 
 import ua.com.yaremko.system.core.DLQuery;
 import ua.com.yaremko.system.core.DLQueryParams;
@@ -28,6 +30,8 @@ public class SearchFormPanel extends JPanel {
 	// to work with ontology in protege
 	private OWLModelManager modelManager;
 	private OWLEditorKit owlEditorKit;
+	
+	private ShowSubjectsPanel showSubjectsPanel;
 
 	// labels
 	private JLabel infoLabel;
@@ -78,13 +82,15 @@ public class SearchFormPanel extends JPanel {
 
 	private static final Font font = new Font("SansSerif", Font.PLAIN, 14);
 
-	public SearchFormPanel(OWLEditorKit owlEditorKit, OWLModelManager modelManager) {
+	public SearchFormPanel(OWLEditorKit owlEditorKit, OWLModelManager modelManager, ShowSubjectsPanel showSubjectsPanel) {
 		this.modelManager = modelManager;
 		this.owlEditorKit = owlEditorKit;
+		this.showSubjectsPanel = showSubjectsPanel;
+		
 		recalculate();
 
 		setBorder(BorderFactory.createEmptyBorder(BORDER / 3, BORDER, BORDER / 3, BORDER));
-		setLayout(new GridLayout(0, 2));
+		setLayout(new GridLayout(0, 1));
 
 		init();
 		initListeners();
@@ -256,6 +262,7 @@ public class SearchFormPanel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// input validation
+				
 				if (scienceBranchSelected == null || scienceBranchSelected.equals(scBranchDefault)) {
 					JOptionPane.showMessageDialog(null, "Виберіть галузь науки!", "Некоректний ввід даних",
 							JOptionPane.ERROR_MESSAGE);
@@ -286,13 +293,19 @@ public class SearchFormPanel extends JPanel {
 					DLQueryParams dlQueryParams = getUserSelections();
 					String dlQueryRequest = dlQuery.fromDLQueryParamsToRequest(dlQueryParams);
 					
-					String [] recommendedSubjects = dlQuery.getSubClasses(dlQueryRequest, true);
-					
 					//test printing
+					String [] recommendedSubjects = dlQuery.getSubClasses(dlQueryRequest, true);
 					
 					for(int i = 0; i< recommendedSubjects.length; i++){
 						System.out.println("Recommended subjec: " + recommendedSubjects[i]);
 					}
+					showSubjectsPanel.setTableSubjects(recommendedSubjects);
+					
+					/*
+					Set<OWLClass> recommendedSubjects = dlQuery.getSubClassesSet(dlQueryRequest, true);
+					showSubjectsPanel.setTableSubjects(recommendedSubjects);
+					*/
+					
 				}				
 			}
 

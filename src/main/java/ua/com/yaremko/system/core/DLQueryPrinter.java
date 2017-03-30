@@ -44,12 +44,16 @@ class DLQueryPrinter {
 		int i = 0;
 		for (OWLClass superClass : superClasses) {
 			superClassesResult[i] = shortFormProvider.getShortForm(superClass);
-			//System.out.println("ShortForm: " + superClassesResult[i]);
+			// System.out.println("ShortForm: " + superClassesResult[i]);
 			i++;
 		}
 
 		return superClassesResult;
 
+	}
+
+	public Set<OWLClass> printSuperClassesSet(String classExpression, boolean direct) {
+		return dlQueryEngine.getSuperClasses(classExpression, direct);
 	}
 
 	/**
@@ -69,11 +73,15 @@ class DLQueryPrinter {
 		int i = 0;
 		for (OWLClass subClass : subClasses) {
 			subClassesResult[i] = shortFormProvider.getShortForm(subClass);
-			//System.out.println("ShortForm: " + subClassesResult[i]);
+			// System.out.println("ShortForm: " + subClassesResult[i]);
 			i++;
 		}
 
 		return subClassesResult;
+	}
+
+	public Set<OWLClass> printSubClassesSet(String classExpression, boolean direct) {
+		return dlQueryEngine.getSubClasses(classExpression, direct);
 	}
 
 	/**
@@ -90,12 +98,16 @@ class DLQueryPrinter {
 		int i = 0;
 		for (OWLClass equivalentClass : equivalentClasses) {
 			equivalentClassesResult[i] = shortFormProvider.getShortForm(equivalentClass);
-			//System.out.println("ShortForm: " + equivalentClassesResult[i]);
+			// System.out.println("ShortForm: " + equivalentClassesResult[i]);
 			i++;
 		}
 
 		return equivalentClassesResult;
 
+	}
+
+	public Set<OWLClass> printEquivalentClassesSet(String classExpression) {
+		return dlQueryEngine.getEquivalentClasses(classExpression);
 	}
 
 	/**
@@ -113,12 +125,16 @@ class DLQueryPrinter {
 		int i = 0;
 		for (OWLNamedIndividual individual : individuals) {
 			individualsResult[i] = shortFormProvider.getShortForm(individual);
-			//System.out.println("ShortForm: " + individualsResult[i]);
+			// System.out.println("ShortForm: " + individualsResult[i]);
 			i++;
 		}
 
 		return individualsResult;
 
+	}
+
+	public Set<OWLNamedIndividual> printInstancesSet(String classExpression, boolean direct) {
+		return dlQueryEngine.getInstances(classExpression, direct);
 	}
 
 }

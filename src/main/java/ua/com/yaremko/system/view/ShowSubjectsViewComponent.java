@@ -23,7 +23,7 @@ public class ShowSubjectsViewComponent extends AbstractOWLViewComponent {
 	@Override
 	protected void initialiseOWLView() throws Exception {
 		setLayout(new BorderLayout());
-		showSubjectsComponent = new ShowSubjectsPanel(getOWLModelManager());
+		showSubjectsComponent = new ShowSubjectsPanel(getOWLModelManager(), null);
 		add(showSubjectsComponent, BorderLayout.CENTER);
 
 		LOGGER.info("ShowSubjectsComponent initialized");

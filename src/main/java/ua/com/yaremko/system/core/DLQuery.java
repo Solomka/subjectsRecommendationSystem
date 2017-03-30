@@ -1,8 +1,12 @@
 package ua.com.yaremko.system.core;
 
+import java.util.Set;
+
 import org.protege.editor.owl.OWLEditorKit;
 import org.protege.editor.owl.model.inference.OWLReasonerManager;
 import org.protege.editor.owl.model.inference.ReasonerUtilities;
+import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.semanticweb.owlapi.util.ShortFormProvider;
 import org.semanticweb.owlapi.util.SimpleShortFormProvider;
@@ -48,6 +52,10 @@ public class DLQuery {
 		return dlQueryPrinter.printSuperClasses(classExpression, direct);
 	}
 
+	public Set<OWLClass> getSuperClassesSet(String classExpression, boolean direct) {
+		return dlQueryPrinter.printSuperClassesSet(classExpression, direct);
+	}
+
 	/**
 	 * get subclasses
 	 * 
@@ -57,6 +65,10 @@ public class DLQuery {
 	 */
 	public String[] getSubClasses(String classExpression, boolean direct) {
 		return dlQueryPrinter.printSubClasses(classExpression, direct);
+	}
+
+	public Set<OWLClass> getSubClassesSet(String classExpression, boolean direct) {
+		return dlQueryPrinter.printSubClassesSet(classExpression, direct);
 	}
 
 	/**
@@ -69,6 +81,10 @@ public class DLQuery {
 		return dlQueryPrinter.printEquivalentClasses(classExpression);
 	}
 
+	public Set<OWLClass> getEquivalentClassesSet(String classExpression) {
+		return dlQueryPrinter.printEquivalentClassesSet(classExpression);
+	}
+
 	/**
 	 * get instances
 	 * 
@@ -78,7 +94,10 @@ public class DLQuery {
 	 */
 	public String[] getInstances(String classExpression, boolean direct) {
 		return dlQueryPrinter.printInstances(classExpression, direct);
+	}
 
+	public Set<OWLNamedIndividual> getInstancesSet(String classExpression, boolean direct) {
+		return dlQueryPrinter.printInstancesSet(classExpression, direct);
 	}
 
 	public String fromDLQueryParamsToRequest(DLQueryParams dlQueryParams) {
@@ -86,22 +105,16 @@ public class DLQuery {
 
 		if (dlQueryParams.getResearchLine() == null
 				|| dlQueryParams.getResearchLine().equals("--- виберіть напрям дослідження(не обов'язково) ---")) {
-			dlQuery = String.format(
-					"Предмет and "
-					+ "вивчає some %s"
-					+ " and типПредмету some %s"
-					+ " and семестр value \"%s\"^^xsd:string"
-					+ " and кількістьКредитів value \"%s\"^^xsd:double",
-					dlQueryParams.getSpeciality(), dlQueryParams.getSubjectType(), dlQueryParams.getTerm(), dlQueryParams.getCreditsNum());
+			dlQuery = String.format("Предмет and " + "вивчає some %s" + " and типПредмету some %s"
+					+ " and семестр value \"%s\"^^xsd:string" + " and кількістьКредитів value \"%s\"^^xsd:double",
+					dlQueryParams.getSpeciality(), dlQueryParams.getSubjectType(), dlQueryParams.getTerm(),
+					dlQueryParams.getCreditsNum());
 
 		} else {
-			dlQuery = String.format(
-					"Предмет and "
-					+ "вивчає some %s"
-					+ " and типПредмету some %s"
-					+ " and семестр value \"%s\"^^xsd:string"
-					+ " and кількістьКредитів value \"%s\"^^xsd:double",
-					dlQueryParams.getResearchLine(), dlQueryParams.getSubjectType(), dlQueryParams.getTerm(), dlQueryParams.getCreditsNum());
+			dlQuery = String.format("Предмет and " + "вивчає some %s" + " and типПредмету some %s"
+					+ " and семестр value \"%s\"^^xsd:string" + " and кількістьКредитів value \"%s\"^^xsd:double",
+					dlQueryParams.getResearchLine(), dlQueryParams.getSubjectType(), dlQueryParams.getTerm(),
+					dlQueryParams.getCreditsNum());
 		}
 
 		return dlQuery;

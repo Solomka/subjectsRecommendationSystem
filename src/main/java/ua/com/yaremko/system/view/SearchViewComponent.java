@@ -1,10 +1,13 @@
 package ua.com.yaremko.system.view;
 
 import java.awt.GridLayout;
+import java.util.Set;
 
 import javax.swing.JPanel;
 
 import org.protege.editor.owl.ui.view.AbstractOWLViewComponent;
+import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,8 +38,8 @@ public class SearchViewComponent extends AbstractOWLViewComponent {
 		
 		//init view panels
 		showSubjectDetailsPanel = new ShowSubjectDetailsPanel(getOWLModelManager());
-		showSubjectsPanel = new ShowSubjectsPanel(getOWLModelManager());
-		searchFormPanel = new SearchFormPanel(getOWLEditorKit(), getOWLModelManager());		
+		showSubjectsPanel = new ShowSubjectsPanel(getOWLModelManager(), showSubjectDetailsPanel);
+		searchFormPanel = new SearchFormPanel(getOWLEditorKit(), getOWLModelManager(), showSubjectsPanel);		
 		
 		JPanel combinedPanels = new JPanel();
 		combinedPanels.setLayout(new GridLayout(2, 0));
@@ -48,16 +51,30 @@ public class SearchViewComponent extends AbstractOWLViewComponent {
 		//add panel on the view
 		add(searchFormPanel);
 		
-		/*
+		
     	
         DLQuery dlQuery = new DLQuery(getOWLEditorKit());
+        
+     
+        Set<OWLClass> result = dlQuery.getSubClassesSet("Предмет and кількістьКредитів value \"4.5\"^^xsd:double", true);
+        
+        for(OWLClass cls: result){
+        Set<OWLObjectProperty> properties = cls.getObjectPropertiesInSignature();
+        
+        for (OWLObjectProperty prop: properties){
+			System.out.println("PROPERTY: " + prop.toString());
+			
+		}
+        }
+        /*
         String [] result = dlQuery.getSubClasses("Предмет and кількістьКредитів value \"4.5\"^^xsd:double", true);
         
         for (int i = 0; i< result.length; i++) {
         	System.out.println("Entity" + result[i] + "\n");
 			
 		}
-        */
+		*/
+        
         LOGGER.info("SearchViewComponent initialized");
 	}
 
