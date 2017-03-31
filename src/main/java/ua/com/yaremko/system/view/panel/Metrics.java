@@ -1,4 +1,4 @@
-package ua.com.yaremko.system.view;
+package ua.com.yaremko.system.view.panel;
 
 import java.awt.event.ActionListener;
 

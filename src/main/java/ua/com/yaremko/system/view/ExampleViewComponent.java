@@ -6,10 +6,13 @@ import org.protege.editor.owl.ui.view.AbstractOWLViewComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import ua.com.yaremko.system.view.panel.Metrics;
+
 public class ExampleViewComponent extends AbstractOWLViewComponent {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(ExampleViewComponent.class);
-	//private static final Logger LOGGER = Logger.getLogger(ExampleViewComponent.class.getName());
+	// private static final Logger LOGGER =
+	// Logger.getLogger(ExampleViewComponent.class.getName());
 
 	// total number of ontology classes
 	private Metrics metricsComponent;
