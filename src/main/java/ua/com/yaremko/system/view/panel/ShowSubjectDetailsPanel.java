@@ -139,12 +139,7 @@ public class ShowSubjectDetailsPanel extends JPanel {
 		JLabel label = new JLabel("Вивчає:");
 		lpanel.setBorder(BorderFactory.createEmptyBorder(5, 10, 10, 0));
 		lpanel.add(label);
-
-		// sb.append("Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-		// sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-		// ");
-		// sb.append("Ut enim ad minim veniam, quis nostrud exercitation ullamco
-		// laboris nisi ut aliquip ex ea commodo consequat.");
+	
 
 		JPanel description = new JPanel();
 		description.setBackground(bgcolor);
@@ -211,8 +206,14 @@ public class ShowSubjectDetailsPanel extends JPanel {
 		centralPanel.revalidate();
 		centralPanel.repaint();
 
-		SwingUtils.setListAsText(textAreaPre, subject.getPreSubjects());
-		SwingUtils.setListAsText(textAreaPost, subject.getPostSubjects());
+		if(subject.getPreSubjects().size() != 0){
+			SwingUtils.setListAsText(textAreaPre, subject.getPreSubjects());
+			
+		}
+		if(subject.getPostSubjects().size() != 0){
+			SwingUtils.setListAsText(textAreaPost, subject.getPostSubjects());			
+		}		
+		
 		lowerPanel.revalidate();
 		lowerPanel.repaint();
 	}

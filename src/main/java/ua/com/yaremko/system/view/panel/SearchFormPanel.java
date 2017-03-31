@@ -384,8 +384,7 @@ public class SearchFormPanel extends JPanel {
 						subject.setSubjectResearchLines(subjectResearchLines);
 
 						// print suject's preSubjects
-						List<String> preSubjects = (restrictionVisitor.getPreSubjects().size() != 0)
-								? restrictionVisitor.getPreSubjects() : null;
+						List<String> preSubjects = restrictionVisitor.getPreSubjects();
 						System.out.println("PreSubjects SIZE: " + restrictionVisitor.getPreSubjects().size());
 						for (String preSubject : restrictionVisitor.getPreSubjects()) {
 							System.out.println("PreSubject: " + preSubject);
@@ -393,17 +392,18 @@ public class SearchFormPanel extends JPanel {
 						subject.setPreSubjects(preSubjects);
 
 						// print subject's postSubjects
-						List<String> postSubjects = (restrictionVisitor.getPostSubjects().size() != 0)
-								? restrictionVisitor.getPostSubjects() : null;
+						List<String> postSubjects = restrictionVisitor.getPostSubjects();
 						System.out.println("PostSubjects SIZE: " + restrictionVisitor.getPostSubjects().size());
 						for (String postSubject : restrictionVisitor.getPostSubjects()) {
 							System.out.println("PostSubject: " + postSubject);
 						}
-						subject.setPostSubjects(preSubjects);
+						subject.setPostSubjects(postSubjects);
 
 						// fill SubjectDTO
 						subject.setName(shortSubjectName);
 						System.out.println("Recommended subject: " + subject.toString());
+						System.out.println("PreSubjects: " + subject.getPreSubjects().size());
+						System.out.println("PostSubjects: " + subject.getPostSubjects().size());
 						recommendedSubjects.add(subject);
 					}
 

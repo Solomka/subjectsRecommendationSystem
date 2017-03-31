@@ -97,8 +97,9 @@ public class ShowSubjectsPanel extends JPanel {
 		table = new JTable(model);
 
 		TableColumnModel tcm = table.getColumnModel();
-		tcm.getColumn(0).setPreferredWidth(3 * size.width / 5);
-		tcm.getColumn(1).setPreferredWidth(2 * size.width / 5);
+		tcm.getColumn(0).setPreferredWidth(size.width / 5);
+		tcm.getColumn(1).setPreferredWidth(3 * size.width / 5);
+		tcm.getColumn(2).setPreferredWidth(2 * size.width / 5);
 
 		table.getTableHeader().setPreferredSize(new Dimension(table.getSize().width, 30));
 		table.getTableHeader().setBackground(Color.WHITE);
@@ -121,7 +122,8 @@ public class ShowSubjectsPanel extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				int selectedRow = table.getSelectedRow();
 				if (selectedRow == -1) {
-					JOptionPane.showMessageDialog(null, "Виберіть рядок");
+					JOptionPane.showMessageDialog(null, "Виберіть предмет!", "Помилка",
+							JOptionPane.ERROR_MESSAGE);
 					return;
 				}
 				showSubjectDetailsPanel.setSubject(data.get(selectedRow));
