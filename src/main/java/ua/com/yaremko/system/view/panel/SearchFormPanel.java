@@ -308,18 +308,6 @@ public class SearchFormPanel extends JPanel {
 					DLQueryParams dlQueryParams = getUserSelections();
 					String dlQueryRequest = dlQuery.fromDLQueryParamsToRequest(dlQueryParams);
 
-					// test printing
-					/*
-					 * String[] recommendedSubjects =
-					 * dlQuery.getSubClasses(dlQueryRequest, true);
-					 * 
-					 * for (int i = 0; i < recommendedSubjects.length; i++) {
-					 * System.out.println("Recommended subjec: " +
-					 * recommendedSubjects[i]); }
-					 * showSubjectsPanel.setTableSubjects(recommendedSubjects);
-					 * 
-					 */
-
 					Set<OWLClass> recommSubjects = dlQuery.getSubClassesSet(dlQueryRequest, true);
 					OWLOntology currectOntology = modelManager.getOWLReasonerManager().getCurrentReasoner()
 							.getRootOntology();

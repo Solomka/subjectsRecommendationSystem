@@ -59,6 +59,7 @@ public class ShowSubjectsPanel extends JPanel {
 
 		JPanel lpanel = new JPanel();
 		lpanel.setBackground(bgcolor);
+		// setBorder(BorderFactory.createLineBorder(Color.RED));
 		lpanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 15, 0));
 
 		JLabel label = new JLabel("Рекомендовані предмети");

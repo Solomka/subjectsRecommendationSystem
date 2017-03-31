@@ -28,8 +28,8 @@ public class ShowSubjectDetailsPanel extends JPanel {
 
 	private int fontSize = 12;
 	private Font font = new Font("TimesRoman", Font.PLAIN, fontSize);
-	private Color bgcolor = Color.WHITE;	
-	
+	private Color bgcolor = Color.WHITE;
+
 	private DefaultTableModel model;
 	private JPanel tablePanel = new JPanel();
 
@@ -38,7 +38,7 @@ public class ShowSubjectDetailsPanel extends JPanel {
 
 	private JTextArea textAreaPre = new JTextArea();
 	private JTextArea textAreaPost = new JTextArea();
-	private JPanel lowerPanel = new JPanel();	
+	private JPanel lowerPanel = new JPanel();
 
 	private SubjectDTO subject = emptySubjectDTO();
 
@@ -66,7 +66,7 @@ public class ShowSubjectDetailsPanel extends JPanel {
 
 		JLabel label = new JLabel("Деталі предмету");
 		JPanel lpanel = new JPanel();
-		lpanel.setBackground(bgcolor);		
+		lpanel.setBackground(bgcolor);
 		lpanel.add(label);
 
 		model = new DefaultTableModel() {
@@ -110,10 +110,6 @@ public class ShowSubjectDetailsPanel extends JPanel {
 				subject.getTotalHours(), subject.getCreditsNum(), subject.getWeekHours() });
 		System.out.println(subject.getName());
 
-		// model.insertRow(0, new String[]{ "Об'єктно-орієнтоване
-		// програмування", "Кафедра філософії", "залік", "4", "144", "2", "2"
-		// });
-
 		table.getTableHeader().setPreferredSize(new Dimension(table.getSize().width, 40));
 		table.getTableHeader().setBackground(Color.WHITE);
 
@@ -139,7 +135,6 @@ public class ShowSubjectDetailsPanel extends JPanel {
 		JLabel label = new JLabel("Вивчає:");
 		lpanel.setBorder(BorderFactory.createEmptyBorder(5, 10, 10, 0));
 		lpanel.add(label);
-	
 
 		JPanel description = new JPanel();
 		description.setBackground(bgcolor);
@@ -168,8 +163,6 @@ public class ShowSubjectDetailsPanel extends JPanel {
 		JLabel label = new JLabel("Базові предмети");
 		lpanel.setBorder(BorderFactory.createEmptyBorder(5, 0, 10, 0));
 		lpanel.add(label);
-		// JTextArea textArea = SwingUtils.createTextDiv(font, "Процедурне
-		// програмування", size.width/2, padding, bgcolor);
 		textAreaPre = SwingUtils.createTextDiv(font, subject.getPreSubjects(), size.width / 2, padding, bgcolor);
 		left.add(lpanel, BorderLayout.NORTH);
 		left.add(textAreaPre, BorderLayout.CENTER);
@@ -181,9 +174,6 @@ public class ShowSubjectDetailsPanel extends JPanel {
 		JLabel label2 = new JLabel("Предмети-продовження");
 		lpanel2.setBorder(BorderFactory.createEmptyBorder(5, 0, 10, 0));
 		lpanel2.add(label2);
-		// JTextArea textArea2 = SwingUtils.createTextDiv(font, "Методи
-		// об'єктно-орієнтованого програмування", size.width/2, padding,
-		// bgcolor);
 		textAreaPost = SwingUtils.createTextDiv(font, subject.getPostSubjects(), size.width / 2, padding, bgcolor);
 		right.add(lpanel2, BorderLayout.NORTH);
 		right.add(textAreaPost, BorderLayout.CENTER);
@@ -206,14 +196,14 @@ public class ShowSubjectDetailsPanel extends JPanel {
 		centralPanel.revalidate();
 		centralPanel.repaint();
 
-		if(subject.getPreSubjects().size() != 0){
+		if (subject.getPreSubjects().size() != 0) {
 			SwingUtils.setListAsText(textAreaPre, subject.getPreSubjects());
-			
+
 		}
-		if(subject.getPostSubjects().size() != 0){
-			SwingUtils.setListAsText(textAreaPost, subject.getPostSubjects());			
-		}		
-		
+		if (subject.getPostSubjects().size() != 0) {
+			SwingUtils.setListAsText(textAreaPost, subject.getPostSubjects());
+		}
+
 		lowerPanel.revalidate();
 		lowerPanel.repaint();
 	}
