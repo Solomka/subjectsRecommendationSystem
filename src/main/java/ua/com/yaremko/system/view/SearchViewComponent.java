@@ -1,17 +1,18 @@
 package ua.com.yaremko.system.view;
 
 import java.awt.GridLayout;
-import java.util.Set;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import org.protege.editor.owl.model.event.EventType;
+import org.protege.editor.owl.model.event.OWLModelManagerListener;
 import org.protege.editor.owl.ui.view.AbstractOWLViewComponent;
-import org.semanticweb.owlapi.model.OWLClass;
-import org.semanticweb.owlapi.model.OWLObjectProperty;
+import org.semanticweb.owlapi.model.IRI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ua.com.yaremko.system.core.DLQuery;
+import ua.com.yaremko.system.core.SubjectPropertiesConstants;
 import ua.com.yaremko.system.view.panel.SearchFormPanel;
 import ua.com.yaremko.system.view.panel.ShowSubjectDetailsPanel;
 import ua.com.yaremko.system.view.panel.ShowSubjectsPanel;
@@ -28,62 +29,61 @@ public class SearchViewComponent extends AbstractOWLViewComponent {
 
 	private ShowSubjectDetailsPanel showSubjectDetailsPanel;
 	private ShowSubjectsPanel showSubjectsPanel;
-	private SearchFormPanel searchFormPanel;	
+	private SearchFormPanel searchFormPanel;
 
+	private final OWLModelManagerListener listener = event -> {
+		if (event.isType(EventType.ONTOLOGY_CLASSIFIED)) {
+			System.out.println("REPAINT!!!!!!!!!!!!");
+			searchFormPanel.fillSubjectTypeBox();
+
+		}
+	};
 
 	@Override
 	protected void initialiseOWLView() throws Exception {
-		
+
+		getOWLModelManager().addListener(listener);
+
 		setLayout(new GridLayout(0, 2));
-		
-		//init view panels
-		showSubjectDetailsPanel = new ShowSubjectDetailsPanel(getOWLModelManager());
-		showSubjectsPanel = new ShowSubjectsPanel(getOWLModelManager(), showSubjectDetailsPanel);
-		searchFormPanel = new SearchFormPanel(getOWLEditorKit(), getOWLModelManager(), showSubjectsPanel);		
-		
-		JPanel combinedPanels = new JPanel();
-		combinedPanels.setLayout(new GridLayout(2, 0));
-		combinedPanels.add(showSubjectsPanel);
-		combinedPanels.add(showSubjectDetailsPanel);
-		
-		add(combinedPanels);
-		
-		//add panel on the view
-		add(searchFormPanel);
-		
-		
-    	
-        DLQuery dlQuery = new DLQuery(getOWLEditorKit());
-        
-     
-        Set<OWLClass> result = dlQuery.getSubClassesSet("Предмет and кількістьКредитів value \"4.5\"^^xsd:double", true);
-        
-        for(OWLClass cls: result){
-        Set<OWLObjectProperty> properties = cls.getObjectPropertiesInSignature();
-        
-        for (OWLObjectProperty prop: properties){
-			System.out.println("PROPERTY: " + prop.toString());
-			
+
+		System.out.println("ONTOLOGY ID: " + getOWLEditorKit().getOWLModelManager().getOWLReasonerManager()
+				.getCurrentReasoner().getRootOntology().getOntologyID().getOntologyIRI().get());
+
+		IRI currOntologyIRI = getOWLEditorKit().getOWLModelManager().getOWLReasonerManager().getCurrentReasoner()
+				.getRootOntology().getOntologyID().getOntologyIRI().get();
+
+		if (currOntologyIRI != null
+				&& currOntologyIRI.toString().equals(SubjectPropertiesConstants.PLUGIN_ONTOLOGY_IRI)) {
+			// init view panels
+			showSubjectDetailsPanel = new ShowSubjectDetailsPanel(getOWLModelManager());
+			showSubjectsPanel = new ShowSubjectsPanel(getOWLModelManager(), showSubjectDetailsPanel);
+			searchFormPanel = new SearchFormPanel(getOWLEditorKit(), getOWLModelManager(), showSubjectsPanel);
+
+			JPanel combinedPanels = new JPanel();
+			combinedPanels.setLayout(new GridLayout(2, 0));
+			combinedPanels.add(showSubjectsPanel);
+			combinedPanels.add(showSubjectDetailsPanel);
+
+			// add panels on the view
+			add(combinedPanels);
+			add(searchFormPanel);
+
+			LOGGER.info("SearchViewComponent initialized");
+		} else {
+			JOptionPane.showMessageDialog(null, "Виберіть онтологію Subjects!", "Помилка", JOptionPane.ERROR_MESSAGE);
+
+			LOGGER.info("SearchViewComponent is not fully initialized ");
 		}
-        }
-        /*
-        String [] result = dlQuery.getSubClasses("Предмет and кількістьКредитів value \"4.5\"^^xsd:double", true);
-        
-        for (int i = 0; i< result.length; i++) {
-        	System.out.println("Entity" + result[i] + "\n");
-			
-		}
-		*/
-        
-        LOGGER.info("SearchViewComponent initialized");
+
 	}
 
 	@Override
 	protected void disposeOWLView() {
+		getOWLModelManager().removeListener(listener);
+
 		searchFormPanel.dispose();
 		showSubjectsPanel.dispose();
-		showSubjectDetailsPanel.dispose();	
-		
+		showSubjectDetailsPanel.dispose();
 	}
-	
+
 }

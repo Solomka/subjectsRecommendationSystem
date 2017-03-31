@@ -36,9 +36,11 @@ public class DLQuery {
 		reasoner = reasonerManager.getCurrentReasoner();
 
 		shortFormProvider = new SimpleShortFormProvider();
-		// Create the DLQueryPrinter helper class. This will manage the parsing
+		// Create the DLQueryPrinter helper class. This will manage the
+		// parsing
 		// of input and printing of results
 		dlQueryPrinter = new DLQueryPrinter(new DLQueryEngine(reasoner, shortFormProvider), shortFormProvider);
+
 	}
 
 	/**
