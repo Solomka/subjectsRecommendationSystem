@@ -1,6 +1,7 @@
 package ua.com.yaremko.system.view.panel;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -83,23 +84,34 @@ public class SearchFormPanel extends JPanel {
 
 	private static final int BORDER = 40;
 
-	private static final Font font = new Font("SansSerif", Font.PLAIN, 14);
+	private Dimension size;
 
-	public SearchFormPanel(OWLEditorKit owlEditorKit, OWLModelManager modelManager,
+	private int fontSize = 12;
+	private Font font = new Font("TimesRoman", Font.PLAIN, fontSize);
+	private Color bgcolor = Color.WHITE;
+
+	public SearchFormPanel(OWLEditorKit owlEditorKit, OWLModelManager modelManager, Dimension preferredSize,
 			ShowSubjectsPanel showSubjectsPanel) {
 		this.modelManager = modelManager;
 		this.owlEditorKit = owlEditorKit;
 		this.showSubjectsPanel = showSubjectsPanel;
 
-		setBorder(BorderFactory.createEmptyBorder(BORDER / 3, BORDER, BORDER / 3, BORDER));
 		setLayout(new GridLayout(0, 1));
+		setBackground(bgcolor);
+		// setBorder(BorderFactory.createLineBorder(Color.RED));
+		setBorder(BorderFactory.createEmptyBorder(0, BORDER / 3, 0, BORDER / 3));
+		if (preferredSize.width < 300)
+			System.out.println("[ WARNING ] Recommended minimal width for SubjectPanel is 300");
+		if (preferredSize.height < 400)
+			System.out.println("[ WARNING ] Recommended minimal height for SubjectPanel is 400");
+		this.size = preferredSize;
+		setPreferredSize(size);
 
 		init();
 		initListeners();
 
 		// add components to the Panel
 		add(infoLabel);
-		add(new JLabel());
 		add(scienceBranchBox);
 		add(new JLabel());
 		add(specialityBox);
@@ -120,46 +132,54 @@ public class SearchFormPanel extends JPanel {
 
 		// init labels
 		infoLabel = new JLabel("Виберіть критерії пошуку предмету");
-		infoLabel.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+		infoLabel.setFont(font);
 		infoLabel.setHorizontalAlignment(JLabel.CENTER);
 
 		// init comboBoxex
 		scienceBranchBox = new JComboBox<String>();
-		((JLabel) scienceBranchBox.getRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
+		scienceBranchBox.setBackground(bgcolor);
+		((JLabel) scienceBranchBox.getRenderer()).setHorizontalAlignment(SwingConstants.LEADING);
 		scienceBranchBox.addItem(scBranchDefault);
 		// fill scienceBranches
 		fillscienceBranchBox();
 
 		specialityBox = new JComboBox<String>();
-		((JLabel) specialityBox.getRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
+		specialityBox.setBackground(bgcolor);
+		((JLabel) specialityBox.getRenderer()).setHorizontalAlignment(SwingConstants.LEADING);
 		specialityBox.addItem(specDefault);
 		// disabled
 		specialityBox.setEnabled(false);
 
 		researchLineBox = new JComboBox<String>();
-		((JLabel) researchLineBox.getRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
+		researchLineBox.setBackground(bgcolor);
+		((JLabel) researchLineBox.getRenderer()).setHorizontalAlignment(SwingConstants.LEADING);
 		researchLineBox.addItem(resLineDefault);
 		researchLineBox.setSelectedItem(resLineDefault);
 		// disabled
 		researchLineBox.setEnabled(false);
 
 		subjectTypeBox = new JComboBox<String>();
-		((JLabel) subjectTypeBox.getRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
+		subjectTypeBox.setBackground(bgcolor);
+		((JLabel) subjectTypeBox.getRenderer()).setHorizontalAlignment(SwingConstants.LEADING);
 		subjectTypeBox.addItem(subjTypeDefault);
 		// fill subject types
 		fillSubjectTypeBox();
 
 		termBox = new JComboBox<String>(terms);
-		((JLabel) termBox.getRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
+		termBox.setBackground(bgcolor);
+		((JLabel) termBox.getRenderer()).setHorizontalAlignment(SwingConstants.LEADING);
 
 		creditsNumBox = new JComboBox<String>(creditNums);
-		((JLabel) creditsNumBox.getRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
+		creditsNumBox.setBackground(bgcolor);
+		((JLabel) creditsNumBox.getRenderer()).setHorizontalAlignment(SwingConstants.LEADING);
 
 		// init search button
 		searchButtonPanel = new JPanel();
 		searchButtonPanel.setLayout(new BorderLayout());
+		searchButtonPanel.setBackground(bgcolor);
 
 		searchButton = new JButton("Шукати");
+		// searchButton.setBackground(bgcolor);
 		searchButton.setFont(font);
 		searchButton.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
 		searchButton.setEnabled(false);
@@ -334,14 +354,6 @@ public class SearchFormPanel extends JPanel {
 								subject.setFaculty(objectProperties.get(key));
 							} else if (key.equals(SubjectPropertiesConstants.SUBJECT_TYPE)) {
 								subject.setType(objectProperties.get(key));
-							} else if (key.equals(SubjectPropertiesConstants.TERM)) {
-								subject.setTerm(objectProperties.get(key));
-							} else if (key.equals(SubjectPropertiesConstants.CREDITS_NUM)) {
-								subject.setCreditsNum(objectProperties.get(key));
-							} else if (key.equals(SubjectPropertiesConstants.TOTAL_HOURS_NUM)) {
-								subject.setTotalHours(objectProperties.get(key));
-							} else if (key.equals(SubjectPropertiesConstants.WEEK_HOURS_NUM)) {
-								subject.setWeekHours(objectProperties.get(key));
 							}
 
 						}
@@ -352,13 +364,13 @@ public class SearchFormPanel extends JPanel {
 							System.out.println("DataProp: " + key + " Value: " + dataProperties.get(key));
 
 							if (key.equals(SubjectPropertiesConstants.TERM)) {
-								subject.setTerm(objectProperties.get(key));
+								subject.setTerm(dataProperties.get(key));
 							} else if (key.equals(SubjectPropertiesConstants.CREDITS_NUM)) {
-								subject.setCreditsNum(objectProperties.get(key));
+								subject.setCreditsNum(dataProperties.get(key));
 							} else if (key.equals(SubjectPropertiesConstants.WEEK_HOURS_NUM)) {
-								subject.setWeekHours(objectProperties.get(key));
+								subject.setWeekHours(dataProperties.get(key));
 							} else if (key.equals(SubjectPropertiesConstants.TOTAL_HOURS_NUM)) {
-								subject.setTotalHours(objectProperties.get(key));
+								subject.setTotalHours(dataProperties.get(key));
 							}
 						}
 
@@ -391,20 +403,19 @@ public class SearchFormPanel extends JPanel {
 
 						// fill SubjectDTO
 						subject.setName(shortSubjectName);
+						System.out.println("Recommended subject: " + subject.toString());
 						recommendedSubjects.add(subject);
 					}
 
 					System.out.println("RECOMMENDED SUBJECTS SIZE: " + recommendedSubjects.size());
-					showSubjectsPanel.setTableSubjects(recommendedSubjects);
+					showSubjectsPanel.setData(recommendedSubjects);
+					showSubjectsPanel.revalidate();
+					showSubjectsPanel.repaint();
 
 				}
 			}
 
 		});
-
-	}
-
-	public void dispose() {
 
 	}
 
@@ -476,6 +487,10 @@ public class SearchFormPanel extends JPanel {
 		dlQueryParams.setCreditsNum(credNumSelected);
 
 		return dlQueryParams;
+	}
+
+	public void dispose() {
+
 	}
 
 }

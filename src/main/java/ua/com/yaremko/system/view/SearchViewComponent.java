@@ -1,6 +1,7 @@
 package ua.com.yaremko.system.view;
 
-import java.awt.GridLayout;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -27,6 +28,8 @@ public class SearchViewComponent extends AbstractOWLViewComponent {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(SearchViewComponent.class);
 
+	private Dimension size;
+
 	private ShowSubjectDetailsPanel showSubjectDetailsPanel;
 	private ShowSubjectsPanel showSubjectsPanel;
 	private SearchFormPanel searchFormPanel;
@@ -35,7 +38,6 @@ public class SearchViewComponent extends AbstractOWLViewComponent {
 		if (event.isType(EventType.ONTOLOGY_CLASSIFIED)) {
 			System.out.println("REPAINT!!!!!!!!!!!!");
 			searchFormPanel.fillSubjectTypeBox();
-
 		}
 	};
 
@@ -44,7 +46,13 @@ public class SearchViewComponent extends AbstractOWLViewComponent {
 
 		getOWLModelManager().addListener(listener);
 
-		setLayout(new GridLayout(0, 2));
+		this.size = new Dimension(1000, 700);
+		setPreferredSize(size);
+
+		int rightWidth = size.width / 2;
+		int leftTopHeight = size.height / 2;
+
+		setLayout(new BorderLayout());
 
 		System.out.println("ONTOLOGY ID: " + getOWLEditorKit().getOWLModelManager().getOWLReasonerManager()
 				.getCurrentReasoner().getRootOntology().getOntologyID().getOntologyIRI().get());
@@ -55,18 +63,19 @@ public class SearchViewComponent extends AbstractOWLViewComponent {
 		if (currOntologyIRI != null
 				&& currOntologyIRI.toString().equals(SubjectPropertiesConstants.PLUGIN_ONTOLOGY_IRI)) {
 			// init view panels
-			showSubjectDetailsPanel = new ShowSubjectDetailsPanel(getOWLModelManager());
-			showSubjectsPanel = new ShowSubjectsPanel(getOWLModelManager(), showSubjectDetailsPanel);
-			searchFormPanel = new SearchFormPanel(getOWLEditorKit(), getOWLModelManager(), showSubjectsPanel);
+			showSubjectDetailsPanel = new ShowSubjectDetailsPanel(
+					new Dimension(size.width - rightWidth, size.height - leftTopHeight));
+			showSubjectsPanel = new ShowSubjectsPanel(getOWLModelManager(),
+					new Dimension(size.width - rightWidth, leftTopHeight), showSubjectDetailsPanel);
+			searchFormPanel = new SearchFormPanel(getOWLEditorKit(), getOWLModelManager(),
+					new Dimension(rightWidth, size.height), showSubjectsPanel);
 
-			JPanel combinedPanels = new JPanel();
-			combinedPanels.setLayout(new GridLayout(2, 0));
-			combinedPanels.add(showSubjectsPanel);
-			combinedPanels.add(showSubjectDetailsPanel);
+			JPanel left = new JPanel(new BorderLayout());
+			left.add(showSubjectsPanel, BorderLayout.CENTER);
+			left.add(showSubjectDetailsPanel, BorderLayout.SOUTH);
 
-			// add panels on the view
-			add(combinedPanels);
-			add(searchFormPanel);
+			add(left, BorderLayout.CENTER);
+			add(searchFormPanel, BorderLayout.EAST);
 
 			LOGGER.info("SearchViewComponent initialized");
 		} else {
