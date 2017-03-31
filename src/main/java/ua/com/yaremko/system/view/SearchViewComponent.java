@@ -36,7 +36,7 @@ public class SearchViewComponent extends AbstractOWLViewComponent {
 
 	private final OWLModelManagerListener listener = event -> {
 		if (event.isType(EventType.ONTOLOGY_CLASSIFIED)) {
-			System.out.println("REPAINT!!!!!!!!!!!!");
+		
 			searchFormPanel.fillSubjectTypeBox();
 		}
 	};

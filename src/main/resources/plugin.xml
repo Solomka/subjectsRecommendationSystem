@@ -14,26 +14,11 @@ and (more advanced) the ways in which the plugin capabilities can be extended by
 		<class value="ua.com.yaremko.system.tab.SubjectsRecommenderTab"/>
 		<index value="Z"/>
 		<editorKitId value="OWLEditorKit"/>
+		<!--<defaultViewConfigFileName value=" viewconfig-recommendertab.xml"/>-->
 		<defaultViewConfigFileName value=" viewconfig-recommenderSystemTab.xml"/>
    </extension>
    
-	<extension id="ExampleWorkspaceTab" point="org.protege.editor.core.application.WorkspaceTab">
-		<label value="Example Tab"/>
-		<class value="org.protege.editor.owl.ui.OWLWorkspaceViewsTab"/>
-		<index value="X"/>
-		<editorKitId value="OWLEditorKit"/>
-		<!-- <defaultViewConfigFileName value="viewconfig-exampletab.xml"/> -->
-		<defaultViewConfigFileName value="viewconfig-exampleTabMy.xml"/>		
-   </extension>
-
-	<extension id="ExampleWorkspaceTab2" point="org.protege.editor.core.application.WorkspaceTab">
-		<label value="Example Tab (2)"/>
-		<class value="ua.com.yaremko.system.tab.ExampleWorkspaceTab2"/>
-		<index value="Y"/>
-		<editorKitId value="OWLEditorKit"/>
-		<defaultViewConfigFileName value="viewconfig-exampletab2.xml"/>
-   </extension>
-
+	
 	<!-- View -->
 	<!-- This extension is attempting to implement the functionality
 	 represented by the extension point with the name -->
@@ -72,69 +57,6 @@ and (more advanced) the ways in which the plugin capabilities can be extended by
 		<!-- the category declaration tells Protege 
 		which menu under the View menu should contain this view.-->
 		<category value="@org.protege.miscellaneouscategory" />
-	</extension>
-	
-	<!-- TO DELETE -->
-	<extension id="ExampleViewComponent" point="org.protege.editor.core.application.ViewComponent">
-		<!-- The label declaration tells Protege what to put in the title bar of the view. -->
-		<label value="Example view component" />
-		<!-- The class declaration indicates which class implements the functionality needed by this view.  -->
-		<class value="ua.com.yaremko.system.view.ExampleViewComponent" />
-		<headerColor value="@org.protege.ontologycolor"/>
-		<!-- the category declaration tells Protege 
-		which menu under the View menu should contain this view.-->
-		<category value="@org.protege.ontologycategory" />
-	</extension>
-	
-	
-	<!-- TO DELETE -->
-	<!-- Menu items under Tools menu -->	
-	<extension id="toolmenu1" point="org.protege.editor.core.application.EditorKitMenuAction">
-		<name value="Example menu item (1)"/>
-		<path value="org.protege.editor.owl.menu.tools/SlotG-A"/>
-		<toolTip value="This example menu item appears in the Tools menu"/>
-		<class value="ua.com.yaremko.system.menu.ToolsMenu1"/>
-		<editorKitId value="any"/>
-	</extension>
-
-    <extension id="toolmenu2" point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Example menu item (2)"/>
-        <path value="org.protege.editor.owl.menu.tools/SlotG-B"/>
-        <toolTip value="This is another example menu item that appears in the Tools menu"/>
-        <class value="ua.com.yaremko.system.menu.ToolsMenu2"/>
-        <editorKitId value="any"/>
-    </extension>
-
-	<extension id="toolmenu3" point="org.protege.editor.core.application.EditorKitMenuAction">
-		<name value="Example menu item (3)"/>
-		<path value="org.protege.editor.owl.menu.tools/SlotJ-A"/>
-		<toolTip value="This example menu item appears in the Tools menu in a separate category"/>
-		<class value="ua.com.yaremko.system.menu.ToolsMenu3"/>
-		<editorKitId value="any"/>
-	</extension>
-	
-	<!-- Top Menu -->
-    <extension id="topmenu" point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Example Menu"/>
-        <path value="/SlotG-A"/>
-        <editorKitId value="any"/>
-    </extension>
-
-	<!-- Top SubMenu -->
-    <extension id="submenu" point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Example menu item"/>
-        <path value="${project.artifactId}.topmenu/SlotCR-A"/>
-	   <!--  indicates that the menu is to be used in the context of the owl editor -->
-	    <editorKitId value="OWLEditorKit"/>
-    </extension> 
-    
-	<!-- Top SubMenu SubMenu-->
-    <extension id="menu3" point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Example submenu item"/>
-        <path value="${project.artifactId}.submenu/SlotA-A"/>
-        <toolTip value="This is an example submenu item"/>
-        <class value="ua.com.yaremko.system.menu.UnderSubMenu"/>
-        <editorKitId value="any"/>
-    </extension>
+	</extension>	
     
 </plugin>
