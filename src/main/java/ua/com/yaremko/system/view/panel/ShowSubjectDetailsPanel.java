@@ -196,13 +196,13 @@ public class ShowSubjectDetailsPanel extends JPanel {
 		centralPanel.revalidate();
 		centralPanel.repaint();
 
-		if (subject.getPreSubjects().size() != 0) {
+		//if (subject.getPreSubjects().size() != 0) {
 			SwingUtils.setListAsText(textAreaPre, subject.getPreSubjects());
 
-		}
-		if (subject.getPostSubjects().size() != 0) {
+		//}
+		//if (subject.getPostSubjects().size() != 0) {
 			SwingUtils.setListAsText(textAreaPost, subject.getPostSubjects());
-		}
+		//}
 
 		lowerPanel.revalidate();
 		lowerPanel.repaint();

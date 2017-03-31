@@ -286,8 +286,8 @@ public class SearchFormPanel extends JPanel {
 					JOptionPane.showMessageDialog(null, "Виберіть спеціальність!", "Некоректний ввід даних",
 							JOptionPane.ERROR_MESSAGE);
 					return;
-				} else if (subjectTypeSelected == null || subjectTypeSelected.equals(subjTypeDefault)) {
-					JOptionPane.showMessageDialog(null, "Виберіть тип дисципліни!", "Некоректний ввід даних",
+				} /*else if (subjectTypeSelected == null || subjectTypeSelected.equals(subjTypeDefault)) {
+					JOptionPane.showMessageDialog(null, "Виберіть тип предмету!", "Некоректний ввід даних",
 							JOptionPane.ERROR_MESSAGE);
 					return;
 				} else if (termSelected == null || termSelected.equals(termDefault)) {
@@ -298,7 +298,7 @@ public class SearchFormPanel extends JPanel {
 					JOptionPane.showMessageDialog(null, "Виберіть к-сть кредитів!", "Некоректний ввід даних",
 							JOptionPane.ERROR_MESSAGE);
 					return;
-				} else {
+				} */else {
 					JOptionPane.showMessageDialog(null, "Успішного запису на дисципліни =)", "Операція успішна",
 							JOptionPane.INFORMATION_MESSAGE);
 

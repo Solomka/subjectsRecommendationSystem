@@ -101,7 +101,41 @@ public class DLQuery {
 	public Set<OWLNamedIndividual> getInstancesSet(String classExpression, boolean direct) {
 		return dlQueryPrinter.printInstancesSet(classExpression, direct);
 	}
+	
+	public String fromDLQueryParamsToRequest(DLQueryParams dlQueryParams) {
+		StringBuilder sb = new StringBuilder();
+		String dlQuery = "";
+		String subRequest="";
+		
+		if (dlQueryParams.getResearchLine() == null
+				|| dlQueryParams.getResearchLine().equals("--- виберіть напрям дослідження(не обов'язково) ---")) {
+			dlQuery = String.format("Предмет and " + "вивчає some %s",
+					dlQueryParams.getSpeciality());
 
+		} else {
+			dlQuery = String.format("Предмет and " + "вивчає some %s",
+					dlQueryParams.getResearchLine());
+		}
+		sb.append(dlQuery);
+		
+		if(dlQueryParams.getSubjectType() != null && dlQueryParams.getSubjectType() != "--- виберіть тип предмету ---"){
+			subRequest = String.format(" and типПредмету some %s", dlQueryParams.getSubjectType());
+			sb.append(subRequest);
+		}
+		if(dlQueryParams.getTerm() != null && dlQueryParams.getTerm() != "--- виберіть семестр ---"){
+			subRequest = String.format(" and семестр value \"%s\"^^xsd:string", dlQueryParams.getTerm());
+			sb.append(subRequest);
+		}
+		if(dlQueryParams.getCreditsNum() != null && dlQueryParams.getCreditsNum() != "--- виберіть к-сть кредитів ---"){
+			subRequest = String.format(" and кількістьКредитів value \"%s\"^^xsd:double", dlQueryParams.getCreditsNum());
+			sb.append(subRequest);
+		}
+		
+		System.out.println("FINAL DLQUERY REAQUEST: " + sb.toString());
+		return sb.toString();
+	}
+	
+/*
 	public String fromDLQueryParamsToRequest(DLQueryParams dlQueryParams) {
 		String dlQuery = "";
 
@@ -121,5 +155,6 @@ public class DLQuery {
 
 		return dlQuery;
 	}
+	*/
 
 }
