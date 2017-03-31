@@ -24,10 +24,6 @@ import org.semanticweb.owlapi.util.SimpleShortFormProvider;
 
 public class RestrictionVisitor extends OWLClassExpressionVisitorAdapter {
 
-	private static final String STUDY_OBJECT_PROP = "вивчає";
-	private static final String HAS_SUBJECT_CONTINUE = "маєПредметПрод";
-	private static final String IS_SUBJECT_CONTINUE = "єПредметПрод";
-
 	private final Set<OWLOntology> onts;
 	private final Set<OWLClass> processedClasses;
 	private final ShortFormProvider shortFormProvider;
@@ -99,14 +95,14 @@ public class RestrictionVisitor extends OWLClassExpressionVisitorAdapter {
 		final String objectProperty = shortFormProvider.getShortForm((OWLEntity) desc.getProperty());
 		final String objectPropertyValue = shortFormProvider.getShortForm((OWLEntity) desc.getFiller());
 		System.out.println("OBJECT PROPERTY: " + objectProperty);
-		if (objectProperty.equals(STUDY_OBJECT_PROP)) {
+		if (objectProperty.equals(SubjectPropertiesConstants.STUDY_OBJECT_PROP)) {
 
 			subjectResearchLines.add(objectPropertyValue);
-		} else if (objectProperty.equals(IS_SUBJECT_CONTINUE)) {
+		} else if (objectProperty.equals(SubjectPropertiesConstants.IS_SUBJECT_CONTINUE)) {
 
 			preSubjects.add(objectPropertyValue);
 
-		} else if (objectProperty.equals(HAS_SUBJECT_CONTINUE)) {
+		} else if (objectProperty.equals(SubjectPropertiesConstants.HAS_SUBJECT_CONTINUE)) {
 			postSubjects.add(objectPropertyValue);
 		} else {
 

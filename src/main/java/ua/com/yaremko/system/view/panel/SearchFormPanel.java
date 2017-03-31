@@ -8,8 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -24,32 +22,24 @@ import javax.swing.SwingConstants;
 
 import org.protege.editor.owl.OWLEditorKit;
 import org.protege.editor.owl.model.OWLModelManager;
-import org.protege.editor.owl.model.event.EventType;
-import org.protege.editor.owl.model.event.OWLModelManagerListener;
 import org.semanticweb.owlapi.model.OWLClass;
-import org.semanticweb.owlapi.model.OWLClassExpression;
-import org.semanticweb.owlapi.model.OWLDataPropertyExpression;
-import org.semanticweb.owlapi.model.OWLEntity;
-import org.semanticweb.owlapi.model.OWLLiteral;
-import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
 import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.model.OWLPropertyExpression;
 import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
-import org.semanticweb.owlapi.util.PropertyAssertionValueShortFormProvider;
 import org.semanticweb.owlapi.util.ShortFormProvider;
 import org.semanticweb.owlapi.util.SimpleShortFormProvider;
 
-import ch.qos.logback.classic.sift.SiftAction;
 import ua.com.yaremko.system.core.DLQuery;
 import ua.com.yaremko.system.core.DLQueryParams;
 import ua.com.yaremko.system.core.RestrictionVisitor;
+import ua.com.yaremko.system.core.SubjectDTO;
+import ua.com.yaremko.system.core.SubjectPropertiesConstants;
 
 public class SearchFormPanel extends JPanel {
 
 	// to work with ontology in protege
 	private OWLModelManager modelManager;
 	private OWLEditorKit owlEditorKit;
-	
+
 	private ShowSubjectsPanel showSubjectsPanel;
 
 	// labels
@@ -106,8 +96,6 @@ public class SearchFormPanel extends JPanel {
 		this.modelManager = modelManager;
 		this.owlEditorKit = owlEditorKit;
 		this.showSubjectsPanel = showSubjectsPanel;
-
-		recalculate();
 
 		setBorder(BorderFactory.createEmptyBorder(BORDER / 3, BORDER, BORDER / 3, BORDER));
 		setLayout(new GridLayout(0, 1));
@@ -186,8 +174,6 @@ public class SearchFormPanel extends JPanel {
 	}
 
 	private void initListeners() {
-
-		modelManager.addListener(modelListener);
 
 		// scienceBranchBox listener
 		scienceBranchBox.addActionListener(new ActionListener() {
@@ -274,11 +260,6 @@ public class SearchFormPanel extends JPanel {
 
 		searchButton.addActionListener(new ActionListener() {
 
-			/**
-			 * validate() checkBoxesGetSelection(){ return new
-			 * StudentReqestParams() UserRequestBuilder(StudentReqestParams) }
-			 */
-
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// input validation
@@ -314,6 +295,7 @@ public class SearchFormPanel extends JPanel {
 					String dlQueryRequest = dlQuery.fromDLQueryParamsToRequest(dlQueryParams);
 
 					// test printing
+					/*
 					String[] recommendedSubjects = dlQuery.getSubClasses(dlQueryRequest, true);
 
 					for (int i = 0; i < recommendedSubjects.length; i++) {
@@ -321,52 +303,104 @@ public class SearchFormPanel extends JPanel {
 					}
 					showSubjectsPanel.setTableSubjects(recommendedSubjects);
 
+					*/
 					
 					Set<OWLClass> recommSubjects = dlQuery.getSubClassesSet(dlQueryRequest, true);
 					OWLOntology currectOntology = modelManager.getOWLReasonerManager().getCurrentReasoner()
 							.getRootOntology();
-				
-					RestrictionVisitor restrictionVisitor = null;
-										
-					for (OWLClass c : recommSubjects) {
-						restrictionVisitor = new RestrictionVisitor(Collections.singleton(currectOntology));
 
+					RestrictionVisitor restrictionVisitor = null;
+					ShortFormProvider shortFormProvider = new SimpleShortFormProvider();
+
+					List <SubjectDTO> recommendedSubjects = new ArrayList<>();
+					SubjectDTO subject;
+					
+					//fill List <SubjectDTO> recommendedSubjects
+					for (OWLClass c : recommSubjects) {
+						
+						subject = new SubjectDTO();
+						
+						restrictionVisitor = new RestrictionVisitor(Collections.singleton(currectOntology));
+						
+						// get short subject name
+						String shortSubjectName = shortFormProvider.getShortForm(c);
+						
+						
 						for (OWLSubClassOfAxiom ax : currectOntology.getSubClassAxiomsForSubClass(c)) {
 							ax.getSuperClass().accept(restrictionVisitor);
 							System.out.println("SuperClass: " + ax.getSuperClass().toString());
-						}					
-						
-						//print Object Properies
+						}
+
+						// print Object Properies
 						Map<String, String> objectProperties = restrictionVisitor.getObjectProps();
-						for(String key: objectProperties.keySet() ){
+						for (String key : objectProperties.keySet()) {
 							System.out.println("ObjectProp: " + key + " Value: " + objectProperties.get(key));
+							
+							if(key.equals(SubjectPropertiesConstants.BELONGS_TO_FACULTY)){
+								subject.setFaculty(objectProperties.get(key));
+							}else if(key.equals(SubjectPropertiesConstants.SUBJECT_TYPE)){
+								subject.setType(objectProperties.get(key));
+							}else if(key.equals(SubjectPropertiesConstants.TERM)){
+								subject.setTerm(objectProperties.get(key));
+							}else if(key.equals(SubjectPropertiesConstants.CREDITS_NUM)){
+								subject.setCreditsNum(objectProperties.get(key));
+							}else if(key.equals(SubjectPropertiesConstants.TOTAL_HOURS_NUM)){
+								subject.setTotalHours(objectProperties.get(key));
+							}else if(key.equals(SubjectPropertiesConstants.WEEK_HOURS_NUM)){
+								subject.setWeekHours(objectProperties.get(key));
+							}
+							
 						}
-						
-						//print Data Properties
+
+						// print Data Properties
 						Map<String, String> dataProperties = restrictionVisitor.getDataProps();
-						for(String key: dataProperties.keySet()){
+						for (String key : dataProperties.keySet()) {
 							System.out.println("DataProp: " + key + " Value: " + dataProperties.get(key));
+							
+							if(key.equals(SubjectPropertiesConstants.TERM)){
+								subject.setTerm(objectProperties.get(key));
+							}else if(key.equals(SubjectPropertiesConstants.CREDITS_NUM)){
+								subject.setCreditsNum(objectProperties.get(key));
+							}else if(key.equals(SubjectPropertiesConstants.WEEK_HOURS_NUM)){
+								subject.setWeekHours(objectProperties.get(key));
+							}else if(key.equals(SubjectPropertiesConstants.TOTAL_HOURS_NUM)){
+								subject.setTotalHours(objectProperties.get(key));
+							}
 						}
+
+						// print subjectResearchLines
 						
-						//print subjectResearchLines						
-						System.out.println("STUDY SIZE: "+ restrictionVisitor.getSubjectResearchLines().size());
-						for(String subjectResearchLine: restrictionVisitor.getSubjectResearchLines()){
+						List<String> subjectResearchLines = restrictionVisitor.getSubjectResearchLines();
+						System.out.println("STUDY SIZE: " + restrictionVisitor.getSubjectResearchLines().size());
+						for (String subjectResearchLine : restrictionVisitor.getSubjectResearchLines()) {
 							System.out.println("Вивчає: " + subjectResearchLine);
 						}
-						
-						//print suject's preSubjects
+						subject.setSubjectResearchLines(subjectResearchLines);
+
+						// print suject's preSubjects
+						List<String> preSubjects = (restrictionVisitor.getPreSubjects().size() != 0)?restrictionVisitor.getPreSubjects() : null;
 						System.out.println("PreSubjects SIZE: " + restrictionVisitor.getPreSubjects().size());
-						for(String preSubject: restrictionVisitor.getPreSubjects()){
+						for (String preSubject : restrictionVisitor.getPreSubjects()) {
 							System.out.println("PreSubject: " + preSubject);
 						}
-						
-						//print subject's postSubjects
+						subject.setPreSubjects(preSubjects);
+
+						// print subject's postSubjects
+						List<String> postSubjects = (restrictionVisitor.getPostSubjects().size() != 0)?restrictionVisitor.getPostSubjects() : null;
 						System.out.println("PostSubjects SIZE: " + restrictionVisitor.getPostSubjects().size());
-						for( String postSubject: restrictionVisitor.getPostSubjects()){
+						for (String postSubject : restrictionVisitor.getPostSubjects()) {
 							System.out.println("PostSubject: " + postSubject);
 						}
+						subject.setPostSubjects(preSubjects);
+						
+						// fill SubjectDTO
+						subject.setName(shortSubjectName);
+						recommendedSubjects.add(subject);
 					}
 					
+					System.out.println("RECOMMENDED SUBJECTS SIZE: " + recommendedSubjects.size());
+					showSubjectsPanel.setTableSubjects(recommendedSubjects);
+
 				}
 			}
 
@@ -374,23 +408,8 @@ public class SearchFormPanel extends JPanel {
 
 	}
 
-	private ActionListener refreshAction = e -> recalculate();
-
-	private OWLModelManagerListener modelListener = event -> {
-		if (event.getType() == EventType.ACTIVE_ONTOLOGY_CHANGED) {
-			recalculate();
-		}
-	};
-
-	private void recalculate() {
-		int count = modelManager.getActiveOntology().getClassesInSignature().size();
-		if (count == 0) {
-			count = 1; // owl:Thing is always there.
-		}
-	}
-
 	public void dispose() {
-		modelManager.removeListener(modelListener);
+
 	}
 
 	/*
