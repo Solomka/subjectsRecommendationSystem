@@ -1,6 +1,7 @@
 package ua.com.yaremko.system.view.panel;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -14,6 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
 import org.protege.editor.owl.model.OWLModelManager;
@@ -67,34 +69,19 @@ public class ShowSubjectsPanel extends JPanel {
 		this.subjects = subjects;
 	}
 
-	/*
-	public void setTableSubjects(String[] subjects) {
-		this.sbjcts = subjects;
-
-		addSubjectsToTable();
-	}
-	
-	private void addSubjectsToTable() {
-
-		model.setRowCount(0);
-
-		for (int i = 0; i < sbjcts.length; i++) {
-			model.insertRow(i, new String[] { sbjcts[i] });
-		}
-	}
-*/	
 	public void setTableSubjects(List<SubjectDTO> subjects) {
 		this.sbjcts = subjects;
 
 		addSubjectsToTable();
 	}
-	
+
 	private void addSubjectsToTable() {
 
 		model.setRowCount(0);
-		
+
 		for (int i = 0; i < sbjcts.size(); i++) {
-			model.insertRow(i, new String[] { Integer.toString(i+1), sbjcts.get(i).getName(), sbjcts.get(i).getFaculty() });
+			model.insertRow(i,
+					new String[] { Integer.toString(i + 1), sbjcts.get(i).getName(), sbjcts.get(i).getFaculty() });
 		}
 	}
 
@@ -104,18 +91,20 @@ public class ShowSubjectsPanel extends JPanel {
 		model = new DefaultTableModel(numRows, columnsHeader.length);
 		model.setColumnIdentifiers(columnsHeader);
 		subjectsTable = new JTable(model);
-		/*
-		 * subjectsTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		 * subjectsTable.setFont(font); subjectsTable.setRowHeight(ROW_HEIGHT);
-		 * subjectsTable.setBorder(BorderFactory.createLineBorder(Color.GRAY));
-		 * subjectsTable.getTableHeader().setBorder(BorderFactory.
-		 * createLineBorder(Color.GRAY));
-		 * 
-		 * subjectsTable.getColumnModel().getColumn(0).setMaxWidth(400);
-		 * subjectsTable.getColumnModel().getColumn(0).setPreferredWidth(400);
-		 * subjectsTable.getColumnModel().getColumn(1).setMaxWidth(400);
-		 * subjectsTable.getColumnModel().getColumn(1).setPreferredWidth(400);
-		 */
+
+		subjectsTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		subjectsTable.setFont(font);
+		subjectsTable.setRowHeight(ROW_HEIGHT);
+		subjectsTable.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+		subjectsTable.getTableHeader().setBorder(BorderFactory.createLineBorder(Color.GRAY));
+
+		subjectsTable.getColumnModel().getColumn(0).setMaxWidth(400);
+		subjectsTable.getColumnModel().getColumn(0).setPreferredWidth(400);
+		subjectsTable.getColumnModel().getColumn(1).setMaxWidth(400);
+		subjectsTable.getColumnModel().getColumn(1).setPreferredWidth(400);
+		subjectsTable.getColumnModel().getColumn(2).setMaxWidth(400);
+		subjectsTable.getColumnModel().getColumn(2).setPreferredWidth(400);
+
 		scrollPane = new JScrollPane(subjectsTable);
 		scrollPane.setBorder(BorderFactory.createLineBorder(getBackground()));
 		add(scrollPane, BorderLayout.CENTER);
