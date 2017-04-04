@@ -299,8 +299,7 @@ public class SearchFormPanel extends JPanel {
 							JOptionPane.ERROR_MESSAGE);
 					return;
 				} */else {
-					JOptionPane.showMessageDialog(null, "Успішного запису на дисципліни =)", "Операція успішна",
-							JOptionPane.INFORMATION_MESSAGE);
+					
 
 					// exequte query to ontology and show the result
 
@@ -394,11 +393,20 @@ public class SearchFormPanel extends JPanel {
 						System.out.println("PostSubjects: " + subject.getPostSubjects().size());
 						recommendedSubjects.add(subject);
 					}
-
 					System.out.println("RECOMMENDED SUBJECTS SIZE: " + recommendedSubjects.size());
+					
+					//check if rec system provides recommendations acc to user's restrictions
+					if(recommendedSubjects.size() == 1 && recommendedSubjects.get(0).getName() == "Nothing"){
+						JOptionPane.showMessageDialog(null, "Змініть вимоги пошуку!", "Немає відповідних рекомендацій!",
+								JOptionPane.ERROR_MESSAGE);
+						}
+					else{	
+						JOptionPane.showMessageDialog(null, "Успішного запису на дисципліни =)", "Операція успішна",
+								JOptionPane.INFORMATION_MESSAGE);
 					showSubjectsPanel.setData(recommendedSubjects);
 					showSubjectsPanel.revalidate();
 					showSubjectsPanel.repaint();
+						}
 
 				}
 			}
