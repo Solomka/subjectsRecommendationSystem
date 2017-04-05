@@ -41,12 +41,12 @@ public class ShowSubjectDetailsPanel extends JPanel {
 	private JPanel lowerPanel = new JPanel();
 
 	private SubjectDTO subject = emptySubjectDTO();
-
+	
 	public ShowSubjectDetailsPanel(Dimension preferredSize) {
 		super();
 		setLayout(new BorderLayout());
-		setBackground(bgcolor);
-		// setBorder(BorderFactory.createLineBorder(Color.RED));
+		//setBackground(bgcolor);
+		setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		if (preferredSize.width < 600)
 			System.out.println("[ WARNING ] Recommended minimal width for SubjectPanel is 600");
 		if (preferredSize.height < 350)
@@ -61,12 +61,12 @@ public class ShowSubjectDetailsPanel extends JPanel {
 
 	private JPanel buildUpperPanel() {
 		tablePanel = new JPanel(new BorderLayout());
-		tablePanel.setBackground(bgcolor);
+		//tablePanel.setBackground(bgcolor);
 		tablePanel.setPreferredSize(new Dimension(size.width, 2 * size.height / 5));
 
 		JLabel label = new JLabel("Деталі предмету");
 		JPanel lpanel = new JPanel();
-		lpanel.setBackground(bgcolor);
+		//lpanel.setBackground(bgcolor);
 		lpanel.add(label);
 
 		model = new DefaultTableModel() {
@@ -111,13 +111,13 @@ public class ShowSubjectDetailsPanel extends JPanel {
 		System.out.println(subject.getName());
 
 		table.getTableHeader().setPreferredSize(new Dimension(table.getSize().width, 40));
-		table.getTableHeader().setBackground(Color.WHITE);
+		//table.getTableHeader().setBackground(Color.WHITE);
 
 		table.setDefaultRenderer(String.class, new LineWrapTableCellRenderer());
 
 		JScrollPane pane = new JScrollPane(table);
 		pane.setBorder(BorderFactory.createEmptyBorder());
-		pane.getViewport().setBackground(bgcolor);
+		//pane.getViewport().setBackground(bgcolor);
 
 		tablePanel.add(lpanel, BorderLayout.NORTH);
 		tablePanel.add(pane, BorderLayout.CENTER);
@@ -127,17 +127,17 @@ public class ShowSubjectDetailsPanel extends JPanel {
 
 	private JPanel buildCentralPanel() {
 		centralPanel = new JPanel(new BorderLayout());
-		centralPanel.setBackground(bgcolor);
+		//centralPanel.setBackground(bgcolor);
 		centralPanel.setPreferredSize(new Dimension(size.width, 3 * size.height / 10));
 
 		JPanel lpanel = new JPanel();
-		lpanel.setBackground(bgcolor);
+		//lpanel.setBackground(bgcolor);
 		JLabel label = new JLabel("Вивчає:");
 		lpanel.setBorder(BorderFactory.createEmptyBorder(5, 10, 10, 0));
 		lpanel.add(label);
 
 		JPanel description = new JPanel();
-		description.setBackground(bgcolor);
+		//description.setBackground(bgcolor);
 		Dimension size = new Dimension(this.size.width - 100, 2 * this.size.height / 5);
 		textAreaResearch = SwingUtils.createTextDiv(font, subject.getSubjectResearchLines(), size.width, 0, bgcolor);
 
@@ -152,14 +152,14 @@ public class ShowSubjectDetailsPanel extends JPanel {
 	private JPanel buildLowerPanel() {
 		lowerPanel = new JPanel(new GridLayout(1, 2));
 		lowerPanel.setPreferredSize(new Dimension(size.width, 3 * size.height / 10));
-		lowerPanel.setBackground(bgcolor);
+		//lowerPanel.setBackground(bgcolor);
 
 		int padding = 10;
 
 		JPanel left = new JPanel(new BorderLayout());
-		left.setBackground(bgcolor);
+		//left.setBackground(bgcolor);
 		JPanel lpanel = new JPanel();
-		lpanel.setBackground(bgcolor);
+		//lpanel.setBackground(bgcolor);
 		JLabel label = new JLabel("Базові предмети");
 		lpanel.setBorder(BorderFactory.createEmptyBorder(5, 0, 10, 0));
 		lpanel.add(label);
@@ -168,9 +168,9 @@ public class ShowSubjectDetailsPanel extends JPanel {
 		left.add(textAreaPre, BorderLayout.CENTER);
 
 		JPanel right = new JPanel(new BorderLayout());
-		left.setBackground(bgcolor);
+		//left.setBackground(bgcolor);
 		JPanel lpanel2 = new JPanel();
-		lpanel2.setBackground(bgcolor);
+		//lpanel2.setBackground(bgcolor);
 		JLabel label2 = new JLabel("Предмети-продовження");
 		lpanel2.setBorder(BorderFactory.createEmptyBorder(5, 0, 10, 0));
 		lpanel2.add(label2);

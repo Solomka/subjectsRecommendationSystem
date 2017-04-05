@@ -97,9 +97,9 @@ public class SearchFormPanel extends JPanel {
 		this.showSubjectsPanel = showSubjectsPanel;
 
 		setLayout(new GridLayout(0, 1));
-		setBackground(bgcolor);
-		// setBorder(BorderFactory.createLineBorder(Color.RED));
+		//setBackground(bgcolor);		
 		setBorder(BorderFactory.createEmptyBorder(0, BORDER / 3, 0, BORDER / 3));
+		//setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		if (preferredSize.width < 300)
 			System.out.println("[ WARNING ] Recommended minimal width for SubjectPanel is 300");
 		if (preferredSize.height < 400)
@@ -137,21 +137,21 @@ public class SearchFormPanel extends JPanel {
 
 		// init comboBoxex
 		scienceBranchBox = new JComboBox<String>();
-		scienceBranchBox.setBackground(bgcolor);
+		//scienceBranchBox.setBackground(bgcolor);
 		((JLabel) scienceBranchBox.getRenderer()).setHorizontalAlignment(SwingConstants.LEADING);
 		scienceBranchBox.addItem(scBranchDefault);
 		// fill scienceBranches
 		fillscienceBranchBox();
 
 		specialityBox = new JComboBox<String>();
-		specialityBox.setBackground(bgcolor);
+		//specialityBox.setBackground(bgcolor);
 		((JLabel) specialityBox.getRenderer()).setHorizontalAlignment(SwingConstants.LEADING);
 		specialityBox.addItem(specDefault);
 		// disabled
 		specialityBox.setEnabled(false);
 
 		researchLineBox = new JComboBox<String>();
-		researchLineBox.setBackground(bgcolor);
+		//researchLineBox.setBackground(bgcolor);
 		((JLabel) researchLineBox.getRenderer()).setHorizontalAlignment(SwingConstants.LEADING);
 		researchLineBox.addItem(resLineDefault);
 		researchLineBox.setSelectedItem(resLineDefault);
@@ -159,24 +159,24 @@ public class SearchFormPanel extends JPanel {
 		researchLineBox.setEnabled(false);
 
 		subjectTypeBox = new JComboBox<String>();
-		subjectTypeBox.setBackground(bgcolor);
+		//subjectTypeBox.setBackground(bgcolor);
 		((JLabel) subjectTypeBox.getRenderer()).setHorizontalAlignment(SwingConstants.LEADING);
 		subjectTypeBox.addItem(subjTypeDefault);
 		// fill subject types
 		fillSubjectTypeBox();
 
 		termBox = new JComboBox<String>(terms);
-		termBox.setBackground(bgcolor);
+		//termBox.setBackground(bgcolor);
 		((JLabel) termBox.getRenderer()).setHorizontalAlignment(SwingConstants.LEADING);
 
 		creditsNumBox = new JComboBox<String>(creditNums);
-		creditsNumBox.setBackground(bgcolor);
+		//creditsNumBox.setBackground(bgcolor);
 		((JLabel) creditsNumBox.getRenderer()).setHorizontalAlignment(SwingConstants.LEADING);
 
 		// init search button
 		searchButtonPanel = new JPanel();
 		searchButtonPanel.setLayout(new BorderLayout());
-		searchButtonPanel.setBackground(bgcolor);
+		//searchButtonPanel.setBackground(bgcolor);
 
 		searchButton = new JButton("Шукати");
 		// searchButton.setBackground(bgcolor);

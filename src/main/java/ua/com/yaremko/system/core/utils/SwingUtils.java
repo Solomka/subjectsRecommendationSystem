@@ -18,7 +18,7 @@ public class SwingUtils {
 		textArea.setBorder(BorderFactory.createEmptyBorder(0, padding, 0, padding));
 		textArea.setLineWrap(true);
 		textArea.setWrapStyleWord(true);
-		textArea.setBackground(bg);
+		//textArea.setBackground(bg);
 		return textArea;		
 	}
 	
