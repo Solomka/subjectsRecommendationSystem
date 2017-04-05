@@ -101,14 +101,21 @@ public class DLQuery {
 	public Set<OWLNamedIndividual> getInstancesSet(String classExpression, boolean direct) {
 		return dlQueryPrinter.printInstancesSet(classExpression, direct);
 	}
-	
+	/*
+	 * == tests for reference equality (whether they are the same object)
+		equals() tests for value equality (whether they are logically "equal")
+	 */
 	public String fromDLQueryParamsToRequest(DLQueryParams dlQueryParams) {
 		StringBuilder sb = new StringBuilder();
 		String dlQuery = "";
 		String subRequest="";
 		
-		if (dlQueryParams.getResearchLine() == null
-				|| dlQueryParams.getResearchLine().equals("--- виберіть напрям дослідження(не обов'язково) ---")) {
+		if(dlQueryParams.getSpeciality() == null 
+				|| dlQueryParams.getSpeciality().equals(SubjectPropertiesConstants.SPECIALITY_DEF)){
+			dlQuery = String.format("Предмет and " + "вивчає some %s",
+					dlQueryParams.getScienceBranch());
+		}else if (dlQueryParams.getResearchLine() == null
+				|| dlQueryParams.getResearchLine().equals(SubjectPropertiesConstants.RESEARCH_LINE_DEF)) {
 			dlQuery = String.format("Предмет and " + "вивчає some %s",
 					dlQueryParams.getSpeciality());
 
@@ -118,15 +125,15 @@ public class DLQuery {
 		}
 		sb.append(dlQuery);
 		
-		if(dlQueryParams.getSubjectType() != null && dlQueryParams.getSubjectType() != "--- виберіть тип предмету ---"){
+		if(dlQueryParams.getSubjectType() != null && !dlQueryParams.getSubjectType().equals(SubjectPropertiesConstants.SUBJECT_TYPE_DEF)){
 			subRequest = String.format(" and типПредмету some %s", dlQueryParams.getSubjectType());
 			sb.append(subRequest);
 		}
-		if(dlQueryParams.getTerm() != null && dlQueryParams.getTerm() != "--- виберіть семестр ---"){
+		if(dlQueryParams.getTerm() != null && !dlQueryParams.getTerm().equals(SubjectPropertiesConstants.TERM_DEF)){
 			subRequest = String.format(" and семестр value \"%s\"^^xsd:string", dlQueryParams.getTerm());
 			sb.append(subRequest);
 		}
-		if(dlQueryParams.getCreditsNum() != null && dlQueryParams.getCreditsNum() != "--- виберіть к-сть кредитів ---"){
+		if(dlQueryParams.getCreditsNum() != null && !dlQueryParams.getCreditsNum().equals(SubjectPropertiesConstants.CREDINS_NUM_DEF)){
 			subRequest = String.format(" and кількістьКредитів value \"%s\"^^xsd:double", dlQueryParams.getCreditsNum());
 			sb.append(subRequest);
 		}

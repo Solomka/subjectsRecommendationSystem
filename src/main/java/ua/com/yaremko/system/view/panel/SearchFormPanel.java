@@ -55,12 +55,12 @@ public class SearchFormPanel extends JPanel {
 	private JComboBox<String> creditsNumBox;
 
 	// default comboBoxes items
-	private String scBranchDefault = "--- виберіть галузь науки ---";
-	private String specDefault = "--- виберіть спеціальність ---";
-	private String resLineDefault = "--- виберіть напрям дослідження(не обов'язково) ---";
-	private String subjTypeDefault = "--- виберіть тип предмету ---";
-	private String termDefault = "--- виберіть семестр ---";
-	private String credNumDefault = "--- виберіть к-сть кредитів ---";
+	private String scBranchDefault = SubjectPropertiesConstants.SCIENCE_BRANCH_DEF;
+	private String specDefault = SubjectPropertiesConstants.SPECIALITY_DEF;
+	private String resLineDefault = SubjectPropertiesConstants.RESEARCH_LINE_DEF;
+	private String subjTypeDefault = SubjectPropertiesConstants.SUBJECT_TYPE_DEF;
+	private String termDefault = SubjectPropertiesConstants.TERM_DEF;
+	private String credNumDefault = SubjectPropertiesConstants.CREDINS_NUM_DEF;
 
 	// search button
 	private JPanel searchButtonPanel;
@@ -282,11 +282,11 @@ public class SearchFormPanel extends JPanel {
 					JOptionPane.showMessageDialog(null, "Виберіть галузь науки!", "Некоректний ввід даних",
 							JOptionPane.ERROR_MESSAGE);
 					return;
-				} else if (specialitySelected == null || specialitySelected.equals(specDefault)) {
+				} /*else if (specialitySelected == null || specialitySelected.equals(specDefault)) {
 					JOptionPane.showMessageDialog(null, "Виберіть спеціальність!", "Некоректний ввід даних",
 							JOptionPane.ERROR_MESSAGE);
 					return;
-				} /*else if (subjectTypeSelected == null || subjectTypeSelected.equals(subjTypeDefault)) {
+				} else if (subjectTypeSelected == null || subjectTypeSelected.equals(subjTypeDefault)) {
 					JOptionPane.showMessageDialog(null, "Виберіть тип предмету!", "Некоректний ввід даних",
 							JOptionPane.ERROR_MESSAGE);
 					return;
@@ -397,8 +397,12 @@ public class SearchFormPanel extends JPanel {
 					
 					//check if rec system provides recommendations acc to user's restrictions
 					if(recommendedSubjects.size() == 1 && recommendedSubjects.get(0).getName() == "Nothing"){
+						/*
 						JOptionPane.showMessageDialog(null, "Змініть вимоги пошуку!", "Немає відповідних рекомендацій!",
-								JOptionPane.ERROR_MESSAGE);
+								JOptionPane.ERROR_MESSAGE);*/
+						JOptionPane.showMessageDialog(null, "Показати рекомендації без врахування:\n типу предмету, к-сті кредитів, семестру ?", "Немає відповідних рекомендацій!",
+								JOptionPane.OK_CANCEL_OPTION);
+						
 						}
 					else{	
 						JOptionPane.showMessageDialog(null, "Успішного запису на дисципліни =)", "Операція успішна",

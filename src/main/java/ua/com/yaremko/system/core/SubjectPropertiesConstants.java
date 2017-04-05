@@ -21,5 +21,13 @@ public final class SubjectPropertiesConstants {
 	public static final String WEEK_HOURS_NUM = "кількістьГодинНаТиждень";
 	public static final String CREDITS_NUM = "кількістьКредитів";
 	public static final String TERM = "семестр";
+	
+	//Valid JComboBox Defaults
+	public static final String SCIENCE_BRANCH_DEF = "--- виберіть галузь науки (OБОВ'ЯЗКОВО)---";
+	public static final String SPECIALITY_DEF = "--- виберіть спеціальність (НЕ ОБОВ'ЯЗКОВО) ---";
+	public static final String RESEARCH_LINE_DEF = "--- виберіть напрям дослідження (НЕ ОБОВ'ЯЗКОВО) ---";
+	public static final String SUBJECT_TYPE_DEF = "--- виберіть тип предмету (НЕ ОБОВ'ЯЗКОВО) ---";
+	public static final String TERM_DEF = "--- виберіть семестр (НЕ ОБОВ'ЯЗКОВО) ---";
+	public static final String CREDINS_NUM_DEF = "--- виберіть к-сть кредитів (НЕ ОБОВ'ЯЗКОВО) ---";
 
 }

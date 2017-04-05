@@ -4,7 +4,7 @@ public class DLQueryParams {
 
 	private String scienceBranch;
 	private String speciality;
-	//can be NULL || "--- виберіть напрям дослідження(не обов'язково) ---"
+	//can be NULL || "--- виберіть напрям дослідження (НЕ ОБОВ'ЯЗКОВО) ---"
 	private String researchLine;
 	private String subjectType;
 	private String term;
