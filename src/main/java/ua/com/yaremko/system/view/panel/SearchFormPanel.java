@@ -2,6 +2,7 @@ package ua.com.yaremko.system.view.panel;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -400,8 +401,10 @@ public class SearchFormPanel extends JPanel {
 						/*
 						JOptionPane.showMessageDialog(null, "Змініть вимоги пошуку!", "Немає відповідних рекомендацій!",
 								JOptionPane.ERROR_MESSAGE);*/
-						JOptionPane.showMessageDialog(null, "Показати рекомендації без врахування:\n типу предмету, к-сті кредитів, семестру ?", "Немає відповідних рекомендацій!",
-								JOptionPane.OK_CANCEL_OPTION);
+						int result = JOptionPane.showConfirmDialog((Component) null, "Показати рекомендації без врахування:\n типу предмету, к-сті кредитів, семестру ?",
+								"Немає відповідних рекомендацій!", JOptionPane.OK_CANCEL_OPTION);
+						/*JOptionPane.showMessageDialog(null, "Показати рекомендації без врахування:\n типу предмету, к-сті кредитів, семестру ?", "Немає відповідних рекомендацій!",
+								JOptionPane.OK_CANCEL_OPTION);*/
 						
 						}
 					else{	

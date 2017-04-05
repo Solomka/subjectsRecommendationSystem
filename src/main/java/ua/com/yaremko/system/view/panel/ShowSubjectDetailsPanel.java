@@ -46,7 +46,7 @@ public class ShowSubjectDetailsPanel extends JPanel {
 		super();
 		setLayout(new BorderLayout());
 		//setBackground(bgcolor);
-		setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		//setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		if (preferredSize.width < 600)
 			System.out.println("[ WARNING ] Recommended minimal width for SubjectPanel is 600");
 		if (preferredSize.height < 350)
