@@ -21,7 +21,7 @@ import org.semanticweb.owlapi.util.SimpleShortFormProvider;
 public class DLQuery {
 
 	private OWLReasonerManager reasonerManager;
-	OWLReasoner reasoner;
+	private OWLReasoner reasoner;
 
 	private ShortFormProvider shortFormProvider;
 

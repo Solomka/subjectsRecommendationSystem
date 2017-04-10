@@ -61,12 +61,14 @@ public class ShowSubjectDetailsPanel extends JPanel {
 
 	private JPanel buildUpperPanel() {
 		tablePanel = new JPanel(new BorderLayout());
+		
 		//tablePanel.setBackground(bgcolor);
 		tablePanel.setPreferredSize(new Dimension(size.width, 2 * size.height / 5));
-
-		JLabel label = new JLabel("Деталі предмету");
+		
 		JPanel lpanel = new JPanel();
+		lpanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 15, 0));
 		//lpanel.setBackground(bgcolor);
+		JLabel label = new JLabel("Деталі предмету");
 		lpanel.add(label);
 
 		model = new DefaultTableModel() {

@@ -306,6 +306,7 @@ public class SearchFormPanel extends JPanel {
 
 					DLQuery dlQuery = new DLQuery(owlEditorKit);
 					DLQueryParams dlQueryParams = getUserSelections();
+					//QUERY
 					String dlQueryRequest = dlQuery.fromDLQueryParamsToRequest(dlQueryParams);
 
 					Set<OWLClass> recommSubjects = dlQuery.getSubClassesSet(dlQueryRequest, true);
@@ -394,6 +395,8 @@ public class SearchFormPanel extends JPanel {
 						System.out.println("PostSubjects: " + subject.getPostSubjects().size());
 						recommendedSubjects.add(subject);
 					}
+		
+					
 					System.out.println("RECOMMENDED SUBJECTS SIZE: " + recommendedSubjects.size());
 					
 					//check if rec system provides recommendations acc to user's restrictions
