@@ -224,20 +224,22 @@ public class SearchFormPanel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				scienceBranchSelected = (String) scienceBranchBox.getSelectedItem();
+				
+				specialityBox.removeAllItems();
+				specialityBox.addItem(specDefault);
+				specialityBox.setSelectedItem(specDefault);
+				specialityBox.setEnabled(false);
+
+				researchLineBox.removeAllItems();
+				researchLineBox.addItem(resLineDefault);
+				researchLineBox.setSelectedItem(resLineDefault);
+				researchLineBox.setEnabled(false);
 
 				if (scienceBranchSelected != null && !scienceBranchSelected.equals(scBranchDefault)) {
-					specialityBox.removeAllItems();
-					specialityBox.addItem(specDefault);
-					specialityBox.setSelectedItem(specDefault);
-					specialityBox.setEnabled(true);
-
-					researchLineBox.removeAllItems();
-					researchLineBox.addItem(resLineDefault);
-					researchLineBox.setSelectedItem(resLineDefault);
-					researchLineBox.setEnabled(false);
-
 					// fill scienceBranch slecialities
+					
 					fillSpecialitiesBox();
+					specialityBox.setEnabled(true);
 
 					searchButton.setEnabled(true);
 				}
@@ -251,15 +253,17 @@ public class SearchFormPanel extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				specialitySelected = (String) specialityBox.getSelectedItem();
 
-				if (specialitySelected != null && !specialitySelected.equals(specDefault)) {
-					// enable researchLine comboBox
-					researchLineBox.removeAllItems();
-					researchLineBox.addItem(resLineDefault);
-					researchLineBox.setSelectedItem(resLineDefault);
-					researchLineBox.setEnabled(true);
-
+				// enable researchLine comboBox
+				researchLineBox.removeAllItems();
+				researchLineBox.addItem(resLineDefault);
+				researchLineBox.setSelectedItem(resLineDefault);
+				researchLineBox.setEnabled(false);
+				
+				if (specialitySelected != null && !specialitySelected.equals(specDefault)) {					
+					
 					// fill speciality researchLines
 					fillResearchLineBox();
+					researchLineBox.setEnabled(true);
 				}
 			}
 
