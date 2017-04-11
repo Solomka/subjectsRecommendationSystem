@@ -1,4 +1,4 @@
-package ua.com.yaremko.system.core;
+package ua.com.yaremko.system.core.dl;
 
 import java.util.Set;
 
@@ -38,9 +38,7 @@ class DLQueryPrinter {
 
 	public String[] printSuperClasses(String classExpression, boolean direct) {
 		Set<OWLClass> superClasses = dlQueryEngine.getSuperClasses(classExpression, direct);
-
 		String[] superClassesResult = new String[superClasses.size()];
-
 		int i = 0;
 		for (OWLClass superClass : superClasses) {
 			superClassesResult[i] = shortFormProvider.getShortForm(superClass);
@@ -64,11 +62,7 @@ class DLQueryPrinter {
 	 */
 	public String[] printSubClasses(String classExpression, boolean direct) {
 		Set<OWLClass> subClasses = dlQueryEngine.getSubClasses(classExpression, direct);
-
-		System.out.println("Size: " + subClasses.size());
-
 		String[] subClassesResult = new String[subClasses.size()];
-
 		int i = 0;
 		for (OWLClass subClass : subClasses) {
 			subClassesResult[i] = shortFormProvider.getShortForm(subClass);
@@ -90,9 +84,7 @@ class DLQueryPrinter {
 	 */
 	public String[] printEquivalentClasses(String classExpression) {
 		Set<OWLClass> equivalentClasses = dlQueryEngine.getEquivalentClasses(classExpression);
-
 		String[] equivalentClassesResult = new String[equivalentClasses.size()];
-
 		int i = 0;
 		for (OWLClass equivalentClass : equivalentClasses) {
 			equivalentClassesResult[i] = shortFormProvider.getShortForm(equivalentClass);
@@ -116,9 +108,7 @@ class DLQueryPrinter {
 	 */
 	public String[] printInstances(String classExpression, boolean direct) {
 		Set<OWLNamedIndividual> individuals = dlQueryEngine.getInstances(classExpression, direct);
-
 		String[] individualsResult = new String[individuals.size()];
-
 		int i = 0;
 		for (OWLNamedIndividual individual : individuals) {
 			individualsResult[i] = shortFormProvider.getShortForm(individual);

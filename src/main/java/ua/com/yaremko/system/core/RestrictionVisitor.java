@@ -94,7 +94,6 @@ public class RestrictionVisitor extends OWLClassExpressionVisitorAdapter {
 
 		final String objectProperty = shortFormProvider.getShortForm((OWLEntity) desc.getProperty());
 		final String objectPropertyValue = shortFormProvider.getShortForm((OWLEntity) desc.getFiller());
-		System.out.println("OBJECT PROPERTY: " + objectProperty);
 		if (objectProperty.equals(SubjectPropertiesConstants.STUDY_OBJECT_PROP)) {
 
 			subjectResearchLines.add(objectPropertyValue);

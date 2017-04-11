@@ -14,6 +14,12 @@ import ua.com.yaremko.system.core.RestrictionVisitor;
 import ua.com.yaremko.system.core.SubjectPropertiesConstants;
 import ua.com.yaremko.system.core.entity.SubjectDTO;
 
+/**
+ * convert OWLClass to SubjectDTO
+ * 
+ * @author Solomka
+ *
+ */
 public final class OWLClassSubjectDTOConverter {
 
 	private OWLOntology currectOntology;

@@ -1,4 +1,4 @@
-package ua.com.yaremko.system.core;
+package ua.com.yaremko.system.core.dl;
 
 import java.util.Collections;
 import java.util.Set;
@@ -74,10 +74,7 @@ public class DLQueryEngine {
 		if (classExpressionString.trim().length() == 0) {
 			return Collections.emptySet();
 		}
-		
-		System.out.println("QUERY STRING: " + classExpressionString);
 		OWLClassExpression classExpression = parser.parseClassExpression(classExpressionString);
-		System.out.println("classExpression" + classExpression.toString());
 		NodeSet<OWLClass> subClasses = reasoner.getSubClasses(classExpression, direct);
 		return subClasses.getFlattened();
 	}

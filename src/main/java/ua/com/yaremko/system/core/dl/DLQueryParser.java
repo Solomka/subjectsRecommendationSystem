@@ -1,4 +1,4 @@
-package ua.com.yaremko.system.core;
+package ua.com.yaremko.system.core.dl;
 
 import java.util.Set;
 

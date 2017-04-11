@@ -20,7 +20,7 @@ public class SubjectDTO implements Comparable<SubjectDTO> {
 	public static final Comparator<SubjectDTO> SORT_BY_NAME = new SortedByName();
 
 	public SubjectDTO() {
-		super();
+		
 	}
 
 	public String getName() {

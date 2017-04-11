@@ -25,6 +25,11 @@ import ua.com.yaremko.system.view.utils.LineWrapTableCellRenderer;
 
 public class ShowSubjectsPanel extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private OWLModelManager modelManager;
 
 	private ShowSubjectDetailsPanel showSubjectDetailsPanel;

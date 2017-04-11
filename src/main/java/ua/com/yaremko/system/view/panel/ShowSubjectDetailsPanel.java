@@ -24,6 +24,11 @@ import ua.com.yaremko.system.view.utils.SwingUtils;
 
 public class ShowSubjectDetailsPanel extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	// recommended: new Dimension(600, 350)
 	private Dimension size;
 
