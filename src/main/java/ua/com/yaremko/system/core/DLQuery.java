@@ -21,7 +21,7 @@ import org.semanticweb.owlapi.util.SimpleShortFormProvider;
 public class DLQuery {
 
 	private OWLReasonerManager reasonerManager;
-	OWLReasoner reasoner;
+	private OWLReasoner reasoner;
 
 	private ShortFormProvider shortFormProvider;
 
@@ -100,26 +100,6 @@ public class DLQuery {
 
 	public Set<OWLNamedIndividual> getInstancesSet(String classExpression, boolean direct) {
 		return dlQueryPrinter.printInstancesSet(classExpression, direct);
-	}
-
-	public String fromDLQueryParamsToRequest(DLQueryParams dlQueryParams) {
-		String dlQuery = "";
-
-		if (dlQueryParams.getResearchLine() == null
-				|| dlQueryParams.getResearchLine().equals("--- виберіть напрям дослідження(не обов'язково) ---")) {
-			dlQuery = String.format("Предмет and " + "вивчає some %s" + " and типПредмету some %s"
-					+ " and семестр value \"%s\"^^xsd:string" + " and кількістьКредитів value \"%s\"^^xsd:double",
-					dlQueryParams.getSpeciality(), dlQueryParams.getSubjectType(), dlQueryParams.getTerm(),
-					dlQueryParams.getCreditsNum());
-
-		} else {
-			dlQuery = String.format("Предмет and " + "вивчає some %s" + " and типПредмету some %s"
-					+ " and семестр value \"%s\"^^xsd:string" + " and кількістьКредитів value \"%s\"^^xsd:double",
-					dlQueryParams.getResearchLine(), dlQueryParams.getSubjectType(), dlQueryParams.getTerm(),
-					dlQueryParams.getCreditsNum());
-		}
-
-		return dlQuery;
 	}
 
 }

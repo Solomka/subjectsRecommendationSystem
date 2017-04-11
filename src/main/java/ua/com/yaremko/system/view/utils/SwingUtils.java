@@ -1,4 +1,4 @@
-package ua.com.yaremko.system.core.utils;
+package ua.com.yaremko.system.view.utils;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -18,7 +18,7 @@ public class SwingUtils {
 		textArea.setBorder(BorderFactory.createEmptyBorder(0, padding, 0, padding));
 		textArea.setLineWrap(true);
 		textArea.setWrapStyleWord(true);
-		textArea.setBackground(bg);
+		//textArea.setBackground(bg);
 		return textArea;		
 	}
 	

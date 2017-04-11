@@ -1,8 +1,9 @@
-package ua.com.yaremko.system.core;
+package ua.com.yaremko.system.core.entity;
 
+import java.util.Comparator;
 import java.util.List;
 
-public class SubjectDTO {
+public class SubjectDTO implements Comparable<SubjectDTO> {
 
 	private String name;
 	private String faculty;
@@ -15,6 +16,8 @@ public class SubjectDTO {
 	private List<String> subjectResearchLines;
 	private List<String> preSubjects;
 	private List<String> postSubjects;
+
+	public static final Comparator<SubjectDTO> SORT_BY_NAME = new SortedByName();
 
 	public SubjectDTO() {
 		super();
@@ -104,6 +107,21 @@ public class SubjectDTO {
 	public String toString() {
 		return "SubjectDTO [name=" + name + ", faculty=" + faculty + ", type=" + type + ", term=" + term
 				+ ", creditsNum=" + creditsNum + ", weekHours=" + weekHours + ", totalHours=" + totalHours + "]";
+	}
+
+	@Override
+	public int compareTo(SubjectDTO subjectDTO) {
+
+		return name.compareTo(subjectDTO.getName());
+	}
+
+	private static class SortedByName implements Comparator<SubjectDTO> {
+
+		@Override
+		public int compare(SubjectDTO o1, SubjectDTO o2) {
+			return o1.compareTo(o2);
+		}
+
 	}
 
 }

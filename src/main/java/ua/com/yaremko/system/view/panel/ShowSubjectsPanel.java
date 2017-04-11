@@ -19,8 +19,9 @@ import javax.swing.table.TableColumnModel;
 
 import org.protege.editor.owl.model.OWLModelManager;
 
-import ua.com.yaremko.system.core.SubjectDTO;
-import ua.com.yaremko.system.core.utils.LineWrapTableCellRenderer;
+import ua.com.yaremko.system.core.entity.SubjectDTO;
+import ua.com.yaremko.system.view.utils.LineWrapTableCellRenderer;
+
 
 public class ShowSubjectsPanel extends JPanel {
 
@@ -53,12 +54,13 @@ public class ShowSubjectsPanel extends JPanel {
 
 		this.size = preferredSize;
 
-		setBackground(bgcolor);
+		//setBackground(bgcolor);
 		setPreferredSize(size);
 		setLayout(new BorderLayout());
 
 		JPanel lpanel = new JPanel();
-		lpanel.setBackground(bgcolor);
+		//lpanel.setBackground(bgcolor);
+		//setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		lpanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 15, 0));
 
 		JLabel label = new JLabel("Рекомендовані предмети");
@@ -72,7 +74,7 @@ public class ShowSubjectsPanel extends JPanel {
 
 	private JPanel buildTablePanel() {
 		JPanel res = new JPanel(new BorderLayout());
-		res.setBackground(bgcolor);
+		//res.setBackground(bgcolor);
 
 		model = new DefaultTableModel() {
 			@Override
@@ -102,17 +104,19 @@ public class ShowSubjectsPanel extends JPanel {
 		tcm.getColumn(2).setPreferredWidth(2 * size.width / 5);
 
 		table.getTableHeader().setPreferredSize(new Dimension(table.getSize().width, 30));
-		table.getTableHeader().setBackground(Color.WHITE);
+		//table.getTableHeader().setBackground(Color.WHITE);
 		table.setRowHeight(30);
 
 		table.setDefaultRenderer(String.class, new LineWrapTableCellRenderer());
 
 		JScrollPane pane = new JScrollPane(table);
 		pane.setBorder(BorderFactory.createEmptyBorder());
-		pane.getViewport().setBackground(bgcolor);
+		//pane.getViewport().setBackground(bgcolor);
+		
+		model.addRow(new String[] { "", "" , "" });
 
 		JPanel btnPanel = new JPanel(new BorderLayout());
-		btnPanel.setBackground(bgcolor);
+		//btnPanel.setBackground(bgcolor);
 		btnPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		detailsBtn = new JButton("Деталі");
 		detailsBtn.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
