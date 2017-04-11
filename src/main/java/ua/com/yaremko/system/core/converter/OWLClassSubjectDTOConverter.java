@@ -23,8 +23,8 @@ import ua.com.yaremko.system.core.entity.SubjectDTO;
 public final class OWLClassSubjectDTOConverter {
 
 	private OWLOntology currectOntology;
-	RestrictionVisitor restrictionVisitor;
-	ShortFormProvider shortFormProvider;
+	private RestrictionVisitor restrictionVisitor;
+	private ShortFormProvider shortFormProvider;
 
 	public OWLClassSubjectDTOConverter(OWLOntology currectOntology) {
 		this.currectOntology = currectOntology;
