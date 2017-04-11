@@ -7,6 +7,8 @@ public final class SubjectPropertiesConstants {
 	}
 	
 	public static final String PLUGIN_ONTOLOGY_IRI = "http://www.semanticweb.org/solomka/ontologies/subjects";
+	public static final String NOTHING_CLASS_IRI = "http://www.w3.org/2002/07/owl#Nothing";
+	
 	//for RestrictionsVisitor
 	public static final String STUDY_OBJECT_PROP = "вивчає";
 	public static final String HAS_SUBJECT_CONTINUE = "маєПредметПрод";
