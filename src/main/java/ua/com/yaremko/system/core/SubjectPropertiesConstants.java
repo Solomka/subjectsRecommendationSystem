@@ -6,6 +6,7 @@ public final class SubjectPropertiesConstants {
 		
 	}
 	
+	//IRIs
 	public static final String PLUGIN_ONTOLOGY_IRI = "http://www.semanticweb.org/solomka/ontologies/subjects";
 	public static final String NOTHING_CLASS_IRI = "http://www.w3.org/2002/07/owl#Nothing";
 	

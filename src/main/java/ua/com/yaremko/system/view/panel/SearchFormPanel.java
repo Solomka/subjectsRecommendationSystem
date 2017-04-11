@@ -278,7 +278,7 @@ public class SearchFormPanel extends JPanel {
 			}
 
 		});
-
+		
 		subjectTypeBox.addActionListener(new ActionListener() {
 
 			@Override
@@ -304,7 +304,7 @@ public class SearchFormPanel extends JPanel {
 
 			}
 		});
-
+		//query processing and result showing 
 		searchButton.addActionListener(new ActionListener() {
 
 			@Override
@@ -378,7 +378,7 @@ public class SearchFormPanel extends JPanel {
 	}
 
 	/*
-	 * checkboxes filler
+	 * checkboxes fillers
 	 */
 
 	// fill science branches
@@ -422,7 +422,6 @@ public class SearchFormPanel extends JPanel {
 	/*
 	 * fill subjectType // load subjectTypes from ontology by DLQuery
 	 */
-
 	public void fillSubjectTypeBox() {
 		subjectTypeBox.removeAllItems();
 		subjectTypeBox.addItem(subjTypeDefault);
@@ -433,8 +432,9 @@ public class SearchFormPanel extends JPanel {
 		}
 	}
 
-	// map user selections to DLQueryParams object
-
+	/*
+	 *  map user selections to DLQueryParams object
+	 */
 	private DLQueryParams getUserSelections() {
 		DLQueryParams dlQueryParams = new DLQueryParams();
 		dlQueryParams.setScienceBranch(scienceBranchSelected);
@@ -447,7 +447,13 @@ public class SearchFormPanel extends JPanel {
 		return dlQueryParams;
 	}
 	
-	
+	/**
+	 * process Subjects Query with Restrictions Relaxation
+	 * 
+	 * @param dlQueryParams
+	 * @param recommSubjects
+	 * @return
+	 */
 	private Set<OWLClass> processSubjectsQueryWithRelaxation(DLQueryParams dlQueryParams, Set<OWLClass> recommSubjects){
 		
 		DLQueryParams dlQueryParamsParameters = dlQueryParams;
@@ -502,6 +508,12 @@ public class SearchFormPanel extends JPanel {
 			return recommenderSubjects;
 		}
 	
+	/**
+	 * Get sorted by name SubjectDTOs list for ShowSubjectsPanel
+	 * 
+	 * @param recommSubjects
+	 * @return
+	 */
 	private List<SubjectDTO> getRecommendedSubjectDTOsList(Set<OWLClass>recommSubjects){
 		
 		List<SubjectDTO> recommendedSubjects = new ArrayList<>();
@@ -511,9 +523,6 @@ public class SearchFormPanel extends JPanel {
 		for (OWLClass c : recommSubjects) {
 			subjectDTOConverter = new OWLClassSubjectDTOConverter(currectOntology);	
 			subject = subjectDTOConverter.fromOWLClassToSubjectDTO(c);	
-			System.out.println("Recommended subject: " + subject.toString());
-			System.out.println("PreSubjects: " + subject.getPreSubjects().size());
-			System.out.println("PostSubjects: " + subject.getPostSubjects().size());
 			recommendedSubjects.add(subject);
 		}
 		
@@ -524,6 +533,11 @@ public class SearchFormPanel extends JPanel {
 		
 	}
 		
+	/**
+	 * searchPanel validation
+	 * 
+	 * @return
+	 */
 	private boolean searchPanelValidate(){
 		
 		if (scienceBranchSelected == null || scienceBranchSelected.equals(scBranchDefault)) {

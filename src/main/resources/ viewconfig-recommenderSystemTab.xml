@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <layout>
-    <VSNode splits="0.5">
-        <CNode>
-            <Component label="Recommender Search view component">
-                <Property id="pluginId" value="subjects.recommend.system.SearchViewComponent"/>
-            </Component>
-        </CNode>
-    </VSNode>
+	<VSNode splits="0.5">
+		<CNode>
+			<Component label="Recommender Search view component">
+				<Property id="pluginId"
+					value="subjects.recommend.system.SearchViewComponent" />
+			</Component>
+		</CNode>
+	</VSNode>
 </layout>

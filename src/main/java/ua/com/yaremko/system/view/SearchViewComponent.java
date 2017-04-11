@@ -26,6 +26,11 @@ import ua.com.yaremko.system.view.panel.ShowSubjectsPanel;
  */
 public class SearchViewComponent extends AbstractOWLViewComponent {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private static final Logger LOGGER = LoggerFactory.getLogger(SearchViewComponent.class);
 
 	private Dimension size;
@@ -36,7 +41,6 @@ public class SearchViewComponent extends AbstractOWLViewComponent {
 
 	private final OWLModelManagerListener listener = event -> {
 		if (event.isType(EventType.ONTOLOGY_CLASSIFIED)) {
-		
 			searchFormPanel.fillSubjectTypeBox();
 		}
 	};

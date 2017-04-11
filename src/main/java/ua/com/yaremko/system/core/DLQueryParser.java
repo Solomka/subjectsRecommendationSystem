@@ -39,10 +39,8 @@ class DLQueryParser {
 		this.rootOntology = rootOntology;
 		OWLOntologyManager manager = rootOntology.getOWLOntologyManager();
 		Set<OWLOntology> importsClosure = rootOntology.getImportsClosure();
-		// Create a bidirectional short form provider to do the actual
-		// mapping.
-		// It will generate names using the input
-		// short form provider.
+		// Create a bidirectional short form provider to do the actual mapping.
+		// It will generate names using the input short form provider.
 		bidiShortFormProvider = new BidirectionalShortFormProviderAdapter(manager, importsClosure, shortFormProvider);
 	}
 
@@ -56,7 +54,6 @@ class DLQueryParser {
 	 */
 	public OWLClassExpression parseClassExpression(String classExpressionString) {
 		OWLDataFactory dataFactory = rootOntology.getOWLOntologyManager().getOWLDataFactory();
-
 		// Set up the real parser
 		ManchesterOWLSyntaxEditorParser parser = new ManchesterOWLSyntaxEditorParser(dataFactory,
 				classExpressionString);
@@ -66,11 +63,7 @@ class DLQueryParser {
 		OWLEntityChecker entityChecker = new ShortFormEntityChecker(bidiShortFormProvider);
 		parser.setOWLEntityChecker(entityChecker);
 		// Do the actual parsing
-
 		OWLClassExpression expr = parser.parseClassExpression();
-
-		//System.out.println("Expr: " + expr.toString());
-
 		return expr;
 	}
 }

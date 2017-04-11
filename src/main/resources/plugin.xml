@@ -17,8 +17,7 @@ and (more advanced) the ways in which the plugin capabilities can be extended by
 		<!--<defaultViewConfigFileName value=" viewconfig-recommendertab.xml"/>-->
 		<defaultViewConfigFileName value=" viewconfig-recommenderSystemTab.xml"/>
    </extension>
-   
-	
+   	
 	<!-- View -->
 	<!-- This extension is attempting to implement the functionality
 	 represented by the extension point with the name -->
@@ -34,29 +33,5 @@ and (more advanced) the ways in which the plugin capabilities can be extended by
 		which menu under the View menu should contain this view.-->
 		<category value="@org.protege.miscellaneouscategory" />
 	</extension>
-	
-	<!-- Subjects Recommender System: Show resulted subjects list View Component  -->
-	 <extension id="ShowSubjectsViewComponent" point="org.protege.editor.core.application.ViewComponent">
-		<!-- The label declaration tells Protege what to put in the title bar of the view. -->
-		<label value="Recommender Subjects view component" />
-		<!-- The class declaration indicates which class implements the functionality needed by this view.  -->
-		<class value="ua.com.yaremko.system.view.ShowSubjectsViewComponent" />
-		<headerColor value="@org.protege.ontologycolor"/>
-		<!-- the category declaration tells Protege 
-		which menu under the View menu should contain this view.-->
-		<category value="@org.protege.miscellaneouscategory" />
-	</extension>
-	
-	<!-- Subjects Recommender System: Show resulted selected subject details list View Component  -->
-	 <extension id="ShowSubjectDetailsViewComponent" point="org.protege.editor.core.application.ViewComponent">
-		<!-- The label declaration tells Protege what to put in the title bar of the view. -->
-		<label value="Recommender Subject Details view component" />
-		<!-- The class declaration indicates which class implements the functionality needed by this view.  -->
-		<class value="ua.com.yaremko.system.view.ShowSubjectDetailsViewComponent" />
-		<headerColor value="@org.protege.ontologycolor"/>
-		<!-- the category declaration tells Protege 
-		which menu under the View menu should contain this view.-->
-		<category value="@org.protege.miscellaneouscategory" />
-	</extension>	
     
 </plugin>
