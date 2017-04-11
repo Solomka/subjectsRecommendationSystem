@@ -19,8 +19,9 @@ import javax.swing.table.TableColumnModel;
 
 import org.protege.editor.owl.model.OWLModelManager;
 
-import ua.com.yaremko.system.core.SubjectDTO;
-import ua.com.yaremko.system.core.utils.LineWrapTableCellRenderer;
+import ua.com.yaremko.system.core.entity.SubjectDTO;
+import ua.com.yaremko.system.view.utils.LineWrapTableCellRenderer;
+
 
 public class ShowSubjectsPanel extends JPanel {
 

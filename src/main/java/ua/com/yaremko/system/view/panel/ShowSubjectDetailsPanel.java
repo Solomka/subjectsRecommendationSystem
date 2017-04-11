@@ -17,9 +17,10 @@ import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
-import ua.com.yaremko.system.core.SubjectDTO;
-import ua.com.yaremko.system.core.utils.LineWrapTableCellRenderer;
-import ua.com.yaremko.system.core.utils.SwingUtils;
+import ua.com.yaremko.system.core.entity.SubjectDTO;
+import ua.com.yaremko.system.view.utils.LineWrapTableCellRenderer;
+import ua.com.yaremko.system.view.utils.SwingUtils;
+
 
 public class ShowSubjectDetailsPanel extends JPanel {
 

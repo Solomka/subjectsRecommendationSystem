@@ -22,7 +22,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import org.eclipse.osgi.service.runnable.ApplicationLauncher;
 import org.protege.editor.owl.OWLEditorKit;
 import org.protege.editor.owl.model.OWLModelManager;
 import org.semanticweb.owlapi.model.IRI;
@@ -34,11 +33,13 @@ import org.semanticweb.owlapi.util.ShortFormProvider;
 import org.semanticweb.owlapi.util.SimpleShortFormProvider;
 
 import ua.com.yaremko.system.core.DLQuery;
-import ua.com.yaremko.system.core.DLQueryParams;
-import ua.com.yaremko.system.core.Relaxations;
 import ua.com.yaremko.system.core.RestrictionVisitor;
-import ua.com.yaremko.system.core.SubjectDTO;
 import ua.com.yaremko.system.core.SubjectPropertiesConstants;
+import ua.com.yaremko.system.core.converter.DLQueryParamsRequestStringConverter;
+import ua.com.yaremko.system.core.converter.OWLClassSubjectDTOConverter;
+import ua.com.yaremko.system.core.entity.DLQueryParams;
+import ua.com.yaremko.system.core.entity.Relaxations;
+import ua.com.yaremko.system.core.entity.SubjectDTO;
 
 public class SearchFormPanel extends JPanel {
 
@@ -50,7 +51,18 @@ public class SearchFormPanel extends JPanel {
 	// to work with ontology in protege
 	private OWLModelManager modelManager;
 	private OWLEditorKit owlEditorKit;
+	
+	//Query processing
+	private OWLDataFactory factory;
+	private DLQuery dlQuery;
+	//restrictions relaxation
+	private List<Relaxations> appliedRelax;
+	
+	OWLOntology currectOntology;
+	OWLClassSubjectDTOConverter subjectDTOConverter;
+	
 
+	//----------- Swing -----------------
 	private ShowSubjectsPanel showSubjectsPanel;
 
 	// labels
@@ -105,7 +117,14 @@ public class SearchFormPanel extends JPanel {
 		this.modelManager = modelManager;
 		this.owlEditorKit = owlEditorKit;
 		this.showSubjectsPanel = showSubjectsPanel;
-
+		
+		factory = modelManager.getOWLDataFactory();
+		dlQuery = new DLQuery(owlEditorKit);
+		appliedRelax = new ArrayList<>();
+		
+		currectOntology = modelManager.getOWLReasonerManager().getCurrentReasoner()
+				.getRootOntology();
+		
 		setLayout(new GridLayout(0, 1));
 		//setBackground(bgcolor);		
 		setBorder(BorderFactory.createEmptyBorder(0, BORDER / 3, 0, BORDER / 3));
@@ -287,123 +306,21 @@ public class SearchFormPanel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// input validation
-
-				if (scienceBranchSelected == null || scienceBranchSelected.equals(scBranchDefault)) {
-					JOptionPane.showMessageDialog(null, "Виберіть галузь науки!", "Некоректний ввід даних",
-							JOptionPane.ERROR_MESSAGE);
+				if (!searchPanelValidate()) {
 					return;
-				} /*else if (specialitySelected == null || specialitySelected.equals(specDefault)) {
-					JOptionPane.showMessageDialog(null, "Виберіть спеціальність!", "Некоректний ввід даних",
-							JOptionPane.ERROR_MESSAGE);
-					return;
-				} else if (subjectTypeSelected == null || subjectTypeSelected.equals(subjTypeDefault)) {
-					JOptionPane.showMessageDialog(null, "Виберіть тип предмету!", "Некоректний ввід даних",
-							JOptionPane.ERROR_MESSAGE);
-					return;
-				} else if (termSelected == null || termSelected.equals(termDefault)) {
-					JOptionPane.showMessageDialog(null, "Виберіть семестр!", "Некоректний ввід даних",
-							JOptionPane.ERROR_MESSAGE);
-					return;
-				} else if (credNumSelected == null || credNumSelected.equals(credNumDefault)) {
-					JOptionPane.showMessageDialog(null, "Виберіть к-сть кредитів!", "Некоректний ввід даних",
-							JOptionPane.ERROR_MESSAGE);
-					return;
-				} */else {					
-
-					// exequte query to ontology and show the result
-					OWLDataFactory factory = modelManager.getOWLDataFactory();
-
-					DLQuery dlQuery = new DLQuery(owlEditorKit);
+				}else {							
 					
 					DLQueryParams dlQueryParams = getUserSelections();
-					
-					//STRING QUERY
-					String dlQueryRequest = dlQuery.fromDLQueryParamsToRequest(dlQueryParams);
-					
-					//!!!!!!!!!!!!PROCESS QUERY
+					String dlQueryRequest = DLQueryParamsRequestStringConverter.fromDLQueryParamsToRequest(dlQueryParams);
 					Set<OWLClass> recommSubjects = dlQuery.getSubClassesSet(dlQueryRequest, true);
-					
-					//restrictions relaxation
-					List<Relaxations> appliedRelax = new ArrayList<>();
-					
-					String subjectType = null; 
-					
 					
 					//check if empty
 					if(recommSubjects.size() == 1 && recommSubjects.contains(factory.getOWLClass(IRI.create(SubjectPropertiesConstants.NOTHING_CLASS_IRI))) ){
-						//logic
-						while(recommSubjects.size() == 1 && recommSubjects.contains(factory.getOWLClass(IRI.create(SubjectPropertiesConstants.NOTHING_CLASS_IRI)))){
-							
-							if(dlQueryParams.getSubjectType() != null && !appliedRelax.contains(Relaxations.RESEARCH_LINE)){
-								subjectType = dlQueryParams.getSubjectType();
-								dlQueryParams.setSubjectType(null);
-								appliedRelax.add(Relaxations.SUBJECT_TYPE);
-								
-								dlQueryRequest = dlQuery.fromDLQueryParamsToRequest(dlQueryParams);
-								System.out.println("No Subject Type: " + dlQueryRequest);
-								recommSubjects = dlQuery.getSubClassesSet(dlQueryRequest, true);
-								
-							}else if(dlQueryParams.getResearchLine() != null && appliedRelax.contains(Relaxations.SUBJECT_TYPE)){
-								dlQueryParams.setSubjectType(subjectType);			
-								appliedRelax.remove(Relaxations.SUBJECT_TYPE);
-								
-								dlQueryParams.setResearchLine(null);
-								appliedRelax.add(Relaxations.RESEARCH_LINE);
-								
-								dlQueryRequest = dlQuery.fromDLQueryParamsToRequest(dlQueryParams);
-								System.out.println("No ResearchLine: " + dlQueryRequest);
-								recommSubjects = dlQuery.getSubClassesSet(dlQueryRequest, true);
-								
-							}else if(dlQueryParams.getResearchLine() != null && !appliedRelax.contains(Relaxations.SUBJECT_TYPE)){
-								dlQueryParams.setResearchLine(null);
-								appliedRelax.add(Relaxations.RESEARCH_LINE);
-								
-								dlQueryRequest = dlQuery.fromDLQueryParamsToRequest(dlQueryParams);
-								System.out.println("No ResearchLine: " + dlQueryRequest);
-								recommSubjects = dlQuery.getSubClassesSet(dlQueryRequest, true);
-								
-							} else if(dlQueryParams.getSubjectType() != null && appliedRelax.contains(Relaxations.RESEARCH_LINE)){
-								
-								dlQueryParams.setSubjectType(null);
-								appliedRelax.add(Relaxations.SUBJECT_TYPE);
-								
-								dlQueryRequest = dlQuery.fromDLQueryParamsToRequest(dlQueryParams);
-								System.out.println("No Subject Type and ResearchLine: " + dlQueryRequest);
-								recommSubjects = dlQuery.getSubClassesSet(dlQueryRequest, true);								
-								
-							}else if( dlQueryParams.getSpeciality() != null && appliedRelax.contains(Relaxations.SUBJECT_TYPE) && appliedRelax.contains(Relaxations.RESEARCH_LINE)){
-								dlQueryParams.setSpeciality(null);
-								appliedRelax.add(Relaxations.SPECIALITY);
-								
-								dlQueryRequest = dlQuery.fromDLQueryParamsToRequest(dlQueryParams);
-								System.out.println("No Subject Type and ResearchLine and Speciality: " + dlQueryRequest);
-								recommSubjects = dlQuery.getSubClassesSet(dlQueryRequest, true);	
-								
-							}else if(dlQueryParams.getTerm() != null && appliedRelax.contains(Relaxations.SUBJECT_TYPE) && appliedRelax.contains(Relaxations.RESEARCH_LINE) && appliedRelax.contains(Relaxations.SPECIALITY)){
-								dlQueryParams.setTerm(null);
-								appliedRelax.add(Relaxations.TERM);
-								
-								dlQueryRequest = dlQuery.fromDLQueryParamsToRequest(dlQueryParams);
-								System.out.println("No Subject Type and ResearchLine and Speciality and Term: " + dlQueryRequest);
-								recommSubjects = dlQuery.getSubClassesSet(dlQueryRequest, true);	
-							}else if(dlQueryParams.getCreditsNum() != null && appliedRelax.contains(Relaxations.SUBJECT_TYPE) && appliedRelax.contains(Relaxations.RESEARCH_LINE) && appliedRelax.contains(Relaxations.SPECIALITY) && appliedRelax.contains(Relaxations.TERM)){
-								dlQueryParams.setCreditsNum(null);
-								appliedRelax.add(Relaxations.TERM);
-								
-								dlQueryRequest = dlQuery.fromDLQueryParamsToRequest(dlQueryParams);
-								System.out.println("No Subject Type and ResearchLine and Speciality and Term: " + dlQueryRequest);
-								recommSubjects = dlQuery.getSubClassesSet(dlQueryRequest, true);	
-								
-							}else{
-								JOptionPane.showMessageDialog(null, "Немає відповідних рекомендацій! \n Змініть критерії пошуку!", "Увага!",
-										JOptionPane.ERROR_MESSAGE);
-								break;
-							}
-							
-								}
+						
+						recommSubjects = processSubjectsQueryWithRelaxation(dlQueryParams, recommSubjects);
 						
 						StringBuilder restrRelaxationBuilder = new StringBuilder();
-												
+						
 						for(int i = 0; i< appliedRelax.size(); i++){
 							restrRelaxationBuilder.append(appliedRelax.get(i).getValue());
 							if(i != appliedRelax.size() - 1){
@@ -417,101 +334,14 @@ public class SearchFormPanel extends JPanel {
 								"Немає відповідних рекомендацій!", JOptionPane.YES_NO_OPTION);
 						
 						if(result == JOptionPane.NO_OPTION){
-							//nothing to do
+							JOptionPane.showMessageDialog((Component) null, "Немає відповідних рекомендацій! \n Змініть критерії пошуку!", "Увага!", JOptionPane.INFORMATION_MESSAGE);
 						}else if(result == JOptionPane.CLOSED_OPTION){
-							//nothing to do
+							JOptionPane.showMessageDialog((Component) null,
+									"Немає відповідних рекомендацій! \n Змініть критерії пошуку!", "Увага!", JOptionPane.INFORMATION_MESSAGE);
 						}else if ( result == JOptionPane.YES_OPTION){
-							
-							OWLOntology currectOntology = modelManager.getOWLReasonerManager().getCurrentReasoner()
-									.getRootOntology();
-
-							RestrictionVisitor restrictionVisitor = null;
-							ShortFormProvider shortFormProvider = new SimpleShortFormProvider();
-							
-							//recommended subjects
-							List<SubjectDTO> recommendedSubjects = new ArrayList<>();
-							SubjectDTO subject;
-
-							// fill List <SubjectDTO> recommendedSubjects
-							for (OWLClass c : recommSubjects) {
-
-								subject = new SubjectDTO();
-
-								restrictionVisitor = new RestrictionVisitor(Collections.singleton(currectOntology));
-
-								// get short subject name
-								String shortSubjectName = shortFormProvider.getShortForm(c);
-
-								for (OWLSubClassOfAxiom ax : currectOntology.getSubClassAxiomsForSubClass(c)) {
-									ax.getSuperClass().accept(restrictionVisitor);
-									System.out.println("SuperClass: " + ax.getSuperClass().toString());
-								}
-
-								// print Object Properies
-								Map<String, String> objectProperties = restrictionVisitor.getObjectProps();
-								for (String key : objectProperties.keySet()) {
-									System.out.println("ObjectProp: " + key + " Value: " + objectProperties.get(key));
-
-									if (key.equals(SubjectPropertiesConstants.BELONGS_TO_FACULTY)) {
-										subject.setFaculty(objectProperties.get(key));
-									} else if (key.equals(SubjectPropertiesConstants.SUBJECT_TYPE)) {
-										subject.setType(objectProperties.get(key));
-									}
-
-								}
-
-								// print Data Properties
-								Map<String, String> dataProperties = restrictionVisitor.getDataProps();
-								for (String key : dataProperties.keySet()) {
-									System.out.println("DataProp: " + key + " Value: " + dataProperties.get(key));
-
-									if (key.equals(SubjectPropertiesConstants.TERM)) {
-										subject.setTerm(dataProperties.get(key));
-									} else if (key.equals(SubjectPropertiesConstants.CREDITS_NUM)) {
-										subject.setCreditsNum(dataProperties.get(key));
-									} else if (key.equals(SubjectPropertiesConstants.WEEK_HOURS_NUM)) {
-										subject.setWeekHours(dataProperties.get(key));
-									} else if (key.equals(SubjectPropertiesConstants.TOTAL_HOURS_NUM)) {
-										subject.setTotalHours(dataProperties.get(key));
-									}
-								}
-
-								// print subjectResearchLines
-
-								List<String> subjectResearchLines = restrictionVisitor.getSubjectResearchLines();
-								System.out.println("STUDY SIZE: " + restrictionVisitor.getSubjectResearchLines().size());
-								for (String subjectResearchLine : restrictionVisitor.getSubjectResearchLines()) {
-									System.out.println("Вивчає: " + subjectResearchLine);
-								}
-								subject.setSubjectResearchLines(subjectResearchLines);
-
-								// print suject's preSubjects
-								List<String> preSubjects = restrictionVisitor.getPreSubjects();
-								System.out.println("PreSubjects SIZE: " + restrictionVisitor.getPreSubjects().size());
-								for (String preSubject : restrictionVisitor.getPreSubjects()) {
-									System.out.println("PreSubject: " + preSubject);
-								}
-								subject.setPreSubjects(preSubjects);
-
-								// print subject's postSubjects
-								List<String> postSubjects = restrictionVisitor.getPostSubjects();
-								System.out.println("PostSubjects SIZE: " + restrictionVisitor.getPostSubjects().size());
-								for (String postSubject : restrictionVisitor.getPostSubjects()) {
-									System.out.println("PostSubject: " + postSubject);
-								}
-								subject.setPostSubjects(postSubjects);
-
-								// fill SubjectDTO
-								subject.setName(shortSubjectName);
-								System.out.println("Recommended subject: " + subject.toString());
-								System.out.println("PreSubjects: " + subject.getPreSubjects().size());
-								System.out.println("PostSubjects: " + subject.getPostSubjects().size());
-								
-								Collections.sort(recommendedSubjects);
-								//Collections.sort(recommendedSubjects, SubjectDTO.SORT_BY_NAME);
-								recommendedSubjects.add(subject);
-							}
-				
+															
+							// get recommended subjects
+							List<SubjectDTO> recommendedSubjects = getRecommendedSubjectDTOsList(recommSubjects);		
 							
 							System.out.println("RECOMMENDED SUBJECTS SIZE: " + recommendedSubjects.size());
 						
@@ -519,120 +349,21 @@ public class SearchFormPanel extends JPanel {
 										JOptionPane.INFORMATION_MESSAGE);
 							showSubjectsPanel.setData(recommendedSubjects);
 							showSubjectsPanel.revalidate();
-							showSubjectsPanel.repaint();
-								
+							showSubjectsPanel.repaint();								
 							
 						}
-					}
-					else{
-					OWLOntology currectOntology = modelManager.getOWLReasonerManager().getCurrentReasoner()
-							.getRootOntology();
-
-					RestrictionVisitor restrictionVisitor = null;
-					ShortFormProvider shortFormProvider = new SimpleShortFormProvider();
-					
-					//recommended subjects
-					List<SubjectDTO> recommendedSubjects = new ArrayList<>();
-					SubjectDTO subject;
-
-					// fill List <SubjectDTO> recommendedSubjects
-					for (OWLClass c : recommSubjects) {
-
-						subject = new SubjectDTO();
-
-						restrictionVisitor = new RestrictionVisitor(Collections.singleton(currectOntology));
-
-						// get short subject name
-						String shortSubjectName = shortFormProvider.getShortForm(c);
-
-						for (OWLSubClassOfAxiom ax : currectOntology.getSubClassAxiomsForSubClass(c)) {
-							ax.getSuperClass().accept(restrictionVisitor);
-							System.out.println("SuperClass: " + ax.getSuperClass().toString());
-						}
-
-						// print Object Properies
-						Map<String, String> objectProperties = restrictionVisitor.getObjectProps();
-						for (String key : objectProperties.keySet()) {
-							System.out.println("ObjectProp: " + key + " Value: " + objectProperties.get(key));
-
-							if (key.equals(SubjectPropertiesConstants.BELONGS_TO_FACULTY)) {
-								subject.setFaculty(objectProperties.get(key));
-							} else if (key.equals(SubjectPropertiesConstants.SUBJECT_TYPE)) {
-								subject.setType(objectProperties.get(key));
-							}
-
-						}
-
-						// print Data Properties
-						Map<String, String> dataProperties = restrictionVisitor.getDataProps();
-						for (String key : dataProperties.keySet()) {
-							System.out.println("DataProp: " + key + " Value: " + dataProperties.get(key));
-
-							if (key.equals(SubjectPropertiesConstants.TERM)) {
-								subject.setTerm(dataProperties.get(key));
-							} else if (key.equals(SubjectPropertiesConstants.CREDITS_NUM)) {
-								subject.setCreditsNum(dataProperties.get(key));
-							} else if (key.equals(SubjectPropertiesConstants.WEEK_HOURS_NUM)) {
-								subject.setWeekHours(dataProperties.get(key));
-							} else if (key.equals(SubjectPropertiesConstants.TOTAL_HOURS_NUM)) {
-								subject.setTotalHours(dataProperties.get(key));
-							}
-						}
-
-						// print subjectResearchLines
-
-						List<String> subjectResearchLines = restrictionVisitor.getSubjectResearchLines();
-						System.out.println("STUDY SIZE: " + restrictionVisitor.getSubjectResearchLines().size());
-						for (String subjectResearchLine : restrictionVisitor.getSubjectResearchLines()) {
-							System.out.println("Вивчає: " + subjectResearchLine);
-						}
-						subject.setSubjectResearchLines(subjectResearchLines);
-
-						// print suject's preSubjects
-						List<String> preSubjects = restrictionVisitor.getPreSubjects();
-						System.out.println("PreSubjects SIZE: " + restrictionVisitor.getPreSubjects().size());
-						for (String preSubject : restrictionVisitor.getPreSubjects()) {
-							System.out.println("PreSubject: " + preSubject);
-						}
-						subject.setPreSubjects(preSubjects);
-
-						// print subject's postSubjects
-						List<String> postSubjects = restrictionVisitor.getPostSubjects();
-						System.out.println("PostSubjects SIZE: " + restrictionVisitor.getPostSubjects().size());
-						for (String postSubject : restrictionVisitor.getPostSubjects()) {
-							System.out.println("PostSubject: " + postSubject);
-						}
-						subject.setPostSubjects(postSubjects);
-
-						// fill SubjectDTO
-						subject.setName(shortSubjectName);
-						System.out.println("Recommended subject: " + subject.toString());
-						System.out.println("PreSubjects: " + subject.getPreSubjects().size());
-						System.out.println("PostSubjects: " + subject.getPostSubjects().size());
-						recommendedSubjects.add(subject);
-					}
-		
-					
-					System.out.println("RECOMMENDED SUBJECTS SIZE: " + recommendedSubjects.size());
-					
-					//check if rec system provides recommendations acc to user's restrictions
-					//if(recommendedSubjects.size() == 1 && recommendedSubjects.get(0).getName() == "Nothing"){
-						/*
-						JOptionPane.showMessageDialog(null, "Змініть вимоги пошуку!", "Немає відповідних рекомендацій!",
-								JOptionPane.ERROR_MESSAGE);*/
-						//int result = JOptionPane.showConfirmDialog((Component) null, "Показати рекомендації без врахування:\n типу предмету, к-сті кредитів, семестру ?",
-								//"Немає відповідних рекомендацій!", JOptionPane.OK_CANCEL_OPTION);
-						/*JOptionPane.showMessageDialog(null, "Показати рекомендації без врахування:\n типу предмету, к-сті кредитів, семестру ?", "Немає відповідних рекомендацій!",
-								JOptionPane.OK_CANCEL_OPTION);*/
 						
-						//}
-					//else{	
-						JOptionPane.showMessageDialog(null, "Успішного запису на дисципліни =)", "Операція успішна",
-								JOptionPane.INFORMATION_MESSAGE);
-					showSubjectsPanel.setData(recommendedSubjects);
-					showSubjectsPanel.revalidate();
-					showSubjectsPanel.repaint();
-						//}
+					}else{												
+						// get recommended subjects
+						List<SubjectDTO> recommendedSubjects = getRecommendedSubjectDTOsList(recommSubjects);		
+						
+						System.out.println("RECOMMENDED SUBJECTS SIZE: " + recommendedSubjects.size());
+					
+							JOptionPane.showMessageDialog(null, "Успішного запису на дисципліни =)", "Операція успішна",
+									JOptionPane.INFORMATION_MESSAGE);
+						showSubjectsPanel.setData(recommendedSubjects);
+						showSubjectsPanel.revalidate();
+						showSubjectsPanel.repaint();		
 
 				}
 				}
@@ -711,7 +442,111 @@ public class SearchFormPanel extends JPanel {
 
 		return dlQueryParams;
 	}
+	
+	
+	private Set<OWLClass> processSubjectsQueryWithRelaxation(DLQueryParams dlQueryParams, Set<OWLClass> recommSubjects){
+		
+		DLQueryParams dlQueryParamsParameters = dlQueryParams;
+		String dlQueryRequest = DLQueryParamsRequestStringConverter.fromDLQueryParamsToRequest(dlQueryParams);
+		Set<OWLClass> recommenderSubjects = recommSubjects;		
+		
+		appliedRelax = new ArrayList<>();		
+		String subjectType = null; 					
+		
+		
+			while(recommenderSubjects.size() == 1 && recommenderSubjects.contains(factory.getOWLClass(IRI.create(SubjectPropertiesConstants.NOTHING_CLASS_IRI)))){
+				
+				if(dlQueryParamsParameters.getSubjectType() != null ){
+					subjectType = dlQueryParamsParameters.getSubjectType();
+					dlQueryParamsParameters.setSubjectType(null);
+					appliedRelax.add(Relaxations.SUBJECT_TYPE);								
+					
+				}else if(dlQueryParamsParameters.getResearchLine() != null && appliedRelax.contains(Relaxations.SUBJECT_TYPE)){
+					dlQueryParamsParameters.setSubjectType(subjectType);			
+					appliedRelax.remove(Relaxations.SUBJECT_TYPE);
+					
+					dlQueryParamsParameters.setResearchLine(null);
+					appliedRelax.add(Relaxations.RESEARCH_LINE);						
+					
+				}else if(dlQueryParamsParameters.getResearchLine() != null && !appliedRelax.contains(Relaxations.SUBJECT_TYPE)){
+					dlQueryParamsParameters.setResearchLine(null);
+					appliedRelax.add(Relaxations.RESEARCH_LINE);								
+					
+				} else if( dlQueryParamsParameters.getSpeciality() != null && appliedRelax.contains(Relaxations.SUBJECT_TYPE) && appliedRelax.contains(Relaxations.RESEARCH_LINE)){
+					dlQueryParamsParameters.setSpeciality(null);
+					appliedRelax.add(Relaxations.SPECIALITY);								
+					
+				}else if(dlQueryParamsParameters.getTerm() != null && appliedRelax.contains(Relaxations.SUBJECT_TYPE) && appliedRelax.contains(Relaxations.RESEARCH_LINE) && appliedRelax.contains(Relaxations.SPECIALITY)){
+					dlQueryParamsParameters.setTerm(null);
+					appliedRelax.add(Relaxations.TERM);								
+					
+				}else if(dlQueryParamsParameters.getCreditsNum() != null && appliedRelax.contains(Relaxations.SUBJECT_TYPE) && appliedRelax.contains(Relaxations.RESEARCH_LINE) && appliedRelax.contains(Relaxations.SPECIALITY) && appliedRelax.contains(Relaxations.TERM)){
+					dlQueryParamsParameters.setCreditsNum(null);
+					appliedRelax.add(Relaxations.TERM);							
+					
+				}else{
+					JOptionPane.showMessageDialog(null, "Немає відповідних рекомендацій! \n Змініть критерії пошуку!", "Увага!",
+							JOptionPane.ERROR_MESSAGE);
+					break;
+				}
+				
+				dlQueryRequest = DLQueryParamsRequestStringConverter.fromDLQueryParamsToRequest(dlQueryParams);
+				System.out.println("Relaxed query: " + dlQueryRequest);
+				recommenderSubjects = dlQuery.getSubClassesSet(dlQueryRequest, true);
+				
+					}
+			return recommenderSubjects;
+		}
+	
+	private List<SubjectDTO> getRecommendedSubjectDTOsList(Set<OWLClass>recommSubjects){
+		
+		List<SubjectDTO> recommendedSubjects = new ArrayList<>();
+		SubjectDTO subject;
 
+		// fill List <SubjectDTO> recommendedSubjects
+		for (OWLClass c : recommSubjects) {
+			subjectDTOConverter = new OWLClassSubjectDTOConverter(currectOntology);	
+			subject = subjectDTOConverter.fromOWLClassToSubjectDTO(c);	
+			System.out.println("Recommended subject: " + subject.toString());
+			System.out.println("PreSubjects: " + subject.getPreSubjects().size());
+			System.out.println("PostSubjects: " + subject.getPostSubjects().size());
+			recommendedSubjects.add(subject);
+		}
+		
+		Collections.sort(recommendedSubjects);
+		//Collections.sort(recommendedSubjects, SubjectDTO.SORT_BY_NAME);
+		
+		return recommendedSubjects;
+		
+	}
+		
+	private boolean searchPanelValidate(){
+		
+		if (scienceBranchSelected == null || scienceBranchSelected.equals(scBranchDefault)) {
+			JOptionPane.showMessageDialog(null, "Виберіть галузь науки!", "Некоректний ввід даних",
+					JOptionPane.ERROR_MESSAGE);
+			return false;
+		} /*else if (specialitySelected == null || specialitySelected.equals(specDefault)) {
+			JOptionPane.showMessageDialog(null, "Виберіть спеціальність!", "Некоректний ввід даних",
+					JOptionPane.ERROR_MESSAGE);
+			return;
+		} else if (subjectTypeSelected == null || subjectTypeSelected.equals(subjTypeDefault)) {
+			JOptionPane.showMessageDialog(null, "Виберіть тип предмету!", "Некоректний ввід даних",
+					JOptionPane.ERROR_MESSAGE);
+			return false;
+		} else if (termSelected == null || termSelected.equals(termDefault)) {
+			JOptionPane.showMessageDialog(null, "Виберіть семестр!", "Некоректний ввід даних",
+					JOptionPane.ERROR_MESSAGE);
+			return false;
+		} else if (credNumSelected == null || credNumSelected.equals(credNumDefault)) {
+			JOptionPane.showMessageDialog(null, "Виберіть к-сть кредитів!", "Некоректний ввід даних",
+					JOptionPane.ERROR_MESSAGE);
+			return false;
+		} */
+		
+		return true;		
+	}
+	
 	public void dispose() {
 
 	}

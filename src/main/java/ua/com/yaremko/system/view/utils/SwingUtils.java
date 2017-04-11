@@ -1,4 +1,4 @@
-package ua.com.yaremko.system.core.utils;
+package ua.com.yaremko.system.view.utils;
 
 import java.awt.Color;
 import java.awt.Font;
