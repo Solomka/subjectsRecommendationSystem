@@ -47,6 +47,12 @@ public class RecommenderService {
 		this.owlOntology = owlmodelManager.getOWLReasonerManager().getCurrentReasoner().getRootOntology();
 	}
 
+	/**
+	 *  process Subjects Query
+	 *  
+	 * @param dlQueryParams
+	 * @return
+	 */
 	public QueryResult processQuery(DLQueryParams dlQueryParams) {
 		QueryResult queryResult = new QueryResult();
 
