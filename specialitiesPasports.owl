@@ -1,0 +1,1817 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/solomka/ontologies/specialitiesPasports"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/solomka/ontologies/specialitiesPasports">
+    <Prefix name="" IRI="http://www.semanticweb.org/solomka/ontologies/specialitiesPasports"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#динамічні_та_диференціальні_ігри"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#прийняття_рішень_в_управлінні_проектами"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#синтез_описів_технічних_обєктів_у_САПР"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#загальна_теорія_операторів"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#розробка_наукових_і_методологічних_основ_створення_інф_технологій"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#машинна_графіка_в_завданнях_проектування"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#наближені_методи_функціонального_аналізу"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#комплексний_аналіз"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#методи_тестування_та_верифікації_програм"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#системи_підтримки_прийняття_проектних_рішень_в_САПР"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#методи_синтезу_програм"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#автоматизовані_місця_проектувальників_інтерактивні_графічні_системи"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ідентифікація_та_контроль_параметрів_обєктів_керування"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#математичне_програмування_та_проблеми_дослідження_операцій"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#оптимізація_в_умовах_невизначеності"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#інф_технології_для_розроблення_програмного_забезпечення_комп_мереж"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#технології_автоматизованого_проектування_технічних_і_програмних_засобів_комп_систем"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#алгебраїчні_системи"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#керування_системами"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#математична_теорія_розпізнавання_образів"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#формальні_методи_аналізу_та_синтезу_програмних_систем"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#дослідження_та_розроблення_високоефективних_архітектур_комп_систем"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#математичне_та_програмне_забезпечення_багатопроцесорних_комплексів"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#варіаційне_числення_та_теорія_оптимального_керування"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#моделювання_предметних_галузей_інф_систем"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#рівняння_Гамільтона-Якобі"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#розробка_алгоритмів_для_систем_комп_розпізнавання_мовних_і_зорових_образів"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#системи_захисту_інформації"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#системи_автоматизації_проектувальних_робіт"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#оптимальне_керування_системами"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#моделювання_нейронних_мереж"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#методи_аналізу_та_побудови_розвязків_диф_інтегральних_різницевих_р-нь"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#теорія_ймовірностей"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#лексикографічні_системи"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#теорія_алгоритмів_і_обчислень"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#аналітична_теорія_чисел"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#розробка_інтелектуальних_систем_різного_призначення"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#формальні_мови"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#принцип_максимуму"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#банахові_алгебри"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#програмно-технічні_засоби_створення_систем_керування"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#побудова_інф_технологій_для_розроблення_баз_даних_і_знань"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#багатокритеріальна_оптимізація"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#узагальнені_криві_та_потоки"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#керування_функціональними_рівняннями_та_включеннями"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#математичні_основи_компютерної_мат_та_логіки"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#теорія_чисел"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#мови_специфікації_програм_і_дефініції_мов_програмування"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#фізико_математичні_науки"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#мовні_процесори"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#створення_навч_програм_з_елементами_штучного_інтелекту"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#середовища_моделювання_та_програмування"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математична_логіка_теорія_алгоритмів_і_дискретна_математика"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#розробка_методів_моделювання_і_планування,_математичного,_алгоритмічного_і_програмного"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#загальносистемне_програмування"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#прийняття_рішень_у_конфліктно-керованих_ситуаціях"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#теорія_міри_й_інтеграла"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#спектральна_та_ергодична_теорія_динамічних_систем"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#загальна_теорія_операторних_рівнянь"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#аналіз_і_синтез_детермінованих_і_стохастичних_систем"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#існування_розвязків_диф_інтегральних_різницевих_р-нь"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#інформаційне_та_програмне_забезпечення_АСК"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#математичне_моделювання_та_обчислювальні_методи"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#теорія_функцій_дійсної_змінної"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#розробка_моделей_оцінювання_якості_інф_систем"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#лінійна_алгебра_і_теорія_зображень"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#математична_логіка"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#теорія_багатозначних_відображень"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#системи_та_процеси_керування"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#методологія_розроблення_програмних_систем"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#технічні_науки"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#прикладні_системи_на_основі_нейронних_мереж"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#управління_взаємодією_в_проектах"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#розробка_технологій_застосування_нейрокомпютерів"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#забезпечення_задач_аналізу_складних_систем"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#управління_зацікавленими_сторонами_ресурсами_якістю_проектів"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#якісні_властивості_систем_керування"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#математичні_основи_інтелектуальних_систем"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#стандартизація_інформаційних_систем"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#теорія_випадкових_процесів_і_полів"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#теорія_розпізнавання_та_класифікація"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#створення_високоінтелектуальних_мульти-_та_гіпермедійних_технологій"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#розробка_інформаційно-пошукових_і_експертних_систем"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математична_фізика"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#розробка_технологій_експертування_баз_знань"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#моделі_та_методи_доказового_програмування"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#компютерна_лінгвістика"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#розроблення_комунікаційних_протоколів"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#моделі_програм_і_систем"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#мови_програмування"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#системи_та_засоби_штучного_інтелекту"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#метод_динамічного_програмування"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ряди_і_послідовності"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#дослідження_процесів_формування_образів"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#компютерні_системи_та_компоненти"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#розроблення_методів_опуклого_та_неопуклого_аналізу"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#технологія_реалізації_САПР_як_складної_програмної_системи"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#теорія_класичних_і_квантових_полів"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#теоретичні_засади_та_програмно-апаратні_засоби_опрацювання_інф"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#математичне_та_програмне_забезпечення_обчислювальних_машин_і_систем"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#моделі_баз_даних_і_знань"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#удосконалення_математичного_моделювання"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#пакети_прикладних_програм_автоматизованого_проектування"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#наближене__розв&apos;язання_задач_варіаційного_числення"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#методи_проектування_експертних_систем"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#розроблення_методів_знаходження_оптимальних_керувань"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#геометрична_теорія_функцій"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#теоретичні_основи_інформатики_та_кібернетики"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#методи_організації_ефективних_обчислень_на_ЕОМ"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#дескриптивні_та_декларативні_логіки_програмування"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#мат_моделювання_фізичних_задач"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#функціональні_рівняння_та_скінченні_різниці"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#інформаційно-пошукові_системи"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#математична_теорія_корисності_та_ризику"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#експертні_системи"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#ГалузьНауки"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#інформаційні_технології"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#оцінка_й_оптимізація_надійності_систем"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#методи_та_засоби_оцінювання_якості_та_оптимізації_програм"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#необхідні_та_достатні_умови_оптимальності"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#моделювання_обєктів_та_систем_керування"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#теорія_алгоритмів"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#статистична_теорія_прийняття_рішень"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#теорія_компютерних_систем_і_мереж"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#управління_знаннями_у_проектах"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математика"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#дослідження_операцій_та_теорія_ігор"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#розроблення_методів_ідентифікації_параметрів_математичних_моделей"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#симетрійні_методи_аналізу_р-нь_мат_фізики"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#управління_інформацією_в_проектах"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#динамічне_програмування"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#математичні_методи_планування_експериментів"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#інформатика"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#теорія_динамічних_систем_мат_фізики"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#системи_інтелектуальної_підтримки_прийняття_рішень"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#формалізація_завдань_керування_складними_обєктами"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#теорія_стійкості"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#формальні_перетворення_й_оптимізація_алгоритмів_і_програм"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#гомологічна_алгебра"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#нелінійний_функціональний_аналіз"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#математичне_моделювання_й_аналіз_технічних_обєктів_у_САПР"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#операційні_системи_та_оболонки"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#діагностування_та_забезпечення_надійності_АСК"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#гармонічний_аналіз"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#методи_та_засоби_забезпечення_ефективності_надійності_комп_систем"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#моделювання_інтелектуальної_діяльності_людини"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#розроблення_методів_і_алгоритмів_розв&apos;язування_дискретних_зада"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#теоретичні_основи_й_методологія_створення_САПР"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#процеси_управління_функціонуванням_розвитком_проектно-керованих_систем"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#інтелектуальні_системи_підтримки_прийняття_рішень"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#інтелектуальні_прикладні_програмні_системи"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ств_засобів_і_систем_інтелектуалізації_комп_інтерфейсів"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математичний_аналіз"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#методи_й_алгоритми_паралельних_обчислень"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#математичне_програмування"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#теоретичні_основи_баз_знань_і_даних"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#нелінійні_р-ня_та_інтегровні_системи_мат_фізики"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#теорія_потенціалу"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#формалізми_подання_синтаксису_та_семантики_програм"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#теорія_динамічних_систем"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#теорія_складності"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#теорія_ймовірностей_і_математична_статистика"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#розробка_принципів_побудови_баз_знань"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#стохастичне_оптимальне_керування"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#оптимізація_систем_масового_обслуговування"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#безкоаліційні_та_кооперативні_ігри_багатьох_осіб"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#аналітична_теорія_диф_р-нь"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#інформатика_і_кібернетика"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#теорія_автоматів_і_дискретних_систем"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#теоретичні_основи_та_технології_системного_та_прикладного_програмування"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#теорія_наближень"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#проектування_складних_і_конфліктних_систем"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#комп_криптографія"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#експертні_системи_в_САПР"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#стохастичні_моделі_систем"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#автоматизація_процесів_керування"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#медична_та_біологічна_інформатика_і_кібернетика"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#конструктивні_математичні_теорії"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#алгоритмічне_та_інформаційне_забезпечення_систем_керування"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#системний_аналіз_і_теорія_оптимальних_рішень"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#створення_дослідження_та_теоретичне_обґрунтування_коректності_класів_математичних_моделей"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#теорія_варіаційних_і_квазіваріаційних_нерівностей"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#створення_інф_технологій_для_системного_аналізу"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#методології_та_підходи_управління_проектами"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#математичні_моделі_паралельних_і_розподілених_обчислень"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#прийняття_оптимальних_рішень"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#теоретичні_засади_створення_інтелектуалізованих_робототехнічних_систем"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#теоретичні_основи_створення_високоефективних_технічних_і_програмних_компонентів_компютерних_систем"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#розроблення_основ_прийняття_рішень_при_керуванні_обєктами_різної_природи"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#математична_статистика"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#алгоритмічні_алгебри_та_програмні_логіки"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#алгебраїчні_та_геометричні_методи"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#створення_інтелектуального_інтерфейсу"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#методи_відшукання_розвязків_у_замкн_формі"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#алгебра_та_теорія_чисел"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#оптимізація_систем"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#якісна_теорія_диф_інтегральних_різницевих_р-нь"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#аналіз_і_синтез_систем_керування_технічними_технологічними_процесами"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#інтегральні_перетворення_та_операційне_числення"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#дискретна_математика"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#узагальнені_функції"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#управління_проектами_і_програмами"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#компютерні_аспекти_обчислювальних_алгоритмів"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#парадигми_програмування"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#розробка_теоретичних_засад_створення_систем_штучного_інтелекту"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#теорія_Галуа"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#диференціальні_рівняння"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#моделювання_оптимізація_адаптація_керованих_процесів"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#методи_створення_АСК_процесами"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#автоматизація_процесів_керування"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#інформатика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#автоматизовані_місця_проектувальників_інтерактивні_графічні_системи"/>
+        <Class IRI="#системи_автоматизації_проектувальних_робіт"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#алгебраїчні_та_геометричні_методи"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математична_фізика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#алгоритмічне_та_інформаційне_забезпечення_систем_керування"/>
+        <Class IRI="#системи_та_процеси_керування"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#алгоритмічні_алгебри_та_програмні_логіки"/>
+        <Class IRI="#математичне_та_програмне_забезпечення_обчислювальних_машин_і_систем"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#аналіз_і_синтез_детермінованих_і_стохастичних_систем"/>
+        <Class IRI="#системний_аналіз_і_теорія_оптимальних_рішень"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#аналіз_і_синтез_систем_керування_технічними_технологічними_процесами"/>
+        <Class IRI="#системи_та_процеси_керування"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#аналітична_теорія_диф_р-нь"/>
+        <Class IRI="#диференціальні_рівняння"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#аналітична_теорія_чисел"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математичний_аналіз"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#багатокритеріальна_оптимізація"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#дослідження_операцій_та_теорія_ігор"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#банахові_алгебри"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математичний_аналіз"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#безкоаліційні_та_кооперативні_ігри_багатьох_осіб"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#дослідження_операцій_та_теорія_ігор"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#гармонічний_аналіз"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математичний_аналіз"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#геометрична_теорія_функцій"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математичний_аналіз"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#дескриптивні_та_декларативні_логіки_програмування"/>
+        <Class IRI="#теоретичні_основи_інформатики_та_кібернетики"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#динамічне_програмування"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#дослідження_операцій_та_теорія_ігор"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#динамічні_та_диференціальні_ігри"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#дослідження_операцій_та_теорія_ігор"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#дискретна_математика"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математична_логіка_теорія_алгоритмів_і_дискретна_математика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#диференціальні_рівняння"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#дослідження_процесів_формування_образів"/>
+        <Class IRI="#системи_та_засоби_штучного_інтелекту"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#дослідження_та_розроблення_високоефективних_архітектур_комп_систем"/>
+        <Class IRI="#компютерні_системи_та_компоненти"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#діагностування_та_забезпечення_надійності_АСК"/>
+        <Class IRI="#автоматизація_процесів_керування"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#експертні_системи"/>
+        <Class IRI="#теоретичні_основи_інформатики_та_кібернетики"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#експертні_системи_в_САПР"/>
+        <Class IRI="#системи_автоматизації_проектувальних_робіт"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#забезпечення_задач_аналізу_складних_систем"/>
+        <Class IRI="#автоматизація_процесів_керування"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#загальна_теорія_операторних_рівнянь"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математичний_аналіз"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#загальна_теорія_операторів"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математичний_аналіз"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#загальносистемне_програмування"/>
+        <Class IRI="#математичне_та_програмне_забезпечення_обчислювальних_машин_і_систем"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#керування_системами"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#варіаційне_числення_та_теорія_оптимального_керування"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#керування_функціональними_рівняннями_та_включеннями"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#варіаційне_числення_та_теорія_оптимального_керування"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#комп_криптографія"/>
+        <Class IRI="#компютерні_системи_та_компоненти"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#комплексний_аналіз"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математичний_аналіз"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#компютерна_лінгвістика"/>
+        <Class IRI="#системи_та_засоби_штучного_інтелекту"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#компютерні_аспекти_обчислювальних_алгоритмів"/>
+        <Class IRI="#математичне_моделювання_та_обчислювальні_методи"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#компютерні_системи_та_компоненти"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#інформатика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#конструктивні_математичні_теорії"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математична_логіка_теорія_алгоритмів_і_дискретна_математика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#лексикографічні_системи"/>
+        <Class IRI="#системи_та_засоби_штучного_інтелекту"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#мат_моделювання_фізичних_задач"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математична_фізика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#математична_логіка"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математична_логіка_теорія_алгоритмів_і_дискретна_математика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#математична_статистика"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#теорія_ймовірностей_і_математична_статистика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#математична_теорія_корисності_та_ризику"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#дослідження_операцій_та_теорія_ігор"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#математична_теорія_розпізнавання_образів"/>
+        <Class IRI="#теоретичні_основи_інформатики_та_кібернетики"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#математичне_моделювання_й_аналіз_технічних_обєктів_у_САПР"/>
+        <Class IRI="#системи_автоматизації_проектувальних_робіт"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#математичне_моделювання_та_обчислювальні_методи"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#інформатика_і_кібернетика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#математичне_програмування"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#дослідження_операцій_та_теорія_ігор"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#математичне_програмування_та_проблеми_дослідження_операцій"/>
+        <Class IRI="#теоретичні_основи_інформатики_та_кібернетики"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#математичне_та_програмне_забезпечення_багатопроцесорних_комплексів"/>
+        <Class IRI="#математичне_та_програмне_забезпечення_обчислювальних_машин_і_систем"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#математичне_та_програмне_забезпечення_обчислювальних_машин_і_систем"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#інформатика_і_кібернетика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#математичні_методи_планування_експериментів"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#дослідження_операцій_та_теорія_ігор"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#математичні_моделі_паралельних_і_розподілених_обчислень"/>
+        <Class IRI="#теоретичні_основи_інформатики_та_кібернетики"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#математичні_основи_компютерної_мат_та_логіки"/>
+        <Class IRI="#теоретичні_основи_інформатики_та_кібернетики"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#математичні_основи_інтелектуальних_систем"/>
+        <Class IRI="#теоретичні_основи_інформатики_та_кібернетики"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#машинна_графіка_в_завданнях_проектування"/>
+        <Class IRI="#системи_автоматизації_проектувальних_робіт"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#медична_та_біологічна_інформатика_і_кібернетика"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#інформатика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#метод_динамічного_програмування"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#варіаційне_числення_та_теорія_оптимального_керування"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#методи_аналізу_та_побудови_розвязків_диф_інтегральних_різницевих_р-нь"/>
+        <Class IRI="#диференціальні_рівняння"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#методи_відшукання_розвязків_у_замкн_формі"/>
+        <Class IRI="#диференціальні_рівняння"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#методи_й_алгоритми_паралельних_обчислень"/>
+        <Class IRI="#математичне_моделювання_та_обчислювальні_методи"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#методи_організації_ефективних_обчислень_на_ЕОМ"/>
+        <Class IRI="#математичне_та_програмне_забезпечення_обчислювальних_машин_і_систем"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#методи_проектування_експертних_систем"/>
+        <Class IRI="#системний_аналіз_і_теорія_оптимальних_рішень"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#методи_синтезу_програм"/>
+        <Class IRI="#математичне_та_програмне_забезпечення_обчислювальних_машин_і_систем"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#методи_створення_АСК_процесами"/>
+        <Class IRI="#автоматизація_процесів_керування"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#методи_та_засоби_забезпечення_ефективності_надійності_комп_систем"/>
+        <Class IRI="#компютерні_системи_та_компоненти"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#методи_та_засоби_оцінювання_якості_та_оптимізації_програм"/>
+        <Class IRI="#математичне_та_програмне_забезпечення_обчислювальних_машин_і_систем"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#методи_тестування_та_верифікації_програм"/>
+        <Class IRI="#математичне_та_програмне_забезпечення_обчислювальних_машин_і_систем"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#методологія_розроблення_програмних_систем"/>
+        <Class IRI="#математичне_та_програмне_забезпечення_обчислювальних_машин_і_систем"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#методології_та_підходи_управління_проектами"/>
+        <Class IRI="#управління_проектами_і_програмами"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#мови_програмування"/>
+        <Class IRI="#математичне_та_програмне_забезпечення_обчислювальних_машин_і_систем"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#мови_специфікації_програм_і_дефініції_мов_програмування"/>
+        <Class IRI="#математичне_та_програмне_забезпечення_обчислювальних_машин_і_систем"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#мовні_процесори"/>
+        <Class IRI="#математичне_та_програмне_забезпечення_обчислювальних_машин_і_систем"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#моделювання_нейронних_мереж"/>
+        <Class IRI="#системи_та_засоби_штучного_інтелекту"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#моделювання_обєктів_та_систем_керування"/>
+        <Class IRI="#автоматизація_процесів_керування"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#моделювання_оптимізація_адаптація_керованих_процесів"/>
+        <Class IRI="#системи_та_процеси_керування"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#моделювання_предметних_галузей_інф_систем"/>
+        <Class IRI="#інформаційні_технології"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#моделювання_інтелектуальної_діяльності_людини"/>
+        <Class IRI="#системи_та_засоби_штучного_інтелекту"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#моделі_баз_даних_і_знань"/>
+        <Class IRI="#математичне_та_програмне_забезпечення_обчислювальних_машин_і_систем"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#моделі_програм_і_систем"/>
+        <Class IRI="#математичне_та_програмне_забезпечення_обчислювальних_машин_і_систем"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#моделі_та_методи_доказового_програмування"/>
+        <Class IRI="#математичне_та_програмне_забезпечення_обчислювальних_машин_і_систем"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#наближені_методи_функціонального_аналізу"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математичний_аналіз"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#нелінійний_функціональний_аналіз"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математичний_аналіз"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#нелінійні_р-ня_та_інтегровні_системи_мат_фізики"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математична_фізика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#необхідні_та_достатні_умови_оптимальності"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#варіаційне_числення_та_теорія_оптимального_керування"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#операційні_системи_та_оболонки"/>
+        <Class IRI="#математичне_та_програмне_забезпечення_обчислювальних_машин_і_систем"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#оптимальне_керування_системами"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#дослідження_операцій_та_теорія_ігор"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#оптимізація_в_умовах_невизначеності"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#дослідження_операцій_та_теорія_ігор"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#оптимізація_систем"/>
+        <Class IRI="#системний_аналіз_і_теорія_оптимальних_рішень"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#оптимізація_систем_масового_обслуговування"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#дослідження_операцій_та_теорія_ігор"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#оцінка_й_оптимізація_надійності_систем"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#дослідження_операцій_та_теорія_ігор"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#пакети_прикладних_програм_автоматизованого_проектування"/>
+        <Class IRI="#системи_автоматизації_проектувальних_робіт"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#парадигми_програмування"/>
+        <Class IRI="#теоретичні_основи_інформатики_та_кібернетики"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#побудова_інф_технологій_для_розроблення_баз_даних_і_знань"/>
+        <Class IRI="#інформаційні_технології"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#прийняття_оптимальних_рішень"/>
+        <Class IRI="#системний_аналіз_і_теорія_оптимальних_рішень"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#прийняття_рішень_в_управлінні_проектами"/>
+        <Class IRI="#управління_проектами_і_програмами"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#прийняття_рішень_у_конфліктно-керованих_ситуаціях"/>
+        <Class IRI="#системний_аналіз_і_теорія_оптимальних_рішень"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#прикладні_системи_на_основі_нейронних_мереж"/>
+        <Class IRI="#системи_та_засоби_штучного_інтелекту"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#принцип_максимуму"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#варіаційне_числення_та_теорія_оптимального_керування"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#програмно-технічні_засоби_створення_систем_керування"/>
+        <Class IRI="#системи_та_процеси_керування"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#проектування_складних_і_конфліктних_систем"/>
+        <Class IRI="#системний_аналіз_і_теорія_оптимальних_рішень"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#процеси_управління_функціонуванням_розвитком_проектно-керованих_систем"/>
+        <Class IRI="#управління_проектами_і_програмами"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#розробка_алгоритмів_для_систем_комп_розпізнавання_мовних_і_зорових_образів"/>
+        <Class IRI="#системи_та_засоби_штучного_інтелекту"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#розробка_моделей_оцінювання_якості_інф_систем"/>
+        <Class IRI="#інформаційні_технології"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#розробка_наукових_і_методологічних_основ_створення_інф_технологій"/>
+        <Class IRI="#інформаційні_технології"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#розробка_принципів_побудови_баз_знань"/>
+        <Class IRI="#системи_та_засоби_штучного_інтелекту"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#розробка_теоретичних_засад_створення_систем_штучного_інтелекту"/>
+        <Class IRI="#системи_та_засоби_штучного_інтелекту"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#розробка_технологій_експертування_баз_знань"/>
+        <Class IRI="#системи_та_засоби_штучного_інтелекту"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#розробка_технологій_застосування_нейрокомпютерів"/>
+        <Class IRI="#системи_та_засоби_штучного_інтелекту"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#розробка_інтелектуальних_систем_різного_призначення"/>
+        <Class IRI="#системи_та_засоби_штучного_інтелекту"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#розробка_інформаційно-пошукових_і_експертних_систем"/>
+        <Class IRI="#інформаційні_технології"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#розроблення_комунікаційних_протоколів"/>
+        <Class IRI="#інформаційні_технології"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#розроблення_методів_знаходження_оптимальних_керувань"/>
+        <Class IRI="#системний_аналіз_і_теорія_оптимальних_рішень"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#розроблення_методів_опуклого_та_неопуклого_аналізу"/>
+        <Class IRI="#системний_аналіз_і_теорія_оптимальних_рішень"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#розроблення_методів_ідентифікації_параметрів_математичних_моделей"/>
+        <Class IRI="#математичне_моделювання_та_обчислювальні_методи"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#розроблення_основ_прийняття_рішень_при_керуванні_обєктами_різної_природи"/>
+        <Class IRI="#системний_аналіз_і_теорія_оптимальних_рішень"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ряди_і_послідовності"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математичний_аналіз"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#рівняння_Гамільтона-Якобі"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#варіаційне_числення_та_теорія_оптимального_керування"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#середовища_моделювання_та_програмування"/>
+        <Class IRI="#математичне_та_програмне_забезпечення_обчислювальних_машин_і_систем"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#симетрійні_методи_аналізу_р-нь_мат_фізики"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математична_фізика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#синтез_описів_технічних_обєктів_у_САПР"/>
+        <Class IRI="#системи_автоматизації_проектувальних_робіт"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#системи_автоматизації_проектувальних_робіт"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#інформатика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#системи_захисту_інформації"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#інформатика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#системи_підтримки_прийняття_проектних_рішень_в_САПР"/>
+        <Class IRI="#системи_автоматизації_проектувальних_робіт"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#системи_та_засоби_штучного_інтелекту"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#інформатика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#системи_та_процеси_керування"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#інформатика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#системи_інтелектуальної_підтримки_прийняття_рішень"/>
+        <Class IRI="#автоматизація_процесів_керування"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#системний_аналіз_і_теорія_оптимальних_рішень"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#інформатика_і_кібернетика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#спектральна_та_ергодична_теорія_динамічних_систем"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математичний_аналіз"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#стандартизація_інформаційних_систем"/>
+        <Class IRI="#математичне_та_програмне_забезпечення_обчислювальних_машин_і_систем"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#статистична_теорія_прийняття_рішень"/>
+        <Class IRI="#системний_аналіз_і_теорія_оптимальних_рішень"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ств_засобів_і_систем_інтелектуалізації_комп_інтерфейсів"/>
+        <Class IRI="#системи_та_засоби_штучного_інтелекту"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#створення_високоінтелектуальних_мульти-_та_гіпермедійних_технологій"/>
+        <Class IRI="#системи_та_засоби_штучного_інтелекту"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#створення_дослідження_та_теоретичне_обґрунтування_коректності_класів_математичних_моделей"/>
+        <Class IRI="#математичне_моделювання_та_обчислювальні_методи"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#створення_навч_програм_з_елементами_штучного_інтелекту"/>
+        <Class IRI="#системи_та_засоби_штучного_інтелекту"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#створення_інтелектуального_інтерфейсу"/>
+        <Class IRI="#математичне_моделювання_та_обчислювальні_методи"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#створення_інф_технологій_для_системного_аналізу"/>
+        <Class IRI="#інформаційні_технології"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#стохастичне_оптимальне_керування"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#варіаційне_числення_та_теорія_оптимального_керування"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#стохастичні_моделі_систем"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#теорія_ймовірностей_і_математична_статистика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#теоретичні_засади_створення_інтелектуалізованих_робототехнічних_систем"/>
+        <Class IRI="#системи_та_засоби_штучного_інтелекту"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#теоретичні_засади_та_програмно-апаратні_засоби_опрацювання_інф"/>
+        <Class IRI="#компютерні_системи_та_компоненти"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#теоретичні_основи_баз_знань_і_даних"/>
+        <Class IRI="#теоретичні_основи_інформатики_та_кібернетики"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#теоретичні_основи_й_методологія_створення_САПР"/>
+        <Class IRI="#системи_автоматизації_проектувальних_робіт"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#теоретичні_основи_створення_високоефективних_технічних_і_програмних_компонентів_компютерних_систем"/>
+        <Class IRI="#компютерні_системи_та_компоненти"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#теоретичні_основи_та_технології_системного_та_прикладного_програмування"/>
+        <Class IRI="#компютерні_системи_та_компоненти"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#теоретичні_основи_інформатики_та_кібернетики"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#інформатика_і_кібернетика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#теорія_автоматів_і_дискретних_систем"/>
+        <Class IRI="#теоретичні_основи_інформатики_та_кібернетики"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#теорія_алгоритмів"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математична_логіка_теорія_алгоритмів_і_дискретна_математика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#теорія_алгоритмів_і_обчислень"/>
+        <Class IRI="#теоретичні_основи_інформатики_та_кібернетики"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#теорія_багатозначних_відображень"/>
+        <Class IRI="#системний_аналіз_і_теорія_оптимальних_рішень"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#теорія_варіаційних_і_квазіваріаційних_нерівностей"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#варіаційне_числення_та_теорія_оптимального_керування"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#теорія_випадкових_процесів_і_полів"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#теорія_ймовірностей_і_математична_статистика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#теорія_динамічних_систем"/>
+        <Class IRI="#диференціальні_рівняння"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#теорія_динамічних_систем_мат_фізики"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математична_фізика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#теорія_ймовірностей"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#теорія_ймовірностей_і_математична_статистика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#теорія_класичних_і_квантових_полів"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математична_фізика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#теорія_компютерних_систем_і_мереж"/>
+        <Class IRI="#теоретичні_основи_інформатики_та_кібернетики"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#теорія_міри_й_інтеграла"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математичний_аналіз"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#теорія_наближень"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математичний_аналіз"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#теорія_потенціалу"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математичний_аналіз"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#теорія_розпізнавання_та_класифікація"/>
+        <Class IRI="#системний_аналіз_і_теорія_оптимальних_рішень"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#теорія_складності"/>
+        <Class IRI="#теоретичні_основи_інформатики_та_кібернетики"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#теорія_стійкості"/>
+        <Class IRI="#диференціальні_рівняння"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#теорія_функцій_дійсної_змінної"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математичний_аналіз"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#технологія_реалізації_САПР_як_складної_програмної_системи"/>
+        <Class IRI="#системи_автоматизації_проектувальних_робіт"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#технології_автоматизованого_проектування_технічних_і_програмних_засобів_комп_систем"/>
+        <Class IRI="#компютерні_системи_та_компоненти"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#удосконалення_математичного_моделювання"/>
+        <Class IRI="#математичне_моделювання_та_обчислювальні_методи"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#узагальнені_криві_та_потоки"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#варіаційне_числення_та_теорія_оптимального_керування"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#узагальнені_функції"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математичний_аналіз"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#управління_взаємодією_в_проектах"/>
+        <Class IRI="#управління_проектами_і_програмами"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#управління_зацікавленими_сторонами_ресурсами_якістю_проектів"/>
+        <Class IRI="#управління_проектами_і_програмами"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#управління_знаннями_у_проектах"/>
+        <Class IRI="#управління_проектами_і_програмами"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#управління_проектами_і_програмами"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#інформатика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#управління_інформацією_в_проектах"/>
+        <Class IRI="#управління_проектами_і_програмами"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#формальні_методи_аналізу_та_синтезу_програмних_систем"/>
+        <Class IRI="#теоретичні_основи_інформатики_та_кібернетики"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#формальні_мови"/>
+        <Class IRI="#теоретичні_основи_інформатики_та_кібернетики"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#формальні_перетворення_й_оптимізація_алгоритмів_і_програм"/>
+        <Class IRI="#теоретичні_основи_інформатики_та_кібернетики"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#формалізація_завдань_керування_складними_обєктами"/>
+        <Class IRI="#автоматизація_процесів_керування"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#формалізми_подання_синтаксису_та_семантики_програм"/>
+        <Class IRI="#математичне_та_програмне_забезпечення_обчислювальних_машин_і_систем"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#функціональні_рівняння_та_скінченні_різниці"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математичний_аналіз"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#якісна_теорія_диф_інтегральних_різницевих_р-нь"/>
+        <Class IRI="#диференціальні_рівняння"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#якісні_властивості_систем_керування"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#варіаційне_числення_та_теорія_оптимального_керування"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ідентифікація_та_контроль_параметрів_обєктів_керування"/>
+        <Class IRI="#автоматизація_процесів_керування"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#інтегральні_перетворення_та_операційне_числення"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математичний_аналіз"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#інтелектуальні_прикладні_програмні_системи"/>
+        <Class IRI="#математичне_та_програмне_забезпечення_обчислювальних_машин_і_систем"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#інтелектуальні_системи_підтримки_прийняття_рішень"/>
+        <Class IRI="#математичне_та_програмне_забезпечення_обчислювальних_машин_і_систем"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#інф_технології_для_розроблення_програмного_забезпечення_комп_мереж"/>
+        <Class IRI="#інформаційні_технології"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#інформаційне_та_програмне_забезпечення_АСК"/>
+        <Class IRI="#автоматизація_процесів_керування"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#інформаційно-пошукові_системи"/>
+        <Class IRI="#математичне_та_програмне_забезпечення_обчислювальних_машин_і_систем"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#інформаційні_технології"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#інформатика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#існування_розвязків_диф_інтегральних_різницевих_р-нь"/>
+        <Class IRI="#диференціальні_рівняння"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#наближене__розв&apos;язання_задач_варіаційного_числення"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#варіаційне_числення_та_теорія_оптимального_керування"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#розробка_методів_моделювання_і_планування,_математичного,_алгоритмічного_і_програмного"/>
+        <Class IRI="#автоматизація_процесів_керування"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#розроблення_методів_і_алгоритмів_розв&apos;язування_дискретних_зада"/>
+        <Class IRI="#математичне_моделювання_та_обчислювальні_методи"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#алгебра_та_теорія_чисел"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#алгебраїчні_системи"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#алгебра_та_теорія_чисел"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#варіаційне_числення_та_теорія_оптимального_керування"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#гомологічна_алгебра"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#алгебра_та_теорія_чисел"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#дослідження_операцій_та_теорія_ігор"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#лінійна_алгебра_і_теорія_зображень"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#алгебра_та_теорія_чисел"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математика"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#фізико_математичні_науки"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математична_логіка_теорія_алгоритмів_і_дискретна_математика"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математична_фізика"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математичний_аналіз"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#теорія_Галуа"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#алгебра_та_теорія_чисел"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#теорія_ймовірностей_і_математична_статистика"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математика"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#теорія_чисел"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#алгебра_та_теорія_чисел"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#технічні_науки"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#ГалузьНауки"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#фізико_математичні_науки"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#ГалузьНауки"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#інформатика"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#технічні_науки"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#інформатика_і_кібернетика"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#фізико_математичні_науки"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#автоматизація_процесів_керування"/>
+        <Class IRI="#компютерні_системи_та_компоненти"/>
+        <Class IRI="#медична_та_біологічна_інформатика_і_кібернетика"/>
+        <Class IRI="#системи_автоматизації_проектувальних_робіт"/>
+        <Class IRI="#системи_захисту_інформації"/>
+        <Class IRI="#системи_та_засоби_штучного_інтелекту"/>
+        <Class IRI="#системи_та_процеси_керування"/>
+        <Class IRI="#управління_проектами_і_програмами"/>
+        <Class IRI="#інформаційні_технології"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#автоматизовані_місця_проектувальників_інтерактивні_графічні_системи"/>
+        <Class IRI="#експертні_системи_в_САПР"/>
+        <Class IRI="#математичне_моделювання_й_аналіз_технічних_обєктів_у_САПР"/>
+        <Class IRI="#машинна_графіка_в_завданнях_проектування"/>
+        <Class IRI="#пакети_прикладних_програм_автоматизованого_проектування"/>
+        <Class IRI="#синтез_описів_технічних_обєктів_у_САПР"/>
+        <Class IRI="#системи_підтримки_прийняття_проектних_рішень_в_САПР"/>
+        <Class IRI="#теоретичні_основи_й_методологія_створення_САПР"/>
+        <Class IRI="#технологія_реалізації_САПР_як_складної_програмної_системи"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#автоматизовані_місця_проектувальників_інтерактивні_графічні_системи"/>
+        <Class IRI="#математичне_моделювання_й_аналіз_технічних_обєктів_у_САПР"/>
+        <Class IRI="#машинна_графіка_в_завданнях_проектування"/>
+        <Class IRI="#пакети_прикладних_програм_автоматизованого_проектування"/>
+        <Class IRI="#синтез_описів_технічних_обєктів_у_САПР"/>
+        <Class IRI="#системи_підтримки_прийняття_проектних_рішень_в_САПР"/>
+        <Class IRI="#теоретичні_основи_й_методологія_створення_САПР"/>
+        <Class IRI="#технологія_реалізації_САПР_як_складної_програмної_системи"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#алгебраїчні_та_геометричні_методи"/>
+        <Class IRI="#мат_моделювання_фізичних_задач"/>
+        <Class IRI="#нелінійні_р-ня_та_інтегровні_системи_мат_фізики"/>
+        <Class IRI="#симетрійні_методи_аналізу_р-нь_мат_фізики"/>
+        <Class IRI="#теорія_динамічних_систем_мат_фізики"/>
+        <Class IRI="#теорія_класичних_і_квантових_полів"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#алгоритмічне_та_інформаційне_забезпечення_систем_керування"/>
+        <Class IRI="#аналіз_і_синтез_систем_керування_технічними_технологічними_процесами"/>
+        <Class IRI="#моделювання_оптимізація_адаптація_керованих_процесів"/>
+        <Class IRI="#програмно-технічні_засоби_створення_систем_керування"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#алгоритмічні_алгебри_та_програмні_логіки"/>
+        <Class IRI="#загальносистемне_програмування"/>
+        <Class IRI="#математичне_та_програмне_забезпечення_багатопроцесорних_комплексів"/>
+        <Class IRI="#методи_організації_ефективних_обчислень_на_ЕОМ"/>
+        <Class IRI="#методи_синтезу_програм"/>
+        <Class IRI="#методи_та_засоби_оцінювання_якості_та_оптимізації_програм"/>
+        <Class IRI="#методи_тестування_та_верифікації_програм"/>
+        <Class IRI="#методологія_розроблення_програмних_систем"/>
+        <Class IRI="#мови_програмування"/>
+        <Class IRI="#мови_специфікації_програм_і_дефініції_мов_програмування"/>
+        <Class IRI="#мовні_процесори"/>
+        <Class IRI="#моделі_баз_даних_і_знань"/>
+        <Class IRI="#моделі_програм_і_систем"/>
+        <Class IRI="#моделі_та_методи_доказового_програмування"/>
+        <Class IRI="#операційні_системи_та_оболонки"/>
+        <Class IRI="#середовища_моделювання_та_програмування"/>
+        <Class IRI="#стандартизація_інформаційних_систем"/>
+        <Class IRI="#формалізми_подання_синтаксису_та_семантики_програм"/>
+        <Class IRI="#інтелектуальні_прикладні_програмні_системи"/>
+        <Class IRI="#інтелектуальні_системи_підтримки_прийняття_рішень"/>
+        <Class IRI="#інформаційно-пошукові_системи"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#алгоритмічні_алгебри_та_програмні_логіки"/>
+        <Class IRI="#математичне_та_програмне_забезпечення_багатопроцесорних_комплексів"/>
+        <Class IRI="#методи_організації_ефективних_обчислень_на_ЕОМ"/>
+        <Class IRI="#методи_синтезу_програм"/>
+        <Class IRI="#методи_та_засоби_оцінювання_якості_та_оптимізації_програм"/>
+        <Class IRI="#методи_тестування_та_верифікації_програм"/>
+        <Class IRI="#мови_програмування"/>
+        <Class IRI="#мови_специфікації_програм_і_дефініції_мов_програмування"/>
+        <Class IRI="#мовні_процесори"/>
+        <Class IRI="#моделі_баз_даних_і_знань"/>
+        <Class IRI="#моделі_програм_і_систем"/>
+        <Class IRI="#моделі_та_методи_доказового_програмування"/>
+        <Class IRI="#операційні_системи_та_оболонки"/>
+        <Class IRI="#формалізми_подання_синтаксису_та_семантики_програм"/>
+        <Class IRI="#інтелектуальні_прикладні_програмні_системи"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#алгоритмічні_алгебри_та_програмні_логіки"/>
+        <Class IRI="#математичне_та_програмне_забезпечення_багатопроцесорних_комплексів"/>
+        <Class IRI="#методи_організації_ефективних_обчислень_на_ЕОМ"/>
+        <Class IRI="#методи_синтезу_програм"/>
+        <Class IRI="#методи_та_засоби_оцінювання_якості_та_оптимізації_програм"/>
+        <Class IRI="#методи_тестування_та_верифікації_програм"/>
+        <Class IRI="#мови_програмування"/>
+        <Class IRI="#мови_специфікації_програм_і_дефініції_мов_програмування"/>
+        <Class IRI="#мовні_процесори"/>
+        <Class IRI="#моделі_баз_даних_і_знань"/>
+        <Class IRI="#моделі_програм_і_систем"/>
+        <Class IRI="#моделі_та_методи_доказового_програмування"/>
+        <Class IRI="#операційні_системи_та_оболонки"/>
+        <Class IRI="#формалізми_подання_синтаксису_та_семантики_програм"/>
+        <Class IRI="#інтелектуальні_прикладні_програмні_системи"/>
+        <Class IRI="#інтелектуальні_системи_підтримки_прийняття_рішень"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#алгоритмічні_алгебри_та_програмні_логіки"/>
+        <Class IRI="#математичне_та_програмне_забезпечення_багатопроцесорних_комплексів"/>
+        <Class IRI="#методи_організації_ефективних_обчислень_на_ЕОМ"/>
+        <Class IRI="#методи_синтезу_програм"/>
+        <Class IRI="#методи_та_засоби_оцінювання_якості_та_оптимізації_програм"/>
+        <Class IRI="#методи_тестування_та_верифікації_програм"/>
+        <Class IRI="#мови_програмування"/>
+        <Class IRI="#мови_специфікації_програм_і_дефініції_мов_програмування"/>
+        <Class IRI="#мовні_процесори"/>
+        <Class IRI="#моделі_баз_даних_і_знань"/>
+        <Class IRI="#моделі_програм_і_систем"/>
+        <Class IRI="#моделі_та_методи_доказового_програмування"/>
+        <Class IRI="#операційні_системи_та_оболонки"/>
+        <Class IRI="#формалізми_подання_синтаксису_та_семантики_програм"/>
+        <Class IRI="#інтелектуальні_прикладні_програмні_системи"/>
+        <Class IRI="#інтелектуальні_системи_підтримки_прийняття_рішень"/>
+        <Class IRI="#інформаційно-пошукові_системи"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#алгоритмічні_алгебри_та_програмні_логіки"/>
+        <Class IRI="#методи_організації_ефективних_обчислень_на_ЕОМ"/>
+        <Class IRI="#методи_синтезу_програм"/>
+        <Class IRI="#методи_та_засоби_оцінювання_якості_та_оптимізації_програм"/>
+        <Class IRI="#методи_тестування_та_верифікації_програм"/>
+        <Class IRI="#мови_програмування"/>
+        <Class IRI="#мови_специфікації_програм_і_дефініції_мов_програмування"/>
+        <Class IRI="#мовні_процесори"/>
+        <Class IRI="#моделі_баз_даних_і_знань"/>
+        <Class IRI="#моделі_програм_і_систем"/>
+        <Class IRI="#моделі_та_методи_доказового_програмування"/>
+        <Class IRI="#операційні_системи_та_оболонки"/>
+        <Class IRI="#формалізми_подання_синтаксису_та_семантики_програм"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#алгоритмічні_алгебри_та_програмні_логіки"/>
+        <Class IRI="#методи_організації_ефективних_обчислень_на_ЕОМ"/>
+        <Class IRI="#методи_синтезу_програм"/>
+        <Class IRI="#методи_та_засоби_оцінювання_якості_та_оптимізації_програм"/>
+        <Class IRI="#методи_тестування_та_верифікації_програм"/>
+        <Class IRI="#мови_програмування"/>
+        <Class IRI="#мови_специфікації_програм_і_дефініції_мов_програмування"/>
+        <Class IRI="#мовні_процесори"/>
+        <Class IRI="#моделі_баз_даних_і_знань"/>
+        <Class IRI="#моделі_програм_і_систем"/>
+        <Class IRI="#моделі_та_методи_доказового_програмування"/>
+        <Class IRI="#формалізми_подання_синтаксису_та_семантики_програм"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#аналіз_і_синтез_детермінованих_і_стохастичних_систем"/>
+        <Class IRI="#методи_проектування_експертних_систем"/>
+        <Class IRI="#оптимізація_систем"/>
+        <Class IRI="#прийняття_оптимальних_рішень"/>
+        <Class IRI="#прийняття_рішень_у_конфліктно-керованих_ситуаціях"/>
+        <Class IRI="#проектування_складних_і_конфліктних_систем"/>
+        <Class IRI="#розроблення_методів_знаходження_оптимальних_керувань"/>
+        <Class IRI="#розроблення_методів_опуклого_та_неопуклого_аналізу"/>
+        <Class IRI="#розроблення_основ_прийняття_рішень_при_керуванні_обєктами_різної_природи"/>
+        <Class IRI="#статистична_теорія_прийняття_рішень"/>
+        <Class IRI="#теорія_багатозначних_відображень"/>
+        <Class IRI="#теорія_розпізнавання_та_класифікація"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#аналітична_теорія_диф_р-нь"/>
+        <Class IRI="#методи_аналізу_та_побудови_розвязків_диф_інтегральних_різницевих_р-нь"/>
+        <Class IRI="#методи_відшукання_розвязків_у_замкн_формі"/>
+        <Class IRI="#теорія_динамічних_систем"/>
+        <Class IRI="#теорія_стійкості"/>
+        <Class IRI="#якісна_теорія_диф_інтегральних_різницевих_р-нь"/>
+        <Class IRI="#існування_розвязків_диф_інтегральних_різницевих_р-нь"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#аналітична_теорія_чисел"/>
+        <Class IRI="#банахові_алгебри"/>
+        <Class IRI="#гармонічний_аналіз"/>
+        <Class IRI="#геометрична_теорія_функцій"/>
+        <Class IRI="#загальна_теорія_операторних_рівнянь"/>
+        <Class IRI="#загальна_теорія_операторів"/>
+        <Class IRI="#комплексний_аналіз"/>
+        <Class IRI="#наближені_методи_функціонального_аналізу"/>
+        <Class IRI="#нелінійний_функціональний_аналіз"/>
+        <Class IRI="#ряди_і_послідовності"/>
+        <Class IRI="#спектральна_та_ергодична_теорія_динамічних_систем"/>
+        <Class IRI="#теорія_міри_й_інтеграла"/>
+        <Class IRI="#теорія_наближень"/>
+        <Class IRI="#теорія_потенціалу"/>
+        <Class IRI="#теорія_функцій_дійсної_змінної"/>
+        <Class IRI="#узагальнені_функції"/>
+        <Class IRI="#функціональні_рівняння_та_скінченні_різниці"/>
+        <Class IRI="#інтегральні_перетворення_та_операційне_числення"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#багатокритеріальна_оптимізація"/>
+        <Class IRI="#безкоаліційні_та_кооперативні_ігри_багатьох_осіб"/>
+        <Class IRI="#динамічне_програмування"/>
+        <Class IRI="#динамічні_та_диференціальні_ігри"/>
+        <Class IRI="#математична_теорія_корисності_та_ризику"/>
+        <Class IRI="#математичне_програмування"/>
+        <Class IRI="#математичні_методи_планування_експериментів"/>
+        <Class IRI="#оптимальне_керування_системами"/>
+        <Class IRI="#оптимізація_в_умовах_невизначеності"/>
+        <Class IRI="#оптимізація_систем_масового_обслуговування"/>
+        <Class IRI="#оцінка_й_оптимізація_надійності_систем"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#дескриптивні_та_декларативні_логіки_програмування"/>
+        <Class IRI="#експертні_системи"/>
+        <Class IRI="#математична_теорія_розпізнавання_образів"/>
+        <Class IRI="#математичне_програмування_та_проблеми_дослідження_операцій"/>
+        <Class IRI="#математичні_моделі_паралельних_і_розподілених_обчислень"/>
+        <Class IRI="#математичні_основи_компютерної_мат_та_логіки"/>
+        <Class IRI="#математичні_основи_інтелектуальних_систем"/>
+        <Class IRI="#парадигми_програмування"/>
+        <Class IRI="#теоретичні_основи_баз_знань_і_даних"/>
+        <Class IRI="#теорія_автоматів_і_дискретних_систем"/>
+        <Class IRI="#теорія_алгоритмів_і_обчислень"/>
+        <Class IRI="#теорія_компютерних_систем_і_мереж"/>
+        <Class IRI="#теорія_складності"/>
+        <Class IRI="#формальні_методи_аналізу_та_синтезу_програмних_систем"/>
+        <Class IRI="#формальні_мови"/>
+        <Class IRI="#формальні_перетворення_й_оптимізація_алгоритмів_і_програм"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#дискретна_математика"/>
+        <Class IRI="#конструктивні_математичні_теорії"/>
+        <Class IRI="#математична_логіка"/>
+        <Class IRI="#теорія_алгоритмів"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#дослідження_процесів_формування_образів"/>
+        <Class IRI="#компютерна_лінгвістика"/>
+        <Class IRI="#лексикографічні_системи"/>
+        <Class IRI="#моделювання_нейронних_мереж"/>
+        <Class IRI="#моделювання_інтелектуальної_діяльності_людини"/>
+        <Class IRI="#прикладні_системи_на_основі_нейронних_мереж"/>
+        <Class IRI="#розробка_алгоритмів_для_систем_комп_розпізнавання_мовних_і_зорових_образів"/>
+        <Class IRI="#розробка_принципів_побудови_баз_знань"/>
+        <Class IRI="#розробка_теоретичних_засад_створення_систем_штучного_інтелекту"/>
+        <Class IRI="#розробка_технологій_експертування_баз_знань"/>
+        <Class IRI="#розробка_технологій_застосування_нейрокомпютерів"/>
+        <Class IRI="#розробка_інтелектуальних_систем_різного_призначення"/>
+        <Class IRI="#ств_засобів_і_систем_інтелектуалізації_комп_інтерфейсів"/>
+        <Class IRI="#створення_високоінтелектуальних_мульти-_та_гіпермедійних_технологій"/>
+        <Class IRI="#створення_навч_програм_з_елементами_штучного_інтелекту"/>
+        <Class IRI="#теоретичні_засади_створення_інтелектуалізованих_робототехнічних_систем"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#дослідження_та_розроблення_високоефективних_архітектур_комп_систем"/>
+        <Class IRI="#комп_криптографія"/>
+        <Class IRI="#методи_та_засоби_забезпечення_ефективності_надійності_комп_систем"/>
+        <Class IRI="#теоретичні_засади_та_програмно-апаратні_засоби_опрацювання_інф"/>
+        <Class IRI="#теоретичні_основи_створення_високоефективних_технічних_і_програмних_компонентів_компютерних_систем"/>
+        <Class IRI="#теоретичні_основи_та_технології_системного_та_прикладного_програмування"/>
+        <Class IRI="#технології_автоматизованого_проектування_технічних_і_програмних_засобів_комп_систем"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#діагностування_та_забезпечення_надійності_АСК"/>
+        <Class IRI="#забезпечення_задач_аналізу_складних_систем"/>
+        <Class IRI="#методи_створення_АСК_процесами"/>
+        <Class IRI="#моделювання_обєктів_та_систем_керування"/>
+        <Class IRI="#системи_інтелектуальної_підтримки_прийняття_рішень"/>
+        <Class IRI="#формалізація_завдань_керування_складними_обєктами"/>
+        <Class IRI="#ідентифікація_та_контроль_параметрів_обєктів_керування"/>
+        <Class IRI="#інформаційне_та_програмне_забезпечення_АСК"/>
+        <Class IRI="#розробка_методів_моделювання_і_планування,_математичного,_алгоритмічного_і_програмного"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#компютерні_аспекти_обчислювальних_алгоритмів"/>
+        <Class IRI="#методи_й_алгоритми_паралельних_обчислень"/>
+        <Class IRI="#розроблення_методів_ідентифікації_параметрів_математичних_моделей"/>
+        <Class IRI="#створення_дослідження_та_теоретичне_обґрунтування_коректності_класів_математичних_моделей"/>
+        <Class IRI="#створення_інтелектуального_інтерфейсу"/>
+        <Class IRI="#удосконалення_математичного_моделювання"/>
+        <Class IRI="#розроблення_методів_і_алгоритмів_розв&apos;язування_дискретних_зада"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#математична_статистика"/>
+        <Class IRI="#стохастичні_моделі_систем"/>
+        <Class IRI="#теорія_випадкових_процесів_і_полів"/>
+        <Class IRI="#теорія_ймовірностей"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#математичне_моделювання_та_обчислювальні_методи"/>
+        <Class IRI="#математичне_та_програмне_забезпечення_обчислювальних_машин_і_систем"/>
+        <Class IRI="#системний_аналіз_і_теорія_оптимальних_рішень"/>
+        <Class IRI="#теоретичні_основи_інформатики_та_кібернетики"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#методи_синтезу_програм"/>
+        <Class IRI="#мови_програмування"/>
+        <Class IRI="#мови_специфікації_програм_і_дефініції_мов_програмування"/>
+        <Class IRI="#мовні_процесори"/>
+        <Class IRI="#моделі_програм_і_систем"/>
+        <Class IRI="#моделі_та_методи_доказового_програмування"/>
+        <Class IRI="#формалізми_подання_синтаксису_та_семантики_програм"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#методології_та_підходи_управління_проектами"/>
+        <Class IRI="#прийняття_рішень_в_управлінні_проектами"/>
+        <Class IRI="#процеси_управління_функціонуванням_розвитком_проектно-керованих_систем"/>
+        <Class IRI="#управління_взаємодією_в_проектах"/>
+        <Class IRI="#управління_зацікавленими_сторонами_ресурсами_якістю_проектів"/>
+        <Class IRI="#управління_знаннями_у_проектах"/>
+        <Class IRI="#управління_інформацією_в_проектах"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#мови_програмування"/>
+        <Class IRI="#моделі_програм_і_систем"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#моделювання_предметних_галузей_інф_систем"/>
+        <Class IRI="#побудова_інф_технологій_для_розроблення_баз_даних_і_знань"/>
+        <Class IRI="#розробка_моделей_оцінювання_якості_інф_систем"/>
+        <Class IRI="#розробка_наукових_і_методологічних_основ_створення_інф_технологій"/>
+        <Class IRI="#розробка_інформаційно-пошукових_і_експертних_систем"/>
+        <Class IRI="#розроблення_комунікаційних_протоколів"/>
+        <Class IRI="#створення_інф_технологій_для_системного_аналізу"/>
+        <Class IRI="#інф_технології_для_розроблення_програмного_забезпечення_комп_мереж"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#алгебраїчні_системи"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#гомологічна_алгебра"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#лінійна_алгебра_і_теорія_зображень"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#теорія_Галуа"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#теорія_чисел"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#математика"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#інформатика_і_кібернетика"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#технічні_науки"/>
+        <Class IRI="http://www.semanticweb.org/solomka/ontologies/untitled-ontology-115#фізико_математичні_науки"/>
+    </DisjointClasses>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+
